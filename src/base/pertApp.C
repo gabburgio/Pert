@@ -27,6 +27,7 @@ pertApp::registerAll(Factory & f, ActionFactory & af, Syntax & syntax)
   Registry::registerActionsTo(af, {"pertApp"});
 
   /* register custom execute flags, action syntax, etc. here */
+  registerSyntax("ProblemSetupAction", "ProblemSetup");
 }
 
 void
