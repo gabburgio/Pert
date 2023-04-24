@@ -1,34 +1,34 @@
-#include "ProblemSetupAction.h"
+#include "DiffusionProblemAction.h"
 #include "Factory.h"
 #include "Parser.h"
 #include "FEProblem.h"
 
-registerMooseAction("pertApp", ProblemSetupAction, "add_kernel");
+registerMooseAction("pertApp", DiffusionProblemAction, "add_kernel");
 
 InputParameters
-ProblemSetupAction::validParams()
+DiffusionProblemAction::validParams()
 {
   InputParameters params = Action::validParams();
-    params.addRequiredParam<unsigned int>("Sn_degree", "The number of discrete ordinates"); 
+    params.addRequiredParam<unsigned int>("group_number", "The number of discrete ordinates"); 
     params.addRequiredParam<std::vector<BoundaryName>>("vacuum_boundaries", "The boundaries on which to apply vacuum BCs");
 
   return params;
 }
 
-ProblemSetupAction::ProblemSetupAction(const InputParameters & params)
+DiffusionProblemAction::DiffusionProblemAction(const InputParameters & params)
   : Action(params)
 {
 }
 
 void
-ProblemSetupAction::act()
+DiffusionProblemAction::act()
 {
 
 
     //Add variable
   {
       InputParameters params = _factory.getValidParams("ArrayMooseVariable");
-        params.set<unsigned int>("components") = getParam<unsigned int>("Sn_degree"); 
+        params.set<unsigned int>("components") = getParam<unsigned int>("group_number"); 
     _problem->addVariable("ArrayMooseVariable", "flux", params);
   }
    

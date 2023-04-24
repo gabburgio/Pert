@@ -10,9 +10,9 @@ file = untitled.msh
     []
 []
 
-[ProblemSetup]
+[DiffusionProblem]
     vacuum_boundaries='boundary'
-    Sn_degree = 2
+    group_number = 2
 []
 
 

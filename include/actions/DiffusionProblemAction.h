@@ -2,10 +2,10 @@
 
 #include "Action.h"
 
-class ProblemSetupAction : public Action
+class DiffusionProblemAction : public Action
 {
 public:
-  ProblemSetupAction(const InputParameters & params);
+  DiffusionProblemAction(const InputParameters & params);
 
   static InputParameters validParams();
 
