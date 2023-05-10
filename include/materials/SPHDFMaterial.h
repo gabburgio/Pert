@@ -3,11 +3,11 @@
 #include "Material.h"
 
 
-class SPHMaterial : public Material
+class SPHDFMaterial : public Material
 {
 public:
     
-    SPHMaterial(const InputParameters & parameters);
+    SPHDFMaterial(const InputParameters & parameters);
 
     static InputParameters validParams();
     

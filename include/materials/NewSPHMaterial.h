@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Material.h"
 
 
@@ -14,12 +13,21 @@ public:
 protected:
     virtual void computeQpProperties() override;
     
-    const std::vector<Real> & _v_diffusivity;
-    const std::vector<Real> & _v_ref_phi_mg;
-    const std::vector<Real> & _v_sigma_r;
-    const std::vector<VariableName> & _flux;
+    const RealEigenVector & _v_diffusivity;
+    const RealEigenVector & _v_ref_phi_mg;
+    const RealEigenVector & _v_sigma_r;
+
+
+    MaterialProperty<RealEigenVector> & _diffusivity;
+    MaterialProperty<RealEigenVector> & _sigma_r;
     
-    MaterialProperty<std::vector<Real>> & _diffusivity;
-    MaterialProperty<std::vector<Real>> & _sigma_r;
+
+
+    //pp declarations
+
+    const std::vector<PostprocessorName> & _flux_integrators;
+
     
+
 };
+

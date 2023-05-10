@@ -28,6 +28,7 @@ pertApp::registerAll(Factory & f, ActionFactory & af, Syntax & syntax)
 
   /* register custom execute flags, action syntax, etc. here */
   registerSyntax("DiffusionProblemAction", "DiffusionProblem");
+  registerSyntax("SPHProblemAction", "SPHProblem");
 }
 
 void
