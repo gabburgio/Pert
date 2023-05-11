@@ -60,24 +60,28 @@ SPHDFMaterial::computeQpProperties()
 
     RealEigenVector sph_factors;
     RealEigenVector normalization_factors;
+    RealEigenVector tilde_factors;
+
     sph_factors.conservativeResize(_v_diffusivity.size());
     normalization_factors.conservativeResize(_v_diffusivity.size());
-
+    tilde_factors.conservativeResize(_v_diffusivity.size());
 
     for(int i=0; i< _v_diffusivity.size(); i++ ) 
     {
     normalization_factors(i) = getPostprocessorValueByName(_total_integrators[i])/_ref_phi_g(i);
     sph_factors(i)= _ref_phi_mg(i)/getPostprocessorValueByName(_zone_integrators[i]);
     }
+
+    tilde_factors = sph_factors.cwiseProduct(normalization_factors);
     
 
     _diffusivity[_qp]       = (_v_diffusivity.array()*sph_factors.array())*normalization_factors.array();
     _sigma_r[_qp]           = (_v_sigma_r.array()*sph_factors.array())*normalization_factors.array();
-    _chi_nu_sigma_f[_qp]    = (1/_ref_k)*(_v_chi.array()* ((_v_nu_sigma_f.array()*sph_factors.array()).transpose()));
+    _chi_nu_sigma_f[_qp]    = (1/_ref_k)*(_v_chi* (((_v_nu_sigma_f.array()*sph_factors.array()).matrix()).transpose()));
 
     for (int j =0;  j< _v_diffusivity.size(); j++)
     {
-        _sigma_s[_qp].row(j)    = ((_v_sigma_s.row(j)).array())*(sph_factors.array()*normalization_factors.array());
+        _sigma_s[_qp].row(j)    = _v_sigma_s.row(j).cwiseProduct(tilde_factors.transpose());
     }
 
 
