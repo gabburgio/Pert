@@ -22,8 +22,11 @@ protected:
     const Real & _ref_k;
 
     
-    const RealEigenVector & _v_ref_phi_mg;
+    const RealEigenVector & _ref_phi_mg;
     const std::vector<PostprocessorName> & _zone_integrators;
+    const RealEigenVector & _ref_phi_g;
+    const std::vector<PostprocessorName> & _total_integrators;
+
     
     MaterialProperty<RealEigenVector> & _diffusivity;
     MaterialProperty<RealEigenVector> & _sigma_r;

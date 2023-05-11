@@ -16,6 +16,8 @@ SPHDFMaterial::validParams()
     
     params.addRequiredParam<RealEigenVector>("ref_phi_mg","reference flux integrated over the material region");
     params.addRequiredParam<std::vector<PostprocessorName>>("zone_integrators","ElementIntegralArrayVariablePostprocessors to calculate the flux integral over the material zone");   
+    params.addRequiredParam<std::vector<PostprocessorName>>("total_integrators","ElementIntegralArrayVariablePostprocessors to calculate the flux integral over the whole geometry");   
+    params.addRequiredParam<RealEigenVector>("ref_phi_g","reference flux integrated over the whole geometry");
     
     
     return params;
@@ -31,8 +33,12 @@ SPHDFMaterial::SPHDFMaterial(const InputParameters & parameters) :
     _ref_k(             getParam<Real>("ref_k")),
     
     
-    _v_ref_phi_mg(  getParam<RealEigenVector>("ref_phi_mg")),
+    _ref_phi_mg(  getParam<RealEigenVector>("ref_phi_mg")),
     _zone_integrators(  getParam<std::vector<PostprocessorName>>("zone_integrators")),    
+    _ref_phi_g(getParam<RealEigenVector>("ref_phi_g")),
+    _total_integrators( getParam<std::vector<PostprocessorName>>("total_integrators")),
+
+
 
 
     _diffusivity(       declareProperty<RealEigenVector>("sphdf_diffusivity")),
@@ -52,32 +58,26 @@ SPHDFMaterial::computeQpProperties()
     _sigma_s[_qp].resize(_v_sigma_s.rows(), _v_sigma_s.cols());
     _chi_nu_sigma_f[_qp].resize(_v_sigma_s.rows(), _v_sigma_s.cols());
 
-    RealEigenVector sphdf_factors;
-    sphdf_factors.conservativeResize(_v_diffusivity.size());
-    double default_sphdf = 1;
+    RealEigenVector sph_factors;
+    RealEigenVector normalization_factors;
+    sph_factors.conservativeResize(_v_diffusivity.size());
+    normalization_factors.conservativeResize(_v_diffusivity.size());
 
 
     for(int i=0; i< _v_diffusivity.size(); i++ ) 
-
     {
+    normalization_factors(i) = getPostprocessorValueByName(_total_integrators[i])/_ref_phi_g(i);
+    sph_factors(i)= _ref_phi_mg(i)/getPostprocessorValueByName(_zone_integrators[i]);
+    }
     
-    double flux_integrator = getPostprocessorValueByName(_zone_integrators[i]);
 
-    // Check if flux_integrator is nonzero
-    if (flux_integrator != 0) 
-    {sphdf_factors(i) = _v_ref_phi_mg(i)/flux_integrator;
-    }
-    else
-    {sphdf_factors(i) = default_sphdf; std::cout<<"null integrator"<<std::endl;}  
-    }
-
-    _diffusivity[_qp]       = _v_diffusivity.array()*sphdf_factors.array();
-    _sigma_r[_qp]           = _v_sigma_r.array()*sphdf_factors.array();
-    _chi_nu_sigma_f[_qp]    = (1/_ref_k)*(_v_chi.array()* ((_v_nu_sigma_f.array()*sphdf_factors.array()).transpose()));
+    _diffusivity[_qp]       = (_v_diffusivity.array()*sph_factors.array())*normalization_factors.array();
+    _sigma_r[_qp]           = (_v_sigma_r.array()*sph_factors.array())*normalization_factors.array();
+    _chi_nu_sigma_f[_qp]    = (1/_ref_k)*(_v_chi.array()* ((_v_nu_sigma_f.array()*sph_factors.array()).transpose()));
 
     for (int j =0;  j< _v_diffusivity.size(); j++)
     {
-        _sigma_s[_qp].row(j)    = ((_v_sigma_s.row(j)).array())*sphdf_factors.array();
+        _sigma_s[_qp].row(j)    = ((_v_sigma_s.row(j)).array())*(sph_factors.array()*normalization_factors.array());
     }
 
 
