@@ -1,12 +1,12 @@
 [Mesh]
-    file = untitled.msh
+    file = onecyl.msh
     []
     
     [Variables]
     [./flux]
         type = ArrayMooseVariable
         components = 2
-        initial_condition = '1 1'
+        initial_condition = '1 5.45E-04'
     [../]
     []
     
@@ -61,14 +61,14 @@
     [Materials]
         [external_u]
             type = SPHMaterial
-            ref_diffusivity = '1 1'
-            ref_sigma_r = '1 1'
-            ref_nu_sigma_f = '-1 -1'
+            ref_diffusivity = ' 5.88099E-01 6.37020E-01'
+            ref_nu_sigma_f = '-4.72646E-02 -3.37123E-01'
+            ref_sigma_r = '2.56339E-02 1.65331E-01'
             chi = '1 0'
-            ref_k = 1.00838
-            ref_sigma_s = '0 -1
-                           -1 0'
-            ref_phi_mg = '1 1'
+            ref_k = 0.981
+            ref_sigma_s =  '0 -1.29020E-03
+                            -9.05288E-05 0'
+            ref_phi_mg = '1 5.45E-04'
             zone_integrators = 'first_pp second_pp'
             block = 'domain'
         []

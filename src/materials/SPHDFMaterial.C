@@ -39,8 +39,6 @@ SPHDFMaterial::SPHDFMaterial(const InputParameters & parameters) :
     _total_integrators( getParam<std::vector<PostprocessorName>>("total_integrators")),
 
 
-
-
     _diffusivity(       declareProperty<RealEigenVector>("sphdf_diffusivity")),
     _sigma_r(           declareProperty<RealEigenVector>("sphdf_sigma_r")),
     _sigma_s(           declareProperty<RealEigenMatrix>("sphdf_sigma_s")),
@@ -75,9 +73,10 @@ SPHDFMaterial::computeQpProperties()
     tilde_factors = sph_factors.cwiseProduct(normalization_factors);
     
 
-    _diffusivity[_qp]       = (_v_diffusivity.array()*sph_factors.array())*normalization_factors.array();
-    _sigma_r[_qp]           = (_v_sigma_r.array()*sph_factors.array())*normalization_factors.array();
-    _chi_nu_sigma_f[_qp]    = (1/_ref_k)*(_v_chi* (((_v_nu_sigma_f.array()*sph_factors.array()).matrix()).transpose()));
+    _diffusivity[_qp]       = _v_diffusivity.cwiseProduct(tilde_factors);
+    _sigma_r[_qp]           = _v_sigma_r.cwiseProduct(tilde_factors);
+    _chi_nu_sigma_f[_qp]    = (1/_ref_k)*(_v_chi*(_v_nu_sigma_f.cwiseProduct(sph_factors).transpose()));
+
 
     for (int j =0;  j< _v_diffusivity.size(); j++)
     {

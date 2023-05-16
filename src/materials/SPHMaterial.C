@@ -31,7 +31,7 @@ SPHMaterial::SPHMaterial(const InputParameters & parameters) :
     _ref_k(             getParam<Real>("ref_k")),
     
     
-    _v_ref_phi_mg(  getParam<RealEigenVector>("ref_phi_mg")),
+    _ref_phi_mg(  getParam<RealEigenVector>("ref_phi_mg")),
     _zone_integrators(  getParam<std::vector<PostprocessorName>>("zone_integrators")),    
 
 
@@ -53,31 +53,23 @@ SPHMaterial::computeQpProperties()
     _chi_nu_sigma_f[_qp].resize(_v_sigma_s.rows(), _v_sigma_s.cols());
 
     RealEigenVector sph_factors;
-    sph_factors.conservativeResize(_v_diffusivity.size());
-    Real default_sph = 1;
 
+    sph_factors.conservativeResize(_v_diffusivity.size());
 
     for(int i=0; i< _v_diffusivity.size(); i++ ) 
-
     {
+    sph_factors(i)= _ref_phi_mg(i)/getPostprocessorValueByName(_zone_integrators[i]);
+    }
     
-    Real flux_integrator = getPostprocessorValueByName(_zone_integrators[i]);
 
-    // Check if flux_integrator is nonzero
-    if (flux_integrator != 0) 
-    {sph_factors(i) = _v_ref_phi_mg(i)/flux_integrator;
-    }
-    else
-    {sph_factors(i) = default_sph; std::cout<<"null integrator"<<std::endl;}  
-    }
+    _diffusivity[_qp]       = _v_diffusivity.cwiseProduct(sph_factors);
+    _sigma_r[_qp]           = _v_sigma_r.cwiseProduct(sph_factors);
+    _chi_nu_sigma_f[_qp]    = (1/_ref_k)*(_v_chi*(_v_nu_sigma_f.cwiseProduct(sph_factors).transpose()));
 
-    _diffusivity[_qp]       = _v_diffusivity.array()*sph_factors.array();
-    _sigma_r[_qp]           = _v_sigma_r.array()*sph_factors.array();
-    _chi_nu_sigma_f[_qp]    = (1/_ref_k)*(_v_chi.array()* ((_v_nu_sigma_f.array()*sph_factors.array()).transpose()));
 
     for (int j =0;  j< _v_diffusivity.size(); j++)
     {
-        _sigma_s[_qp].row(j)    = ((_v_sigma_s.row(j)).array())*sph_factors.array();
+        _sigma_s[_qp].row(j)    = _v_sigma_s.row(j).cwiseProduct(sph_factors.transpose());
     }
 
 
