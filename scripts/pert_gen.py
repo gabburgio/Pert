@@ -1,7 +1,8 @@
 import numpy as np
+import re
 
 resm_path = "/home/gburgio/Desktop/Base_res.m"
-det_path = "/home/gburgio/Desktop/lattice_det0.m"
+det_path = "/home/gburgio/Desktop/Base_det0.m"
 output_path = "/home/gburgio/Desktop/output.txt"
 
 property_mapping = {
@@ -20,13 +21,15 @@ class Material:
 materials = []
 material_counter = -1
 refk = True
+Volume = 1
+Surface = 1
 
 with open(resm_path, 'r') as resm_file:
     for i, line in enumerate(resm_file):
         if line.startswith("MACRO_NG"):
             number_groups = int(line.split("=")[1].strip().rstrip(';'))
-        if line.startswith('GC_UNIVERSE_NAME'):
-            materials.append(Material(universe_name = line.split('=')[1].strip().rstrip(';')))
+        if line.startswith("GC_UNIVERSE_NAME"):
+            materials.append(Material(universe_name = line.split('=')[1].strip().rstrip("'; ").lstrip("'")))
             material_counter += 1    
 
         for prop_name, prop_key in property_mapping.items():
