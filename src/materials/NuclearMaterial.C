@@ -26,12 +26,12 @@ NuclearMaterial::NuclearMaterial(const InputParameters & parameters) :
     _v_nu_sigma_f(      getParam<RealEigenVector>("nu_sigma_f")),
     _v_chi(             getParam<RealEigenVector>("chi")),
     _v_sigma_s(         getParam<RealEigenMatrix>("sigma_s")),
-    _diffusivity(       declareProperty<RealEigenVector>("diffusivity")),
-    _sigma_t(           declareProperty<RealEigenVector>("sigma_t")),
-    _nu_sigma_f(        declareProperty<RealEigenVector>("nu_sigma_f")),
-    _chi(               declareProperty<RealEigenVector>("chi")),
-    _sigma_s(           declareProperty<RealEigenMatrix>("sigma_s")),
-    _chi_nu_sigma_f(    declareProperty<RealEigenMatrix>("chi_nu_sigma_f"))
+    _sphdf_diffusivity(       declareProperty<RealEigenVector>("sphdf_diffusivity")),
+    _sphdf_sigma_r(           declareProperty<RealEigenVector>("sphdf_sigma_r")),
+    _sphdf_nu_sigma_f(        declareProperty<RealEigenVector>("sphdf_nu_sigma_f")),
+    _chi(               declareProperty<RealEigenVector>("_chi")),
+    _sphdf_sigma_s(           declareProperty<RealEigenMatrix>("sphdf_sigma_s")),
+    _sphdf_chi_nu_sigma_f(    declareProperty<RealEigenMatrix>("sphdf_chi_nu_sigma_f"))
 {
     
 }
@@ -40,11 +40,11 @@ NuclearMaterial::NuclearMaterial(const InputParameters & parameters) :
 void
 NuclearMaterial::computeQpProperties()
 {
-    _diffusivity[_qp]       = _v_diffusivity;
-    _sigma_t[_qp]           = _v_sigma_t;
-    _nu_sigma_f[_qp]        = _v_nu_sigma_f;
+    _sphdf_diffusivity[_qp]       = _v_diffusivity;
+    _sphdf_sigma_r[_qp]           = _v_sigma_t;
+    _sphdf_nu_sigma_f[_qp]        = _v_nu_sigma_f;
     _chi[_qp]               = _v_chi;
-    _sigma_s[_qp]           = _v_sigma_s;
-    _chi_nu_sigma_f[_qp]    = _v_chi * _v_nu_sigma_f.transpose();
+    _sphdf_sigma_s[_qp]           = _v_sigma_s;
+    _sphdf_chi_nu_sigma_f[_qp]    = _v_chi * _v_nu_sigma_f.transpose();
     
 }

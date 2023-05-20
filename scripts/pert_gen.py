@@ -1,8 +1,7 @@
 import numpy as np
 import re
 
-resm_path = "/home/gburgio/Desktop/Base_res.m"
-det_path = "/home/gburgio/Desktop/Base_det0.m"
+resm_path = "/home/gburgio/Desktop/4zone_latt/lattice_res.m"
 output_path = "/home/gburgio/Desktop/output.txt"
 
 property_mapping = {

@@ -38,22 +38,48 @@ file = rectangle.msh
     execute_on = 'LINEAR '
     component = 1
 []
+[./third_pp]
+    type = SideIntegralArrayVariablePostprocessor
+    variable = flux
+    component = 0    
+    execute_on = 'LINEAR'
+    boundary = 'boundary'
+[]
+[./fourth_pp]
+    type = SideIntegralArrayVariablePostprocessor
+    variable = flux
+    component = 1
+    execute_on = 'LINEAR'
+    boundary = 'boundary'    
+[]
+[]
+
+[BCs]
+[./vacBC]
+    variable = flux
+    type = DFArrayVacuumBC
+    boundary = 'boundary'
+    total_integrators = 'first_pp second_pp'
+    surface_integrators = 'third_pp fourth_pp'
+    ref_current_integral = '16.675 2.98'
+    ref_phi_g = '1600 1023.94'
+[]
 []
 
 
 [Materials]
 [./mate]
     type = SPHDFMaterial
-    ref_diffusivity = ' 1.88477E+00 1.55265E-01'
-    ref_nu_sigma_f = '-1.13493E-02  -2.38874E-02'
-    ref_sigma_r = '2.82389E-02 3.02821E-02'
-    ref_sigma_s =  '0 -1.07259E-04;
-                    -2.17199E-02 0'
-    ref_phi_g = '160 114.78'
-    ref_phi_mg = '160 114.78'
+    ref_diffusivity = '1.72532E+00 1.56049E-01'
+    ref_nu_sigma_f = '-1.20830E-02 -2.76223E-02'
+    ref_sigma_r = '2.92964E-02 3.20223E-02'
+    ref_sigma_s = '0 -1.21721E-04;
+                -2.23871E-02 0'
+    ref_phi_g = '1600 1023.94'
+    ref_phi_mg = '1600 1023.94'
     total_integrators = 'first_pp second_pp'
     zone_integrators = 'first_pp second_pp'
-    ref_k = 1.0116
+    ref_k = 0.7504
     chi = '1 0'
 []
 []
@@ -62,7 +88,7 @@ file = rectangle.msh
 [./flux]
     type = ArrayMooseVariable
     components = 2
-    initial_condition = '1 0.717'
+    initial_condition = '1 0.6399'
 [../]
 []
 
