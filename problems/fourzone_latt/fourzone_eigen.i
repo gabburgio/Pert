@@ -57,7 +57,21 @@ file = fourzone.msh
 []
 []
 
-
+[ICs]
+[internalIC]
+    type = ArrayConstantIC
+    variable = flux
+    value = '1.303 0.466'
+    block = 'norm_ur norm_ll'
+[]
+[externalIC]
+    type = ArrayConstantIC
+    variable = flux
+    value = '0.6964 0.28'
+    block = 'control_ul control_lr'
+[]
+[]
+    
 
 [Variables]
 [./flux]
