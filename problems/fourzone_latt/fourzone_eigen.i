@@ -6,22 +6,22 @@ file = fourzone.msh
 [diffusion]
     type = ArrayDiffusion 
     variable = flux 
-    diffusion_coefficient = sphdf_diffusivity
+    diffusion_coefficient = diffusivity
 []
 [absorption]
     type = ArrayReaction
     variable = flux
-    reaction_coefficient = sphdf_sigma_r
+    reaction_coefficient = sigma_r
 []
 [scattering]
     type = ArrayReaction
     variable = flux
-    reaction_coefficient = sphdf_sigma_s
+    reaction_coefficient = sigma_s
 []
 [fission]
     type = ArrayReaction
     variable = flux
-    reaction_coefficient = sphdf_chi_nu_sigma_f
+    reaction_coefficient = chi_nu_sigma_f
     extra_matrix_tags = 'eigen'
 []
 []
