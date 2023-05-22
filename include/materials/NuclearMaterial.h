@@ -20,11 +20,9 @@ protected:
     const RealEigenVector & _v_chi;
     const RealEigenMatrix & _v_sigma_s;
     
-    MaterialProperty<RealEigenVector> & _sphdf_diffusivity;
-    MaterialProperty<RealEigenVector> & _sphdf_sigma_r;
-    MaterialProperty<RealEigenVector> & _sphdf_nu_sigma_f;
-    MaterialProperty<RealEigenVector> & _chi;
-    MaterialProperty<RealEigenMatrix> & _sphdf_sigma_s;
-    MaterialProperty<RealEigenMatrix> & _sphdf_chi_nu_sigma_f;
+    MaterialProperty<RealEigenVector> & _diffusivity;
+    MaterialProperty<RealEigenVector> & _sigma_r;
+    MaterialProperty<RealEigenMatrix> & _sigma_s;
+    MaterialProperty<RealEigenMatrix> & _chi_nu_sigma_f;
     
 };

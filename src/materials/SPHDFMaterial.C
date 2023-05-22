@@ -75,12 +75,12 @@ SPHDFMaterial::computeQpProperties()
 
     _diffusivity[_qp]       = _v_diffusivity.cwiseProduct(tilde_factors);
     _sigma_r[_qp]           = _v_sigma_r.cwiseProduct(tilde_factors);
-    _chi_nu_sigma_f[_qp]    = (1/_ref_k)*(_v_chi*(_v_nu_sigma_f.cwiseProduct(sph_factors).transpose()));
+    _chi_nu_sigma_f[_qp]    = (-1/_ref_k)*(_v_chi*(_v_nu_sigma_f.cwiseProduct(sph_factors).transpose()));
 
 
     for (int j =0;  j< _v_diffusivity.size(); j++)
     {
-        _sigma_s[_qp].row(j)    = _v_sigma_s.row(j).cwiseProduct(tilde_factors.transpose());
+        _sigma_s[_qp].row(j)    = -_v_sigma_s.row(j).cwiseProduct(tilde_factors.transpose());
     }
 
 
