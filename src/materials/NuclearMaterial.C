@@ -14,7 +14,6 @@ NuclearMaterial::validParams()
     
     params.addRequiredParam<RealEigenMatrix>("sigma_s","Scattering matrix for this material, given as tensor");
     
-    //params.set<MooseEnum>("constant_on") = "SUBDOMAIN";
     
     return params;
 }
