@@ -23,6 +23,6 @@ protected:
 
   const ArrayVariableValue & _u;
 
-  const unsigned int & _component;
+  const unsigned int  _component;
 
 };

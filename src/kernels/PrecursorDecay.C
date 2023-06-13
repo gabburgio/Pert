@@ -1,9 +1,9 @@
-#include "ArrayReaction.h"
+#include "PrecursorDecay.h"
 
-registerMooseObject("MooseApp", ArrayReaction);
+registerMooseObject("pertApp", PrecursorDecay);
 
 InputParameters
-ArrayReaction::validParams()
+PrecursorDecay::validParams()
 {
   InputParameters params = ArrayKernel::validParams();
   params.addRequiredParam<MaterialPropertyName>(
@@ -12,48 +12,30 @@ ArrayReaction::validParams()
   params.addRequiredParam<MaterialPropertyName>(
       "delayed_spectrum",
       "The array containing the average (multigroup) energy spectrum of delayed neutrons.");
+
+  params.addRequiredCoupledVar("concentrations",
+                               "The array variable holding the concentrations of the precursors");
+  
   return params;
 }
 
-ArrayReaction::ArrayReaction(const InputParameters & parameters)
+PrecursorDecay::PrecursorDecay(const InputParameters & parameters)
   : ArrayKernel(parameters),
-    _decay_constants(getMaterialProperty<RealEigenVector>("decay_constants")),
-    _delayed_spectrum(getMaterialProperty<RealEigenVector>("delayed_spectrum"))    
+    _decay_constants(&getMaterialProperty<RealEigenVector>("decay_constants")),
+    _delayed_spectrum(&getMaterialProperty<RealEigenVector>("delayed_spectrum")),
+    MooseVariableInterface<RealEigenVector>(
+        this, false, "concentrations", Moose::VarKindType::VAR_ANY, Moose::VarFieldType::VAR_FIELD_ARRAY),
+    _concentrations(coupledArrayValue("concentrations"))    
+
 {
+  addMooseVariableDependency(&mooseVariableField());
 }
+
 
 void
-ArrayReaction::computeQpResidual()
+PrecursorDecay::computeQpResidual(RealEigenVector & residual)
 {
-
-
-
-mooseAssert((*_r_array)[_qp].size() == _var.count(),
-            "reaction_coefficient size is inconsistent with the number of components of array "
-            "variable");
-// WARNING: use noalias() syntax with caution. See ArrayDiffusion.C for more details.
-residual.noalias() = (*_r_array)[_qp].asDiagonal() * _u[_qp] * _test[_i][_qp];
-
-
+residual.noalias() = ((*_decay_constants)[_qp].dot(_concentrations[_qp]) * _delayed_spectrum[_qp])
+* _test[_i][_qp];
 }
 
-RealEigenVector
-ArrayReaction::computeQpJacobian()
-{
-  if (_r)
-    return RealEigenVector::Constant(_var.count(), _phi[_j][_qp] * _test[_i][_qp] * (*_r)[_qp]);
-  else if (_r_array)
-    return _phi[_j][_qp] * _test[_i][_qp] * (*_r_array)[_qp];
-
-  else
-    return _phi[_j][_qp] * _test[_i][_qp] * (*_r_2d_array)[_qp].diagonal();
-}
-
-RealEigenMatrix
-ArrayReaction::computeQpOffDiagJacobian(const MooseVariableFEBase & jvar)
-{
-  if (jvar.number() == _var.number() && _r_2d_array)
-    return _phi[_j][_qp] * _test[_i][_qp] * (*_r_2d_array)[_qp];
-  else
-    return ArrayKernel::computeQpOffDiagJacobian(jvar);
-}
