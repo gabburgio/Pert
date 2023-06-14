@@ -2,6 +2,8 @@
 
 #include "ArrayKernel.h"
 #include "MooseVariableInterface.h"
+//#include "MooseVariableDependencyInterface.h"
+
 
 
 class PrecursorDecay : public ArrayKernel,

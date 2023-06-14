@@ -28,7 +28,7 @@ PrecursorDecay::PrecursorDecay(const InputParameters & parameters)
     _concentrations(coupledArrayValue("concentrations"))    
 
 {
-  addMooseVariableDependency(&mooseVariableField());
+  addMooseVariableDependency(&MooseVariableInterface<RealEigenVector>::mooseVariableField());
 }
 
 
