@@ -38,7 +38,6 @@ DFArrayVacuumBC::computeQpResidual(RealEigenVector & residual)
     gamma(i)=(_ref_current_integral(i)*volume_flux_integrator)/(surface_flux_integrator*_ref_phi_g(i));
   }
  
-  //residual = _alpha.cwiseProduct(_u[_qp]) * _test[_i][_qp];
   residual = _u[_qp].cwiseProduct(gamma)* _test[_i][_qp];
 }
 
