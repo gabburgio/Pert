@@ -23,12 +23,10 @@ PrecursorDecay::PrecursorDecay(const InputParameters & parameters)
   : ArrayKernel(parameters),
     _decay_constants(&getMaterialProperty<RealEigenVector>("decay_constants")),
     _delayed_spectrum(&getMaterialProperty<RealEigenVector>("delayed_spectrum")),
-    MooseVariableInterface<RealEigenVector>(
-        this, false, "concentrations", Moose::VarKindType::VAR_ANY, Moose::VarFieldType::VAR_FIELD_ARRAY),
     _concentrations(coupledArrayValue("concentrations"))    
 
 {
-  addMooseVariableDependency(&MooseVariableInterface<RealEigenVector>::mooseVariableField());
+  addMooseVariableDependency(&mooseVariableField());
 }
 
 

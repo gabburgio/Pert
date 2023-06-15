@@ -6,8 +6,7 @@
 
 
 
-class PrecursorDecay : public ArrayKernel,
-                      public MooseVariableInterface<RealEigenVector>
+class PrecursorDecay : public ArrayKernel
 {
 public:
   static InputParameters validParams();
