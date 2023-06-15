@@ -15,7 +15,7 @@ protected:
     virtual void computeQpProperties() override;
     
     const RealEigenVector & _v_diffusivity;
-    const RealEigenVector & _v_sigma_t;
+    const RealEigenVector & _v_sigma_r;
     const RealEigenVector & _v_nu_sigma_f;
     const RealEigenVector & _v_chi;
     const RealEigenMatrix & _v_sigma_s;
