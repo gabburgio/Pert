@@ -35,8 +35,7 @@ NuclearMaterial::NuclearMaterial(const InputParameters & parameters) :
 }
 
 
-void
-NuclearMaterial::computeQpProperties()
+void NuclearMaterial::computeQpProperties()
 {
     _diffusivity[_qp]       = _v_diffusivity;
     _sigma_r[_qp]           = _v_sigma_r;

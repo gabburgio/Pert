@@ -33,7 +33,7 @@ PrecursorDecay::PrecursorDecay(const InputParameters & parameters)
 void
 PrecursorDecay::computeQpResidual(RealEigenVector & residual)
 {
-residual.noalias() = ((*_decay_constants)[_qp].dot(_concentrations[_qp]) * (*_delayed_spectrum)[_qp])
+residual.noalias() = - ((*_decay_constants)[_qp].dot(_concentrations[_qp]) * (*_delayed_spectrum)[_qp])
 * _test[_i][_qp];
 }
 
