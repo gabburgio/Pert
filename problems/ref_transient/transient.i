@@ -68,11 +68,7 @@ file = cube.msh
     decay_constants = '1.33461E-02  3.26661E-02 1.20943E-01  3.04465E-01 8.56396E-01 2.87596E+00'
     delayed_spectrum = '1 0'
     delayed_fraction = '2.25342E-04 1.17948E-03 1.13041E-03 2.58359E-03 1.11298E-03 4.65734E-04 '
-[]
-[unit]
-    type = GenericConstantArray
-    prop_value = '1 1 1 1 1 1'
-    prop_name = time_derivative_coeff
+
 []
 []
 
