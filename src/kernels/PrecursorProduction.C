@@ -33,7 +33,7 @@ PrecursorProduction::PrecursorProduction(const InputParameters & parameters)
 void
 PrecursorProduction::computeQpResidual(RealEigenVector & residual)
 {
-residual.noalias() = - ( ((*_chi_nu_sigma_f)[_qp] * _flux[_qp]).sum() * (*_delayed_fraction)[_qp] )
+residual.noalias() = ( ((*_chi_nu_sigma_f)[_qp] * _flux[_qp]).sum() * (*_delayed_fraction)[_qp] )
 * _test[_i][_qp];
 }
 

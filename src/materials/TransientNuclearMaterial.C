@@ -26,7 +26,8 @@ TransientNuclearMaterial::TransientNuclearMaterial(const InputParameters & param
     _inverse_v(       declareProperty<RealEigenVector>("inverse_v")),
     _delayed_spectrum(           declareProperty<RealEigenVector>("delayed_spectrum")),
     _delayed_fraction(           declareProperty<RealEigenVector>("delayed_fraction")),
-    _decay_constants(    declareProperty<RealEigenVector>("decay_constants"))
+    _decay_constants(    declareProperty<RealEigenVector>("decay_constants")),
+    _prec_tcoeff(    declareProperty<RealEigenVector>("prec_tcoeff"))
 {
 }
 
@@ -34,9 +35,10 @@ TransientNuclearMaterial::TransientNuclearMaterial(const InputParameters & param
 void TransientNuclearMaterial::computeQpProperties()
 {
     NuclearMaterial::computeQpProperties();
+    _chi_nu_sigma_f[_qp] = (1 - (_v_delayed_fraction).sum()) * _chi_nu_sigma_f[_qp];
     _inverse_v[_qp]       = _v_inverse_v;
     _delayed_spectrum[_qp]           = _v_delayed_spectrum;
     _delayed_fraction[_qp]           =  _v_delayed_fraction;
     _decay_constants[_qp]    = _v_decay_constants ;
-    
+    _prec_tcoeff[_qp]  = 
 }

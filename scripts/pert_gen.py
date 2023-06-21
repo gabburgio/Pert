@@ -1,8 +1,11 @@
 import numpy as np
 import re
 
-resm_path = "/home/gburgio/Desktop/4zone_latt/lattice_res.m"
-output_path = "/home/gburgio/Desktop/output.txt"
+resm_path = "/home/gburgio/Downloads/gcu/gcu_input_res.m"
+
+output_path = "/home/gburgio/Downloads/gcu/output.txt"
+
+'''
 
 property_mapping = {
     "ref_diffusivity" : "INF_DIFFCOEF",
@@ -11,6 +14,17 @@ property_mapping = {
     "chi" : "INF_CHIT",
     "ref_sigma_s" : "INF_SP0"
 }
+'''
+
+
+property_mapping = {
+    "ref_diffusivity" : "B1_DIFFCOEF",
+    "ref_sigma_r" : "B1_REMXS",
+    "ref_nu_sigma_f" : "B1_NSF",
+    "chi" : "B1_CHIT",
+    "ref_sigma_s" : "B1_SP0"
+}
+
 
 class Material:
     def __init__(self, universe_name="", nsf_vals=None):
