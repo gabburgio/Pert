@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "NuclearMaterial.h"
 
 
@@ -23,5 +24,6 @@ protected:
     MaterialProperty<RealEigenVector> & _delayed_spectrum;
     MaterialProperty<RealEigenVector> & _delayed_fraction;
     MaterialProperty<RealEigenVector> & _decay_constants;
+    MaterialProperty<RealEigenVector> & _prec_tcoeff;
     
 };

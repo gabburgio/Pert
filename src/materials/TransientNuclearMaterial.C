@@ -40,5 +40,5 @@ void TransientNuclearMaterial::computeQpProperties()
     _delayed_spectrum[_qp]           = _v_delayed_spectrum;
     _delayed_fraction[_qp]           =  _v_delayed_fraction;
     _decay_constants[_qp]    = _v_decay_constants ;
-    _prec_tcoeff[_qp]  = 
+    _prec_tcoeff[_qp]  = MatrixXf::Constant(_v_decay_constants.size(), 1, 1);
 }
