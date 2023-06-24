@@ -38,7 +38,7 @@ file = cube.msh
 [precs_tder]
     type = ArrayTimeDerivative
     variable = precs
-    time_derivative_coefficient = time_derivative_coeff
+    time_derivative_coefficient = prec_tcoeff
 []
 [precs_decay]
     type = ArrayReaction
@@ -72,6 +72,49 @@ file = cube.msh
 []
 []
 
+[Postprocessors]
+[./first_pp]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = flux
+    component = 0
+[]
+[./second_pp]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = flux
+    component = 1
+[]
+[./third_pp]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = precs
+    component = 0
+[]
+[./fourth_pp]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = precs
+    component = 1
+[]
+[./fifth_pp]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = precs
+    component = 2
+[]
+[./sixth_pp]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = precs
+    component = 3
+[]
+[./seventh_pp]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = precs
+    component = 4
+[]
+[./eight_pp]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = precs
+    component = 5
+[]
+
+[]
 
 [Variables]
 [./flux]
@@ -89,8 +132,8 @@ file = cube.msh
 
 [Executioner]
 type = Transient
-dt = 0.05
-end_time = 1
+dt = 0.0001
+end_time = 0.003
 []
 
 [Outputs]
