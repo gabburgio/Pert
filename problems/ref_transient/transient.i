@@ -59,15 +59,17 @@ file = cube.msh
     type = TransientNuclearMaterial
     block = 'domain'
     nu_sigma_f = '5.19417E-02 1.47749E+00'
-    #nu_sigma_f = '5.19417E-02 1.67749E+00'
     chi = '1.00000E+00 0.00000E+00'
     diffusivity = '1.16299E-01 1.96645E-02'
     sigma_r = '5.08506E-01 1.28397E+00'
     sigma_s = '0 4.75265E-03; 3.95622E-01 0'
     inverse_v = '8.20209E-07 0.00010'
-    decay_constants = '1.33461E-02  3.26661E-02 1.20943E-01  3.04465E-01 8.56396E-01 2.87596E+00'
+    #true decay_constants = '1.33461E-02  3.26661E-02 1.20943E-01  3.04465E-01 8.56396E-01 2.87596E+00'
+    decay_constants = '1.33461E-02  3.26661E-02 1.20943E-01  3.04465E+02 8.56396E-01 2.87596E-01'
     delayed_spectrum = '1 0'
-    delayed_fraction = '2.25342E-04 1.17948E-03 1.13041E-03 2.58359E-03 1.11298E-03 4.65734E-04 '
+    #true delayed_fraction = '2.25342E-04 1.17948E-03 1.13041E-03 2.58359E-03 1.11298E-03 4.65734E-04 '
+    delayed_fraction = '2.25342E-04 1.17948E-03 1.13041E-03 2.58359E-03 1.11298E-03 4.65734E-02'
+
 
 []
 []
@@ -113,7 +115,6 @@ file = cube.msh
     variable = precs
     component = 5
 []
-
 []
 
 [Variables]
@@ -125,17 +126,22 @@ file = cube.msh
 [./precs]
     type = ArrayMooseVariable
     components= 6
-    initial_condition = '0.1 0.1 0.1 0.1 0.1 0.1'
+    initial_condition = '0 0 0 0 0 0'
 []
 []
 
 
 [Executioner]
 type = Transient
-dt = 0.0001
-end_time = 0.003
+dt = 0.000001
+end_time = 0.00002
 []
 
 [Outputs]
-exodus = true
+[norm]
+type = Exodus
+[]
+[pp]
+type = CSV
+[]
 []

@@ -47,5 +47,4 @@ void TransientNuclearMaterial::computeQpProperties()
     {
         _prec_tcoeff[_qp][i] = 1;
     }
-    //_prec_tcoeff[_qp]  = MatrixXf::Constant(_v_decay_constants.size(), 1, 1);
 }
