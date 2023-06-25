@@ -19,7 +19,9 @@ protected:
     const RealEigenVector & _v_delayed_spectrum;
     const RealEigenVector & _v_delayed_fraction;
     const RealEigenVector & _v_decay_constants;
-    
+    const RealEigenVector & _v_prec_tcoeff;
+
+
     MaterialProperty<RealEigenVector> & _inverse_v;
     MaterialProperty<RealEigenVector> & _delayed_spectrum;
     MaterialProperty<RealEigenVector> & _delayed_fraction;
