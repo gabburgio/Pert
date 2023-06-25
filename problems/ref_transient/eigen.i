@@ -72,6 +72,8 @@ file = cube.msh
   [precs]
     type = ArrayMooseVariable
     components = 6
+    family = MONOMIAL   
+    order = FIRST
   []
 []
 
@@ -88,7 +90,6 @@ file = cube.msh
 
 [Executioner]
 type = Eigenvalue
-initial_eigenvalue = 1
 []
 
 [Outputs]

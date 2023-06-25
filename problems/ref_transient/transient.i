@@ -1,5 +1,5 @@
 [Mesh]
-file = cube.msh
+file = eigen_out.e
 []
 
 [Kernels]
@@ -72,42 +72,42 @@ file = cube.msh
 []
 
 [Postprocessors]
-[./first_pp]
+[./flux_0]
     type = ElementIntegralArrayVariablePostprocessor
     variable = flux
     component = 0
 []
-[./second_pp]
+[./flux_1]
     type = ElementIntegralArrayVariablePostprocessor
     variable = flux
     component = 1
 []
-[./third_pp]
+[./precs_0]
     type = ElementIntegralArrayVariablePostprocessor
     variable = precs
     component = 0
 []
-[./fourth_pp]
+[./precs_1]
     type = ElementIntegralArrayVariablePostprocessor
     variable = precs
     component = 1
 []
-[./fifth_pp]
+[./precs_2]
     type = ElementIntegralArrayVariablePostprocessor
     variable = precs
     component = 2
 []
-[./sixth_pp]
+[./precs_3]
     type = ElementIntegralArrayVariablePostprocessor
     variable = precs
     component = 3
 []
-[./seventh_pp]
+[./precs_4]
     type = ElementIntegralArrayVariablePostprocessor
     variable = precs
     component = 4
 []
-[./eight_pp]
+[./precs_5]
     type = ElementIntegralArrayVariablePostprocessor
     variable = precs
     component = 5
@@ -118,20 +118,23 @@ file = cube.msh
 [./flux]
     type = ArrayMooseVariable
     components = 2
-    initial_condition = '1 0.308176'
+    initial_from_file_var = flux
+    initial_from_file_timestep = 1    
 [../]
 [./precs]
     type = ArrayMooseVariable
     components= 6
-    initial_condition = '0.00 0.00 0.04 0 0.000 0.0'
+    #initial_from_file_var = precs
+    #initial_from_file_timestep = 1
+    initial_condition = '2.29313738e-07 4.90383216e-07 1.26939726e-07 1.15246707e-07 1.76504196e-08 2.19936549e-09'
 []
 []
 
 
 [Executioner]
 type = Transient
-dt = 0.0002
-end_time = 0.003
+dt = 0.01
+end_time = 0.5
 []
 
 [Outputs]

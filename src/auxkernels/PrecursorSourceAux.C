@@ -33,6 +33,6 @@ PrecursorSourceAux::PrecursorSourceAux(const InputParameters & parameters)
 RealEigenVector
 PrecursorSourceAux::computeValue()
 {
-  return ((*_chi_nu_sigma_f)[_qp] * _flux[_qp]).sum() * 
+  return - ((*_chi_nu_sigma_f)[_qp] * _flux[_qp]).sum() * 
   ( (*_delayed_fraction)[_qp].array() / (*_decay_constants)[_qp].array()  );
 }
