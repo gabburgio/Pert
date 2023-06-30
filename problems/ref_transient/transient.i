@@ -58,13 +58,13 @@ file = eigen_out.e
 [./10]
     type = TransientNuclearMaterial
     block = 'domain'
-    nu_sigma_f = '5.19417E-02 1.47149E+00'
+    nu_sigma_f = '5.19417E-02 1.49749E+00'
     #true nu_sigma_f = '5.19417E-02 1.47749E+00'
     chi = '1.00000E+00 0.00000E+00'
     diffusivity = '1.16299E-01 1.96645E-02'
     sigma_r = '5.08506E-01 1.28397E+00'
     sigma_s = '0 4.75265E-03; 3.95622E-01 0'
-    inverse_v = '8.20209E-07 0.00010'
+    inverse_v = '5.98907E-08 3.28736E-06'
     decay_constants = '1.33461E-02 3.26661E-02 1.20943E-01 3.04465E-01 8.56396E-01 2.87596E+00'
     delayed_spectrum = '1 0'
     delayed_fraction = '2.25342E-04 1.17948E-03 1.13041E-03 2.58359E-03 1.11298E-03 4.65734E-04'
@@ -134,8 +134,8 @@ file = eigen_out.e
 
 [Executioner]
 type = Transient
-dt = 0.01
-end_time = 0.5
+dt = 0.0001
+end_time = 0.001
 []
 
 [Outputs]

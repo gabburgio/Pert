@@ -1,8 +1,13 @@
 [Mesh]
-file = fourzone.msh
+file = rectangle.msh
 []
 
 [Kernels]
+[time]
+    type = ArrayTimeDerivative
+    variable = flux
+    time_derivative_coefficient = inverse_v  
+[]
 [diffusion]
     type = ArrayDiffusion 
     variable = flux 
@@ -22,30 +27,22 @@ file = fourzone.msh
     type = ArrayReaction
     variable = flux
     reaction_coefficient = chi_nu_sigma_f
-    extra_matrix_tags = 'eigen'
 []
 []
 
 
 
 [Materials]
-[./external_u]
+[./10]
     type = NuclearMaterial
-    block = 'control_ul control_lr'
-    nu_sigma_f = '0.0121431 0.0318641'
-    diffusivity = '1.18167612 0.14995689'
-    sigma_r = '0.0232711  0.03874258'
-    chi = '1.00000E+00 0.00000E+00'
-    sigma_s = '0 0.00013555; 0.01373974 0'
-[]
-[./internal_u]
-    type = NuclearMaterial
-    block = 'norm_ur norm_ll'
-    nu_sigma_f = '0.01847052 0.05169175'
-    diffusivity = '1.76270207 0.16295949'
-    sigma_r = '0.02802592 0.04389014'
-    chi = '1.00000E+00 0.00000E+00'
-    sigma_s = '0 0.0001597;0.01769885 0'
+    block = 'domain'
+    nu_sigma_f ='3.80830E-02 3.76623E-02'
+    sigma_r = '2.92964E-02 3.20223E-02'
+    chi = '1 0'
+    sigma_s =  '0 1.21721E-04;
+                2.23871E-02 0'
+    diffusivity = '1.72532E+00 1.56049E-01'
+    inverse_v = '0.01 0.01'
 []
 [../]
 
@@ -54,11 +51,9 @@ file = fourzone.msh
     type = ArrayVacuumBC
     variable = 'flux'
     boundary = 'boundary'
-    alpha = '0.7242198  0.20256749'
+    alpha = '0.4043 0.2083'
 []
 []
-
-    
 
 [Variables]
 [./flux]
@@ -67,9 +62,18 @@ file = fourzone.msh
 [../]
 []
 
+[ICs]
+    [internalIC]
+        type = ArrayConstantIC
+        variable = flux
+        value = '1.303 0.466'
+    []
+[]
 
 [Executioner]
-type = Eigenvalue
+    end_time = 1
+    dt = 0.01
+    type = Transient
 []
 
 [Outputs]

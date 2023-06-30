@@ -32,8 +32,7 @@ file = cube.msh
 [./10]
     type = NuclearMaterial
     block = 'domain'
-    nu_sigma_f = '5.19417E-02 1.47149E+00'
-    #true nu_sigma_f = '5.19417E-02 1.47749E+00'
+    nu_sigma_f = '5.19417E-02 1.47749E+00'
     chi = '1.00000E+00 0.00000E+00'
     diffusivity = '1.16299E-01 1.96645E-02'
     sigma_r = '5.08506E-01 1.28397E+00'

@@ -34,7 +34,7 @@ file = fourzone.msh
     block = 'control_ul control_lr'
     nu_sigma_f = '1.43370E-02 3.32368E-02'
     diffusivity = '1.39517E+00 1.56417E-01'
-    sigma_t = '2.74755E-02 4.04116E-02'
+    sigma_r = '2.74755E-02 4.04116E-02'
     chi = '1.00000E+00 0.00000E+00'
     sigma_s = '0 1.41390E-04; 1.62221E-02 0'
 []
@@ -43,7 +43,7 @@ file = fourzone.msh
     block = 'norm_ur norm_ll'
     nu_sigma_f = '1.66881E-02 5.03533E-02'
     diffusivity = '1.59260E+00 1.58740E-01'
-    sigma_t = '2.53214E-02 4.27537E-02'
+    sigma_r = '2.53214E-02 4.27537E-02'
     chi = '1.00000E+00 0.00000E+00'
     sigma_s = '0 1.55568E-04; 1.59909E-02 0'
 []
