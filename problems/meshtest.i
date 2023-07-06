@@ -50,7 +50,7 @@ file = prova.msh
     
     
 [BCs]
-[.a] 
+[a] 
     type = ArrayDirichletBC
     variable = flux
     boundary = boundary
