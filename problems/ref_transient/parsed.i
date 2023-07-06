@@ -23,7 +23,7 @@ file = rectangle.msh
 [Functions]
 [diff_func]
     type = ParsedFunction
-    expression = 1
+    expression = 3*t
 []
 [rem_func]
     type = ParsedFunction
@@ -64,18 +64,20 @@ file = rectangle.msh
 []
 []
 
-#[Postprocessors]
-#[diff]
-#    type = ElementIntegralMaterialProperty
-#    mat_prop = diffusivity
-#    execute_on = 'LINEAR'
-#[]
-#[reac]
-#    type = ElementIntegralMaterialProperty
-#    mat_prop = sigma_r
-#    execute_on = 'LINEAR'
-#[]
-#[]
+[Postprocessors]
+[diff]
+    type = ArrayMaterialPropertyIntegralPostprocessor
+    property = diffusivity
+    component = 0
+    execute_on = 'LINEAR'
+[]
+[reac]
+    type = ArrayMaterialPropertyIntegralPostprocessor
+    property = sigma_r
+    component = 0
+    execute_on = 'LINEAR'
+[]
+[]
 
 
 [BCs]
