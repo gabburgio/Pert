@@ -8,20 +8,29 @@ univ_names = ["F9plug_u",  "F8graph_u",   "F7rifl_u",   "MNR396", "MNR375", "MNR
 "A9plug_u",   "A8graph_u",   "A7rifl_u",   "MNR397", "MNR376", "MNR366", "MNR362", "010500", "MNR369" 	
 ]
 
-group_number = 2
+mat_type = "NuclearMaterial"
 output_path = "mnr_sphdf.i"
+group_number = 2
+
 
 def writematerial(uni, path):
-    with open(path, 'w') as out_file:
-        out_file.write("[./" + uni.name + "]\n\t" + "block = '" + uni.name + "'\n")
+    with open(path, 'a') as out_file:
+        out_file.write("[./" + uni.name + "]\n\t" + "block = '" + uni.name + "'\n\t")
+        out_file.write("type = " + mat_type + "\n")
+
         out_file.write("\tref_nu_sigma_f = " + "'" + str(uni.infExp['infNsf'])[1:-1] + "'\n"  )
         out_file.write("\tref_diffusivity = " + "'" + str(uni.infExp['infDiffcoef'])[1:-1] + "'\n"  )
         out_file.write("\tref_sigma_r = " + "'" + str(uni.infExp['infRemxs'])[1:-1] + "'\n"  )
         out_file.write("\tchi = " + "'" + str(uni.infExp['infChit'])[1:-1] + "'\n"  )
 
-        #transpose
-        out_file.write("\tref_sigma_s = " + "'" + str(uni.infExp['infSp0'])[1:-1] + "'\n"  )
-        print(str(uni.infExp['infSp0'])[1:-1].split(' '))
+        rows = []
+        for i in range (group_number):
+            row = []
+            for j in range(group_number):
+                row.append(str(uni.infExp['infSp0'])[1:-1].split(' ')[i+ group_number*j])
+            rows.append(" ".join(row))
+        out_file.write("\tref_sigma_s = " + "'" + "; ".join(rows) + "'\n"  )
+        out_file.write("[]\n")
 
 
 
@@ -33,5 +42,7 @@ universes = []
 for name in univ_names:
     universes.append(r.getUniv(name, 0,0))
 
+open('mnr_sphdf.i', 'w').close()
 
-writematerial(universes[5], output_path)
+for universe in universes:
+    writematerial(universe, output_path)
