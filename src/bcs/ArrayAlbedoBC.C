@@ -8,7 +8,7 @@ ArrayAlbedoBC::validParams()
   InputParameters params = ArrayIntegratedBC::validParams();
 
   params.addRequiredParam<RealEigenMatrix>("albedo_matrix","(incoming current in group i)/(outgoing current in group j)");
-  params.addRequiredParam<MaterialPropertyName>("diffusivity", "The proportionality constant between flux and current");
+  params.addRequiredParam<MaterialPropertyName>("diffusivity", "____");
 
   return params;
 }
@@ -27,8 +27,11 @@ ArrayAlbedoBC::ArrayAlbedoBC(const InputParameters & parameters)
 void
 ArrayAlbedoBC::computeQpResidual(RealEigenVector & residual)
 {
- 
-  residual = (_albedo_matrix * (_diffusivity[_qp].asDiagonal() * _grad_u[_qp] * _array_normals[_qp]) ) * _test[_i][_qp];
+  auto one = Eigen::MatrixXd::Identity(_diffusivity.size(),_diffusivity.size());
+
+  //(A - Id)* (1/4 Phi - 1/2 D dPhi / dn)  cfr. Stacey 76
+
+  residual = ((_albedo_matrix - one) * ( 0.25*_u[_qp] + 0.5*_diffusivity[_qp].asDiagonal() * _grad_u[_qp] * _array_normals[_qp]) ) * _test[_i][_qp];
 
 }
 
