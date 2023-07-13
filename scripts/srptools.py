@@ -37,25 +37,27 @@ def writematerial(uni, path):
 
 
 def writealbedo(res_path, path):
-    ALB_PART_ALB = []
+    ALB_IN_CURR = []
+    ALB_OUT_CURR = []
     lines = []
     
     with open(res_path, 'r') as r:
         lines = r.readlines()
 
+#Warning: MUST add a space to the end of the OUT values for this to work
+
     for i,line in enumerate(lines):
-        if line.startswith("ALB_PART_ALB"):
-            ALB_PART_ALB = line.split("=")[1]
-            print(0)
+        if line.startswith("ALB_IN_CURR"):
+            intermediate = ((line.split("=")[1]).split("  ")[1:-1])
+            for string in intermediate: 
+                ALB_IN_CURR.append(string.split(" ")[0])
+            intermediate = ((lines[i+1].split("=")[1]).split("  ")[1:-1])    
+            for string in intermediate: 
+                ALB_OUT_CURR.append(string.split(" ")[0])
 
     with open(path, 'a') as p:
         p.write("\n[BCs]\n" + "[./albedo]\n" + "\ttype = ArrayAlbedoBC \n" )
-        p.write(ALB_PART_ALB + "\n")
-
-'''    ALB_OUT_CURR =
-    ALB_TOT_ALB  =
-    ALB_PART_ALB =
-'''
+        print(len(ALB_OUT_CURR))
 
 
 r = serpentTools.read(res_path)
@@ -76,3 +78,4 @@ with open(output_path, 'a') as f:
 
 #write albedo bc
 writealbedo(res_path, output_path)
+
