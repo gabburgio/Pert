@@ -486,7 +486,3 @@
 	sigma_s = '5.83711e-01 1.70729e-04; 2.73602e-02 1.93826e+00'
 []
 []
-
-[BCs]
-[./albedo]
-	type = ArrayAlbedoBC 

@@ -1,5 +1,6 @@
 import serpentTools
 import numpy as np
+import albedo
 
 univ_names = ["F9plug_u",  "F8graph_u",   "F7rifl_u",   "MNR396", "MNR375", "MNR374", "MNR372", "MNR382", "MNR389",
 "E9rifl_u",   "E8graph_u",   "MNR394",     "MNRC77", "MNR377", "MNRC76", "MNR395", "MNRC80", "MNR387", 
@@ -37,69 +38,6 @@ def writematerial(uni, path):
         out_file.write("[]\n")
 
 
-def writealbedo(res_path, path):
-    ALB_IN_CURR = []
-    ALB_OUT_CURR = []
-    ALB_TOT_ALB = []
-    lines = []
-    
-    with open(res_path, 'r') as r:
-        lines = r.readlines()
-
-    #isolate actual entries
-
-    for i,line in enumerate(lines):
-        if line.startswith("ALB_IN_CURR"):
-            intermediate = ((line.split("=")[1]).split("  ")[1:])
-            for string in intermediate: 
-                ALB_IN_CURR.append(string.split(" ")[0])
-            intermediate = ((lines[i+1].split("=")[1]).split("  ")[1:])    
-            for string in intermediate: 
-                ALB_OUT_CURR.append(string.split(" ")[0])
-            intermediate = ((lines[i+2].split("=")[1]).split("  ")[1:])
-            for string in intermediate: 
-                ALB_TOT_ALB.append(string.split(" ")[0])
-
-
-    #compute albedo matrix for NT surface
-
-    ALB_IN_CURR = list(map(float, ALB_IN_CURR))
-    ALB_OUT_CURR = list(map(float, ALB_OUT_CURR))
-    ALB_TOT_CURR = list(map(float, ALB_TOT_CURR))
-
-    denom = np.zeros(group_number)
-    numer = np.zeros(group_number*group_number)
-    totalb = np.zeros(group_number)
-    check = []
-
-
-    #check that surface 6 is the top (nothing comes back from it)
-    for j in range(6):
-        check.append(sum(ALB_OUT_CURR[24*j:24*(j+1)]))
-    #print(check)
-
-    for i in range(group_number):
-        denom[i] = sum(ALB_IN_CURR[6*i:6*(i+1)])
-        totalb[i] = sum(ALB_TOT_ALB[6*i:6*(i+1)])
-
-    
-    for i in range(group_number*group_number*36):
-        if(i%group_number==0):
-            if(i%(group_number*6) == 0):
-                numer[0]+= ALB_OUT_CURR[i]
-            if(i%(group_number*6) == 1):
-                numer[1]+= ALB_OUT_CURR[i]
-        if(i%group_number==1):
-            if(i%(group_number*6) == 0):
-                numer[2]+= ALB_OUT_CURR[i]
-            if(i%(group_number*6) == 1):
-                numer[3]+= ALB_OUT_CURR[i]
-
-
-
-    with open(path, 'a') as p:
-        p.write("\n[BCs]\n" + "[./albedo]\n" + "\ttype = ArrayAlbedoBC \n" )
-
 
 r = serpentTools.read(res_path)
 
@@ -118,5 +56,5 @@ with open(output_path, 'a') as f:
     f.write("[]\n")
 
 #write albedo bc
-writealbedo(res_path, output_path)
+albedo.writealbedo(res_path, output_path, group_number)
 
