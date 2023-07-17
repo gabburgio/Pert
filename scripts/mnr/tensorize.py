@@ -20,8 +20,6 @@ def filler(tensor_dimension, previous_index, previous_point, tensor_index_array)
     tot_entries = 1
     seen_entries = 1
 
-    print("tensor array before = " + str(tensor_index_array))
-
     for dimension in tensor_dimension:
         tot_entries *= dimension
     
@@ -35,6 +33,8 @@ def filler(tensor_dimension, previous_index, previous_point, tensor_index_array)
     if (previous_index[previous_point] < tensor_dimension[previous_point]):
         previous_index[previous_point]+= 1
         print("adding index:" + str(previous_index))
+        print("former tensor array = " + str(tensor_index_array)) 
+
         tensor_index_array.append(previous_index)
         print("new tensor array = " + str(tensor_index_array)) 
         filler(tensor_dimension, previous_index, previous_point, tensor_index_array)
@@ -49,5 +49,5 @@ def filler(tensor_dimension, previous_index, previous_point, tensor_index_array)
 
 dims = [2,4,3,6]
 
-str(filler(dims, [0,0,0,0], 0, [[0,0,0,0]] ))
+str(filler(dims, [0,0,0,0], 0, [] ))
 
