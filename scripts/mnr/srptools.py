@@ -36,6 +36,9 @@ def writematerial(uni, path):
         
         scatt_matrix = np.transpose(scatt_matrix)
 
+        for i in range(group_number):
+            scatt_matrix[i][i] = 0
+
         out_file.write("\tsigma_s = '")
         for i in range(group_number):
             out_file.write(str(scatt_matrix[i][:])[1:-1])
