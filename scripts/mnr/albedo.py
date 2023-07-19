@@ -29,17 +29,42 @@ def writealbedo(res_path, path, group_number):
     ALB_OUT_CURR = list(map(float, ALB_OUT_CURR))
     ALB_TOT_ALB = list(map(float, ALB_TOT_ALB))
 
+    #check the difference with including the upper surface
+
     shape = (surface_number, group_number, surface_number, group_number)
-
+    surface_list = [0,1,2,3,4,5]
     tensor_aoc = np.empty(shape)
+    incoming_currents = np.zeros((group_number,group_number))
+    outgoing_currents = np.zeros(group_number)
+    albedos = np.zeros((group_number,group_number))
 
-    for i in range(len(ALB_OUT_CURR)):
-        tensor_aoc[np.unravel_index(i, shape)] = ALB_OUT_CURR[i]
+
+    incurr_shape = (surface_number, group_number)
+    for j in range(len(ALB_IN_CURR)):
+        index = np.unravel_index(j, incurr_shape)
+        for l in range(group_number):
+            if(index[1] == l and (index[0] in surface_list)):
+                outgoing_currents[l] += ALB_IN_CURR[j]
     
-    print(tensor_aoc)
+    for i in range(len(ALB_OUT_CURR)):
+        tensor_index = np.unravel_index(i, shape) 
+        tensor_aoc[tensor_index] = ALB_OUT_CURR[i]
+        for j in range(group_number):
+            for k in range(group_number):
+                if(tensor_index[1]==j and tensor_index[3]==k and (tensor_index[0] in surface_list) and (tensor_index[2] in surface_list)):
+                    incoming_currents[j][k] += tensor_aoc[tensor_index]
+            
+                albedos[j][k] = incoming_currents[j][k]/outgoing_currents[j]
 
-    with open(path, 'a') as p:
-        p.write("\n[BCs]\n" + "[./albedo]\n" + "\ttype = ArrayAlbedoBC \n" )
+
+    print(albedos)
+    print(ALB_IN_CURR)
+
+    
+    
+
+    """with open(path, 'a') as p:
+        p.write("\n[BCs]\n" + "[./albedo]\n" + "\ttype = ArrayAlbedoBC \n" )"""
 
 
 res_path = 'MNR_63V.inp_res.m'
