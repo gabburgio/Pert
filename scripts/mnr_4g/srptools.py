@@ -5,16 +5,16 @@ import numpy as np
 univ_names = ["F9plug_u",  "F8graph_u",   "F7rifl_u",   "MNR396", "MNR375", "MNR374", "MNR372", "MNR382", "MNR389",
 "E9rifl_u",   "E8graph_u",   "MNR394",     "MNRC77", "MNR377", "MNRC76", "MNR395", "MNRC80", "MNR387", 
 "D9graph_u",  "D8graph_u",   "D7rifl_u",   "MNR392", "MNR381", "MNR391", "MNR388", "MNR378", "MNR390",  
-"C9rifl_u",   "C8graph_u",   "MNR379",     "MNR393", "010400", "MNR384", "MNR383", "MNRC74", "MNR361", 
+"C9rifl_u",   "C8graph_u",   "MNR379",     "MNR393", "MNR10400", "MNR384", "MNR383", "MNRC74", "MNR361", 
 "B9plug_u",   "B8graph_u",   "MNR398",     "MNRC79", "MNR385", "MNRC78", "MNR358", "MNR373", "MNR365", 
-"A9plug_u",   "A8graph_u",   "A7rifl_u",   "MNR397", "MNR376", "MNR366", "MNR362", "010500", "MNR369" 	
+"A9plug_u",   "A8graph_u",   "A7rifl_u",   "MNR397", "MNR376", "MNR366", "MNR362", "MNR10500", "MNR369" 	
 ]
 
 res_path = 'MNR_63V.inp_res.m'
 mat_type = "NuclearMaterial"
 output_path = "mnr_sphdf.i"
 ref = ""
-group_number = 2
+group_number = 4
 
 
 def writematerial(uni, path):
@@ -93,6 +93,8 @@ for i in range(len(ALB_TOT_ALB)):
     alb_index = np.unravel_index(i, albedo_shape)
     albedo_matrix[alb_index] = ALB_TOT_ALB[i]
 
+albedo_matrix = np.transpose(albedo_matrix)
+
 
 with open(output_path, 'a') as f:
     f.write("\n[BCs] \n[./albedo] \n\ttype = ArrayAlbedoBC\n\tdiffusivity = diffusivity\n\talbedo_matrix = '")
@@ -100,5 +102,5 @@ with open(output_path, 'a') as f:
         f.write(str(albedo_matrix[i][:])[1:-1])
         if (i < group_number-1):
                 f.write("; ")
-    f.write("'\n[]\n")
+    f.write("'\n\tvariable = flux\n\tboundary = 'north south west east bottom'\n[]\n")
 

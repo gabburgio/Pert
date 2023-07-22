@@ -29,9 +29,9 @@ ArrayAlbedoBC::computeQpResidual(RealEigenVector & residual)
 {
   auto one = Eigen::MatrixXd::Identity(_diffusivity.size(),_diffusivity.size());
 
-  //(A - Id)* (1/4 Phi - 1/2 D dPhi / dn)  cfr. Stacey 76
+  //source = (A - Id)* (1/4 Phi - 1/2 D dPhi / dn)  cfr. Stacey 76
 
-  residual = ((_albedo_matrix - one) * ( 0.25*_u[_qp] + 0.5*_diffusivity[_qp].asDiagonal() * _grad_u[_qp] * _array_normals[_qp]) ) * _test[_i][_qp];
+  residual = -((_albedo_matrix - one) * ( 0.25*_u[_qp] + 0.5* (_diffusivity[_qp].asDiagonal() * _grad_u[_qp]) * _array_normals[_qp]) ) * _test[_i][_qp];
 
 }
 

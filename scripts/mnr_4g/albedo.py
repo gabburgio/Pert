@@ -32,7 +32,7 @@ def writealbedo(res_path, path, group_number):
     #check the difference with including the upper surface
 
     shape = (surface_number, group_number, surface_number, group_number)
-    surface_list = [0,1,2,3,4,5]
+    surface_list = [0,1,2,3,4]
     tensor_aoc = np.empty(shape)
     incoming_currents = np.zeros((group_number,group_number))
     outgoing_currents = np.zeros(group_number)
@@ -58,7 +58,7 @@ def writealbedo(res_path, path, group_number):
 
 
     print(albedos)
-    print(ALB_IN_CURR)
+    print(ALB_TOT_ALB)
 
     
     
@@ -70,4 +70,4 @@ def writealbedo(res_path, path, group_number):
 res_path = 'MNR_63V.inp_res.m'
 output_path = "mnr_sphdf.i"
 
-writealbedo(res_path, output_path, 2)
+writealbedo(res_path, output_path, 4)
