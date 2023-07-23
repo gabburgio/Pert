@@ -27,7 +27,8 @@ ArrayAlbedoBC::ArrayAlbedoBC(const InputParameters & parameters)
 void
 ArrayAlbedoBC::computeQpResidual(RealEigenVector & residual)
 {
-  auto one = Eigen::MatrixXd::Identity(_diffusivity.size(),_diffusivity.size());
+  auto one = Eigen::MatrixXd::Identity(_diffusivity[_qp].size(),_diffusivity[_qp].size());
+
 
   //source = (A - Id)* (1/4 Phi - 1/2 D dPhi / dn)  cfr. Stacey 76
 

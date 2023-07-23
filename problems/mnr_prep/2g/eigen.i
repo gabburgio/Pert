@@ -520,7 +520,7 @@ file = mnr.msh
     variable = flux
     type = ArrayAlbedoBC
     diffusivity = diffusivity
-    albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164 '
+    albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
     boundary = 'north south west east bottom'
 []
 [./vacuum]

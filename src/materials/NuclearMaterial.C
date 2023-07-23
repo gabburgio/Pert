@@ -37,9 +37,15 @@ NuclearMaterial::NuclearMaterial(const InputParameters & parameters) :
 
 void NuclearMaterial::computeQpProperties()
 {
+    _diffusivity[_qp].resize(_v_diffusivity.size());
+    _sigma_r[_qp].resize(_v_sigma_r.size());   
+    _sigma_s[_qp].resize(_v_sigma_s.rows(), _v_sigma_s.cols());
+    _chi_nu_sigma_f[_qp].resize(_v_sigma_s.rows(), _v_sigma_s.cols());
+
     _diffusivity[_qp]       = _v_diffusivity;
     _sigma_r[_qp]           = _v_sigma_r;
     _sigma_s[_qp]           = - _v_sigma_s;
     _chi_nu_sigma_f[_qp]    = - _v_chi * _v_nu_sigma_f.transpose();
+
     
 }
