@@ -17,6 +17,7 @@ ArrayAlbedoBC::ArrayAlbedoBC(const InputParameters & parameters)
   : ArrayIntegratedBC(parameters),
     _array_normals(_assembly.mappedNormals()),
     _grad_u(_var.gradSln()),
+    //_grad_u(coupledArrayGradient("variable")),
     _diffusivity(getMaterialProperty<RealEigenVector>("diffusivity")),
     _albedo_matrix(getParam<RealEigenMatrix>("albedo_matrix"))
 
