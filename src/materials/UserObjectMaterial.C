@@ -1,3 +1,4 @@
+/*
 #include "UserObjectMaterial.h"
 #include "ElementIntegralVariableUserObject.h"
 #include "ElementIntegralUserObject.h"
@@ -29,5 +30,6 @@ UserObjectMaterial::UserObjectMaterial(const InputParameters & parameters) :
 
 void UserObjectMaterial::computeQpProperties()
 {
-    _cross_section[_qp]       = (_ref_int/_uo.ElementIntegralUserObject::getValue())*_v_cross_section;
+    _cross_section[_qp] = (_ref_int/_uo.getValue())*_v_cross_section;
 }
+*/
