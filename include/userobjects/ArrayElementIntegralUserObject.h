@@ -1,14 +1,9 @@
+/*
 #pragma once
 
 #include "ElementUserObject.h"
 
-/**
- * This postprocessor computes a volume integral of the specified
- * variable.
- *
- * Note that specializations of this integral are possible by deriving
- * from this class and overriding computeQpIntegral().
- */
+
 class ElementIntegralUserObject : public ElementUserObject
 {
 public:
@@ -30,7 +25,10 @@ protected:
 
   const VariableValue & _u;
 
+  const unsigned int & variable_size;
+
   unsigned int _qp;
 
   RealEigenVector _integral_value;
 };
+*/

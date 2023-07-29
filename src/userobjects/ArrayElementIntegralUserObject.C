@@ -1,3 +1,6 @@
+
+/*
+
 #include "ElementIntegralUserObject.h"
 
 #include "libmesh/quadrature.h"
@@ -60,3 +63,4 @@ ElementIntegralUserObject::computeIntegral()
     sum += _JxW[_qp] * _coord[_qp] * computeQpIntegral();
   return sum;
 }
+*/
