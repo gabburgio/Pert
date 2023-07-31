@@ -71,7 +71,14 @@ file = fourzone.msh
     block = 'control_ul control_lr'
 []
 []
-    
+
+[UserObjects]
+[./aa]
+    type = ArrayElementIntegralUserObject
+    var_size = 2
+    variable = flux
+[]
+[]
 
 [Variables]
 [./flux]

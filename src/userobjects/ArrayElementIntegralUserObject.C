@@ -20,7 +20,7 @@ ArrayElementIntegralUserObject::ArrayElementIntegralUserObject(const InputParame
                                  false,
                                  "variable",
                                  Moose::VarKindType::VAR_ANY,
-                                 Moose::VarFieldType::VAR_FIELD_STANDARD),  
+                                 Moose::VarFieldType::VAR_FIELD_ARRAY),  
     _var_size(getParam<unsigned int>("var_size")),
     _u(coupledArrayValue("variable"))
 {
