@@ -1,15 +1,17 @@
-/*
 #pragma once
 
 #include "ElementUserObject.h"
+#include "MooseVariableInterface.h"
 
 
-class ElementIntegralUserObject : public ElementUserObject
+
+class ArrayElementIntegralUserObject : public ElementUserObject
+                                       public MooseVariableInterface<RealEigenVector>
 {
 public:
   static InputParameters validParams();
 
-  ElementIntegralUserObject(const InputParameters & parameters);
+  ArrayElementIntegralUserObject(const InputParameters & parameters);
 
   virtual void initialize() override;
   virtual void execute() override;
@@ -20,15 +22,14 @@ public:
   virtual RealEigenVector getValue();
 
 protected:
-  virtual RealEigenVector computeQpIntegral() = 0;
-  virtual RealEigenVector computeIntegral();
+  RealEigenVector computeQpIntegral();
+  RealEigenVector computeIntegral();
 
-  const VariableValue & _u;
+  const ArrayVariableValue & _u;
 
-  const unsigned int & variable_size;
+  const unsigned int  _var_size;
 
   unsigned int _qp;
 
   RealEigenVector _integral_value;
 };
-*/

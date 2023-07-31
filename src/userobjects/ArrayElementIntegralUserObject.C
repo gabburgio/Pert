@@ -1,66 +1,90 @@
 
-/*
-
-#include "ElementIntegralUserObject.h"
+#include "ArrayElementIntegralUserObject.h"
 
 #include "libmesh/quadrature.h"
 
 InputParameters
-ElementIntegralUserObject::validParams()
+ArrayElementIntegralUserObject::validParams()
 {
   InputParameters params = ElementUserObject::validParams();
+  params.addRequiredParam<unsigned int>("var_size", "__");
   params.addRequiredCoupledVar("variable", "The name of the variable that this object operates on");
-  params.addReqiredParam<unsigned int>("variable_size", "__");
   return params;
 }
 
-ElementIntegralUserObject::ElementIntegralUserObject(const InputParameters & parameters)
+ArrayElementIntegralUserObject::ArrayElementIntegralUserObject(const InputParameters & parameters)
   : ElementUserObject(parameters), _qp(0),
-      MooseVariableInterface<Real>(this,
+      MooseVariableInterface<RealEigenVector>(this,
                                  false,
                                  "variable",
                                  Moose::VarKindType::VAR_ANY,
                                  Moose::VarFieldType::VAR_FIELD_STANDARD),  
-    _variable_size(getParam<unsigned int>("variable_size")),
-    _u(coupledValue("variable")),
-   _integral_value(0)
+    _var_size(getParam<unsigned int>("var_size")),
+    _u(coupledArrayValue("variable"))
 {
+  _integral_value = Eigen::VectorXf::Zero(_var_size);
     addMooseVariableDependency(&mooseVariableField());
 }
 
 void
-ElementIntegralUserObject::initialize()
+ArrayElementIntegralUserObject::initialize()
 {
-  _integral_value = 0;
+  _integral_value = Eigen::VectorXf::Zero(_var_size);
 }
 
 void
-ElementIntegralUserObject::execute()
+ArrayElementIntegralUserObject::execute()
 {
-  _integral_value += computeIntegral();
+
+  RealEigenVector computed_value = computeIntegral(); 
+  for(int i =0; i<_var_size; ++i)
+  {
+    _integral_value(i) += computed_value(i);
+  }
 }
 
 RealEigenVector
-ElementIntegralUserObject::getValue()
+ArrayElementIntegralUserObject::getValue()
 {
-  gatherSum(_integral_value);
-  return _integral_value;
+
+  RealEigenVector gathersum_vector(_var_size);
+  for(int i =0; i<_var_size; ++i)
+  {
+    gathersum_vector(i) += gatherSum(_integral_value)(i);;
+  }
+  return gathersum_vector;
 }
 
 void
-ElementIntegralUserObject::threadJoin(const UserObject & y)
+ArrayElementIntegralUserObject::threadJoin(const UserObject & y)
 {
-  const ElementIntegralUserObject & pps = static_cast<const ElementIntegralUserObject &>(y);
-  _integral_value += pps._integral_value;
+  const ArrayElementIntegralUserObject & pps = static_cast<const ArrayElementIntegralUserObject &>(y);
+  pp_vector_integral = pps._integral_value;
+
+  for(int i =0; i<_var_size; ++i)
+  {
+    _integral_value(i) += pp_vector_integral(i);
+  } 
 }
 
-RealEigenVector
-ElementIntegralUserObject::computeIntegral()
-{
-  RealEigenVector sum = 0;
 
-  for (_qp = 0; _qp < _qrule->n_points(); _qp++)
-    sum += _JxW[_qp] * _coord[_qp] * computeQpIntegral();
+RealEigenVector
+ArrayElementIntegralUserObject::computeIntegral()
+{
+  RealEigenVector sum = Eigen::VectorXf::Zero(_var_size);
+  RealEigenVector vector_integral = computeQpIntegral();
+
+  for(int i =0; i<_var_size; ++i)
+  {
+    for (_qp = 0; _qp < _qrule->n_points(); _qp++)
+      sum(i) += _JxW[_qp] * _coord[_qp] * vector_integral(i); 
+  }
   return sum;
 }
-*/
+
+
+RealEigenVector
+ArrayElementIntegralUserObject::computeQpIntegral()
+{
+  return _u[_qp];
+}
