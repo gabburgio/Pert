@@ -24,14 +24,14 @@ ArrayElementIntegralUserObject::ArrayElementIntegralUserObject(const InputParame
     _var_size(getParam<unsigned int>("var_size")),
     _u(coupledArrayValue("variable"))
 {
-  _integral_value = Eigen::VectorXf::Zero(_var_size);
+  _integral_value = RealEigenVector::Zero(_var_size);
     addMooseVariableDependency(&mooseVariableField());
 }
 
 void
 ArrayElementIntegralUserObject::initialize()
 {
-  _integral_value = Eigen::VectorXf::Zero(_var_size);
+  _integral_value = RealEigenVector::Zero(_var_size);
 }
 
 void
@@ -48,13 +48,11 @@ ArrayElementIntegralUserObject::execute()
 RealEigenVector
 ArrayElementIntegralUserObject::getValue()
 {
-
-  RealEigenVector gathersum_vector(_var_size);
   for(int i =0; i<_var_size; ++i)
   {
-    gathersum_vector(i) += gatherSum(_integral_value(i));;
+    gatherSum(_integral_value(i));
   }
-  return gathersum_vector;
+  return _integral_value;
 }
 
 void
@@ -73,7 +71,7 @@ ArrayElementIntegralUserObject::threadJoin(const UserObject & y)
 RealEigenVector
 ArrayElementIntegralUserObject::computeIntegral()
 {
-  RealEigenVector sum = Eigen::VectorXf::Zero(_var_size);
+  RealEigenVector sum = RealEigenVector::Zero(_var_size);
   RealEigenVector vector_integral = computeQpIntegral();
 
   for(int i =0; i<_var_size; ++i)
