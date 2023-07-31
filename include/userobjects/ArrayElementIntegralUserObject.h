@@ -5,7 +5,7 @@
 
 
 
-class ArrayElementIntegralUserObject : public ElementUserObject
+class ArrayElementIntegralUserObject : public ElementUserObject,
                                        public MooseVariableInterface<RealEigenVector>
 {
 public:

@@ -3,6 +3,8 @@
 
 #include "libmesh/quadrature.h"
 
+registerMooseObject("pertApp", ArrayElementIntegralUserObject);
+
 InputParameters
 ArrayElementIntegralUserObject::validParams()
 {
@@ -50,7 +52,7 @@ ArrayElementIntegralUserObject::getValue()
   RealEigenVector gathersum_vector(_var_size);
   for(int i =0; i<_var_size; ++i)
   {
-    gathersum_vector(i) += gatherSum(_integral_value)(i);;
+    gathersum_vector(i) += gatherSum(_integral_value(i));;
   }
   return gathersum_vector;
 }
@@ -59,7 +61,7 @@ void
 ArrayElementIntegralUserObject::threadJoin(const UserObject & y)
 {
   const ArrayElementIntegralUserObject & pps = static_cast<const ArrayElementIntegralUserObject &>(y);
-  pp_vector_integral = pps._integral_value;
+  RealEigenVector pp_vector_integral = pps._integral_value;
 
   for(int i =0; i<_var_size; ++i)
   {
