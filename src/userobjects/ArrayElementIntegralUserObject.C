@@ -43,10 +43,11 @@ ArrayElementIntegralUserObject::execute()
   {
     _integral_value(i) += computed_value(i);
   }
+  
 }
 
 RealEigenVector
-ArrayElementIntegralUserObject::getValue()
+ArrayElementIntegralUserObject::getValue() 
 {
   for(int i =0; i<_var_size; ++i)
   {
@@ -72,13 +73,16 @@ RealEigenVector
 ArrayElementIntegralUserObject::computeIntegral()
 {
   RealEigenVector sum = RealEigenVector::Zero(_var_size);
-  RealEigenVector vector_integral = computeQpIntegral();
 
-  for(int i =0; i<_var_size; ++i)
-  {
     for (_qp = 0; _qp < _qrule->n_points(); _qp++)
-      sum(i) += _JxW[_qp] * _coord[_qp] * vector_integral(i); 
-  }
+    {
+      RealEigenVector vector_integral = computeQpIntegral();
+      for(int i =0; i<_var_size; ++i)
+      {
+        sum(i) += _JxW[_qp] * _coord[_qp] * vector_integral(i); 
+      }
+    }
+  
   return sum;
 }
 

@@ -1,7 +1,5 @@
-/*
 #include "UserObjectMaterial.h"
-#include "ElementIntegralVariableUserObject.h"
-#include "ElementIntegralUserObject.h"
+#include "ArrayElementIntegralUserObject.h"
 
 registerMooseObject("pertApp",UserObjectMaterial);
 
@@ -20,7 +18,7 @@ UserObjectMaterial::validParams()
 UserObjectMaterial::UserObjectMaterial(const InputParameters & parameters) :
     Material(parameters),
 
-    _uo(getUserObject<ElementIntegralVariableUserObject>("user_object")),
+    _uo(const_cast<ArrayElementIntegralUserObject&>(getUserObject<ArrayElementIntegralUserObject>("user_object"))),
     _v_cross_section(     getParam<Real>("cross_section")),
     _ref_int(     getParam<Real>("ref_int")),
     _cross_section(       declareProperty<Real>("cross_section"))
@@ -30,6 +28,5 @@ UserObjectMaterial::UserObjectMaterial(const InputParameters & parameters) :
 
 void UserObjectMaterial::computeQpProperties()
 {
-    _cross_section[_qp] = (_ref_int/_uo.getValue())*_v_cross_section;
+    _cross_section[_qp] = (_ref_int*_uo.getValue()(0))*_v_cross_section;
 }
-*/

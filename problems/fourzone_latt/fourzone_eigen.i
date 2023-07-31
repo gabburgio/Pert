@@ -38,6 +38,12 @@ file = fourzone.msh
     chi = '1.00000E+00 0.00000E+00'
     sigma_s = '0 1.41390E-04; 1.62221E-02 0'
 []
+[./test]
+    type = UserObjectMaterial
+    user_object = aa
+    cross_section = 1
+    ref_int = 1
+[]
 [./internal_u]
     type = NuclearMaterial
     block = 'norm_ur norm_ll'
@@ -77,6 +83,26 @@ file = fourzone.msh
     type = ArrayElementIntegralUserObject
     var_size = 2
     variable = flux
+    execute_on = 'LINEAR'
+[]
+[]
+
+[Postprocessors]
+[./a]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = flux
+    component = 0
+    execute_on = 'LINEAR'
+[]
+[./b]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = flux
+    component = 1
+    execute_on = 'LINEAR'
+[]
+[./c]
+    type = ElementIntegralMaterialProperty
+    mat_prop = cross_section
 []
 []
 
