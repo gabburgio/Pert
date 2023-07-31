@@ -28,5 +28,5 @@ UserObjectMaterial::UserObjectMaterial(const InputParameters & parameters) :
 
 void UserObjectMaterial::computeQpProperties()
 {
-    _cross_section[_qp] = (_ref_int*_uo.getValue()(0))*_v_cross_section;
+    _cross_section[_qp] = (_ref_int/_uo.getValue()(0))*_v_cross_section;
 }
