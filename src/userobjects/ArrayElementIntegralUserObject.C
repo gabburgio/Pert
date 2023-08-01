@@ -49,10 +49,6 @@ ArrayElementIntegralUserObject::execute()
 RealEigenVector
 ArrayElementIntegralUserObject::getValue() 
 {
-  for(int i =0; i<_var_size; ++i)
-  {
-    gatherSum(_integral_value(i));
-  }
   return _integral_value;
 }
 
@@ -84,6 +80,15 @@ ArrayElementIntegralUserObject::computeIntegral()
     }
   
   return sum;
+}
+
+void
+ArrayElementIntegralUserObject::finalize()
+{
+  for(int i =0; i<_var_size; ++i)
+  {
+    gatherSum(_integral_value(i));
+  }
 }
 
 

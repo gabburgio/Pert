@@ -83,6 +83,7 @@ file = fourzone.msh
     type = ArrayElementIntegralUserObject
     var_size = 2
     variable = flux
+    block = 'control_ul'
     execute_on = 'LINEAR'
 []
 []
@@ -93,6 +94,7 @@ file = fourzone.msh
     variable = flux
     component = 0
     execute_on = 'LINEAR'
+    block = 'control_lr'
 []
 [./b]
     type = ElementIntegralArrayVariablePostprocessor
@@ -103,6 +105,8 @@ file = fourzone.msh
 [./c]
     type = ElementIntegralMaterialProperty
     mat_prop = cross_section
+    block = 'control_ul'
+    execute_on = 'NONLINEAR'
 []
 []
 
