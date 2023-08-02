@@ -1,5 +1,5 @@
 #include "UserObjectMaterial.h"
-#include "ArrayElementIntegralUserObject.h"
+#include "SPHFactorsUserObject.h"
 
 registerMooseObject("pertApp",UserObjectMaterial);
 
@@ -18,7 +18,7 @@ UserObjectMaterial::validParams()
 UserObjectMaterial::UserObjectMaterial(const InputParameters & parameters) :
     Material(parameters),
 
-    _uo(const_cast<ArrayElementIntegralUserObject&>(getUserObject<ArrayElementIntegralUserObject>("user_object"))),
+    _uo(const_cast<SPHFactorsUserObject&>(getUserObject<SPHFactorsUserObject>("user_object"))),
     _v_cross_section(     getParam<Real>("cross_section")),
     _ref_int(     getParam<Real>("ref_int")),
     _cross_section(       declareProperty<Real>("cross_section"))

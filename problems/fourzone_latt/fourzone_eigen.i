@@ -40,7 +40,7 @@ file = fourzone.msh
 []
 [./test]
     type = UserObjectMaterial
-    user_object = aa
+    user_object = rr
     cross_section = 1
     ref_int = 1
 []
@@ -86,6 +86,14 @@ file = fourzone.msh
     block = 'control_ul'
     execute_on = 'LINEAR'
 []
+[./rr]
+    type = SPHFactorsUserObject
+    var_size = 2
+    variable = flux
+    block = 'control_ul'
+    execute_on = 'LINEAR'
+    ref_fluxes = '1 1'
+[]
 []
 
 [Postprocessors]
@@ -94,7 +102,7 @@ file = fourzone.msh
     variable = flux
     component = 0
     execute_on = 'LINEAR'
-    block = 'control_lr'
+    block = 'control_ul'
 []
 [./b]
     type = ElementIntegralArrayVariablePostprocessor

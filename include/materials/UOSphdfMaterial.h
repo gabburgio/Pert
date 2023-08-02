@@ -2,13 +2,13 @@
 
 #include "Material.h"
 
-class ArrayElementIntegralUserObject;
+class SPHFactorsUserObject;
 
-class UoSphMaterial : public Material
+class UOSphdfMaterial : public Material
 {
 public:
     
-    UoSphMaterial(const InputParameters & parameters);
+    UOSphdfMaterial(const InputParameters & parameters);
 
     static InputParameters validParams();
     
@@ -23,8 +23,8 @@ protected:
     const Real & _ref_k;
 
     
-    const RealEigenVector & _ref_phi_mg;
-    ArrayElementIntegralUserObject & _integrator;
+    SPHFactorsUserObject & _sph_factors_uo;
+    SPHFactorsUserObject & _normalization_factors_uo;
 
     MaterialProperty<RealEigenVector> & _diffusivity;
     MaterialProperty<RealEigenVector> & _sigma_r;

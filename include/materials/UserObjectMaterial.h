@@ -2,7 +2,7 @@
 
 #include "Material.h"
 
-class ArrayElementIntegralUserObject;
+class SPHFactorsUserObject;
 
 class UserObjectMaterial : public Material
 {
@@ -15,7 +15,7 @@ public:
 protected:
     virtual void computeQpProperties() override;
     
-    ArrayElementIntegralUserObject & _uo;
+    SPHFactorsUserObject & _uo;
     const Real & _v_cross_section;
     const Real & _ref_int;
     
