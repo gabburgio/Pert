@@ -35,13 +35,18 @@ file = fourzone.msh
     block = 'control_ul control_lr'
     execute_on = 'LINEAR'
 []
-[./bb]
+[./normal]
     type = SPHFactorsUserObject
     var_size = 2
     variable = flux
     ref_fluxes = '2346.4 838.887'
     block = 'norm_ll norm_ur'
     execute_on = 'LINEAR'
+[]
+[./total]
+    type = SPHFactorsUserObject
+    var_size = 2
+    variable = 
 []
 []
 

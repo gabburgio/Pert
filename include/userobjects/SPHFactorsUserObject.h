@@ -6,7 +6,7 @@
 
 
 class SPHFactorsUserObject : public ElementUserObject,
-                                       public MooseVariableInterface<RealEigenVector>
+                             public MooseVariableInterface<RealEigenVector>
 {
 public:
   static InputParameters validParams();
@@ -20,6 +20,7 @@ public:
 
   /// Returns the integral value
   virtual RealEigenVector getValue();
+  RealEigenVector getIntegrals();
 
 protected:
   RealEigenVector computeQpIntegral();

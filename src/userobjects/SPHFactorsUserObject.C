@@ -39,6 +39,13 @@ SPHFactorsUserObject::getValue()
 }
 
 
+RealEigenVector
+SPHFactorsUserObject::getIntegrals() 
+{
+  return _integral_value;
+}
+
+
 
 
 void

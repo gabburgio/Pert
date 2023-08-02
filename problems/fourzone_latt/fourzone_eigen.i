@@ -80,10 +80,9 @@ file = fourzone.msh
 
 [UserObjects]
 [./aa]
-    type = ArrayElementIntegralUserObject
-    var_size = 2
-    variable = flux
-    block = 'control_ul'
+    type = NormalizationFactorsUserObject
+    ref_integrals = '1'
+    SPH_user_objects = 'rr'
     execute_on = 'LINEAR'
 []
 [./rr]
