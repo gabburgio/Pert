@@ -1,19 +1,22 @@
 #pragma once
 
-#include "UserObject.h"
-#include "Coupleable.h"
-#include "TransientInterface.h"
+#include "GeneralUserObject.h"
 
 class SPHFactorsUserObject;
 
-class NormalizationFactorsUserObject : public UserObject,
-                          public Coupleable,
-                          public TransientInterface
+class NormalizationFactorsUserObject : public GeneralUserObject
+
 {
 public:
   static InputParameters validParams();
 
   NormalizationFactorsUserObject(const InputParameters & parameters);
+
+
+virtual void initialize() override {}
+virtual void execute() override {}
+virtual void finalize() override {}
+
 
 RealEigenVector getNormalizationFactors();
 

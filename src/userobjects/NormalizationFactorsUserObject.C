@@ -1,7 +1,6 @@
 #include "NormalizationFactorsUserObject.h"
 #include "SPHFactorsUserObject.h"
-#include "SubProblem.h"
-#include "Assembly.h"
+
 
 registerMooseObject("pertApp", NormalizationFactorsUserObject);
 
@@ -17,9 +16,7 @@ NormalizationFactorsUserObject::validParams()
 }
 
 NormalizationFactorsUserObject::NormalizationFactorsUserObject(const InputParameters & parameters)
-  : UserObject(parameters),
-    Coupleable(this, false),
-    TransientInterface(this),
+  : GeneralUserObject(parameters),
   _ref_integrals(   getParam<RealEigenVector>("ref_integrals")),
   _SPH_user_objects(  getParam<std::vector<UserObjectName>>("SPH_user_objects"))
 {
@@ -30,3 +27,12 @@ NormalizationFactorsUserObject::NormalizationFactorsUserObject(const InputParame
   _current_integrals = RealEigenVector::Zero(std::size(_SPH_user_objects));
 }
 
+RealEigenVector NormalizationFactorsUserObject::getNormalizationFactors()
+{
+  for(int i =0; i<std::size(UO_vector); ++i)
+  {
+    _current_integrals += UO_vector[i].get().getIntegrals();
+  }
+  
+  return _current_integrals;
+}
