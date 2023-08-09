@@ -16,9 +16,8 @@ protected:
   virtual void computeQpResidual(RealEigenVector & residual) override;
 
     NormalizationFactorsUserObject & _normalization_factors_uo;
-    
+
    const std::vector<PostprocessorName> & _surface_integrators;
-   const RealEigenVector & _ref_phi_g;
    const RealEigenVector & _ref_current_integral;
 
 

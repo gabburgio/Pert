@@ -73,12 +73,11 @@ file = fourzone.msh
 [BCs]
 [./vacBC]
     variable = flux
-    type = DFArrayVacuumBC
+    type = UoDFArrayVacuumBC
     boundary = 'boundary'
-    total_integrators = 'full_volume_0 full_volume_1'
+    normalization_factors_uo = total
     surface_integrators = 'surf_0 surf_1'
     ref_current_integral = '23.12 1.614'
-    ref_phi_g = '3600 1343.122'
 []
 []
 

@@ -24,15 +24,18 @@ NormalizationFactorsUserObject::NormalizationFactorsUserObject(const InputParame
     //UO_vector.push_back(std::ref( const_cast<SPHFactorsUserObject &>(getUserObject<SPHFactorsUserObject>(_SPH_user_objects[i])) ));
     UO_vector.push_back( const_cast<SPHFactorsUserObject &>(getUserObjectByName<SPHFactorsUserObject>(_SPH_user_objects[i])) );
   }
-  _current_integrals = RealEigenVector::Zero(std::size(_SPH_user_objects));
+  _current_integrals = RealEigenVector::Zero(std::size(_ref_integrals));
 }
 
 RealEigenVector NormalizationFactorsUserObject::getNormalizationFactors()
 {
+
+  _current_integrals = RealEigenVector::Zero(std::size(_ref_integrals));
+
   for(int i =0; i<std::size(UO_vector); ++i)
   {
     _current_integrals += UO_vector[i].get().getIntegrals();
   }
   
-  return _current_integrals;
+  return _current_integrals.cwiseQuotient(_ref_integrals);
 }
