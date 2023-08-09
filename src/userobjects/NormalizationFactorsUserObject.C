@@ -7,8 +7,7 @@ registerMooseObject("pertApp", NormalizationFactorsUserObject);
 InputParameters
 NormalizationFactorsUserObject::validParams()
 {
-  InputParameters params = UserObject::validParams();
-  params += TransientInterface::validParams();
+  InputParameters params = GeneralUserObject::validParams();
   params.addRequiredParam<std::vector<UserObjectName>>("SPH_user_objects", "___");    
   params.addRequiredParam<RealEigenVector>("ref_integrals", "___");
 
@@ -22,7 +21,8 @@ NormalizationFactorsUserObject::NormalizationFactorsUserObject(const InputParame
 {
   for(int i =0; i<std::size(_SPH_user_objects); ++i)
   {
-    UO_vector.push_back(std::ref( const_cast<SPHFactorsUserObject &>(getUserObject<SPHFactorsUserObject>(_SPH_user_objects[i])) ));
+    //UO_vector.push_back(std::ref( const_cast<SPHFactorsUserObject &>(getUserObject<SPHFactorsUserObject>(_SPH_user_objects[i])) ));
+    UO_vector.push_back( const_cast<SPHFactorsUserObject &>(getUserObjectByName<SPHFactorsUserObject>(_SPH_user_objects[i])) );
   }
   _current_integrals = RealEigenVector::Zero(std::size(_SPH_user_objects));
 }

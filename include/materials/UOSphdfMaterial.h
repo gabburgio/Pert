@@ -3,6 +3,7 @@
 #include "Material.h"
 
 class SPHFactorsUserObject;
+class NormalizationFactorsUserObject;
 
 class UOSphdfMaterial : public Material
 {
@@ -24,7 +25,7 @@ protected:
 
     
     SPHFactorsUserObject & _sph_factors_uo;
-    SPHFactorsUserObject & _normalization_factors_uo;
+    NormalizationFactorsUserObject & _normalization_factors_uo;
 
     MaterialProperty<RealEigenVector> & _diffusivity;
     MaterialProperty<RealEigenVector> & _sigma_r;

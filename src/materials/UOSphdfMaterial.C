@@ -1,5 +1,6 @@
 #include "UOSphdfMaterial.h"
 #include "SPHFactorsUserObject.h"
+#include "NormalizationFactorsUserObject.h"
 
 registerMooseObject("pertApp",UOSphdfMaterial);
 
@@ -32,7 +33,7 @@ UOSphdfMaterial::UOSphdfMaterial(const InputParameters & parameters) :
     
 
     _sph_factors_uo(const_cast<SPHFactorsUserObject&>(getUserObject<SPHFactorsUserObject>("sph_factors_uo"))),
-    _normalization_factors_uo(const_cast<SPHFactorsUserObject&>(getUserObject<SPHFactorsUserObject>("normalization_factors_uo"))),
+    _normalization_factors_uo(const_cast<NormalizationFactorsUserObject&>(getUserObject<NormalizationFactorsUserObject>("normalization_factors_uo"))),
 
 
     _diffusivity(       declareProperty<RealEigenVector>("sphdf_diffusivity")),
@@ -53,7 +54,7 @@ UOSphdfMaterial::computeQpProperties()
     _chi_nu_sigma_f[_qp].resize(_v_sigma_s.rows(), _v_sigma_s.cols());
 
     RealEigenVector sph_factors = _sph_factors_uo.getValue();
-    RealEigenVector normalization_factors = _normalization_factors_uo.getValue();;
+    RealEigenVector normalization_factors = _normalization_factors_uo.getNormalizationFactors();
     
 
     //sph_factors.conservativeResize(_v_diffusivity.size());
