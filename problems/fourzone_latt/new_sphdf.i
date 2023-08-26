@@ -68,6 +68,12 @@ file = fourzone.msh
     execute_on = 'LINEAR'
     boundary = 'boundary'    
 []
+[./matcheck]
+    type = ArrayMaterialPropertyIntegralPostprocessor
+    property = sphdf_sigma_r
+    component = 0
+    execute_on = 'LINEAR'
+[]
 []
 
 [BCs]

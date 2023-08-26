@@ -27,6 +27,7 @@ SPHFactorsUserObject::SPHFactorsUserObject(const InputParameters & parameters)
 {
   _integral_value = RealEigenVector::Zero(_var_size);
     addMooseVariableDependency(&mooseVariableField());
+  _sph_factors = RealEigenVector::Ones(_var_size);
 }
 
 
@@ -35,7 +36,7 @@ SPHFactorsUserObject::SPHFactorsUserObject(const InputParameters & parameters)
 RealEigenVector
 SPHFactorsUserObject::getValue() const
 {
-  return _ref_fluxes.cwiseQuotient(_integral_value);
+  return _sph_factors;
 }
 
 
@@ -96,6 +97,8 @@ SPHFactorsUserObject::finalize()
   {
     gatherSum(_integral_value(i));
   }
+  _sph_factors = _ref_fluxes.cwiseQuotient(_integral_value);
+
 }
 
 

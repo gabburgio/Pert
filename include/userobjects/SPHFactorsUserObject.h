@@ -34,4 +34,6 @@ protected:
 
   RealEigenVector _integral_value;
   const RealEigenVector & _ref_fluxes;
+  RealEigenVector _sph_factors;
+
 };

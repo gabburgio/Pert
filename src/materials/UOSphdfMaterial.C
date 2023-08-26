@@ -73,6 +73,4 @@ UOSphdfMaterial::computeQpProperties()
         _sigma_s[_qp].row(j)    = -_v_sigma_s.row(j).cwiseProduct(tilde_factors.transpose());
     }
 
-
-    
 }

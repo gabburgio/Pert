@@ -18,18 +18,19 @@ NormalizationFactorsUserObject::NormalizationFactorsUserObject(const InputParame
   : GeneralUserObject(parameters),
   _ref_integrals(   getParam<RealEigenVector>("ref_integrals")),
   _SPH_user_objects(  getParam<std::vector<UserObjectName>>("SPH_user_objects"))
+
 {
   for(int i =0; i<std::size(_SPH_user_objects); ++i)
   {
-    //UO_vector.push_back( const_cast<SPHFactorsUserObject &>(getUserObjectByName<SPHFactorsUserObject>(_SPH_user_objects[i])) );
     UO_vector.push_back( getUserObjectByName<SPHFactorsUserObject>(_SPH_user_objects[i])) ;
   }
   _current_integrals = RealEigenVector::Zero(std::size(_ref_integrals));
+  _normalization_factors = RealEigenVector::Ones(std::size(_ref_integrals));
 }
 
 RealEigenVector NormalizationFactorsUserObject::getNormalizationFactors() const 
-{  
-  return _current_integrals.cwiseQuotient(_ref_integrals);
+{   
+  return _normalization_factors;
 }
 
 
@@ -44,5 +45,6 @@ void NormalizationFactorsUserObject::execute()
   {
     _current_integrals += UO_vector[i].get().getIntegrals();
   }
+  _normalization_factors = _current_integrals.cwiseQuotient(_ref_integrals);
 }
 
