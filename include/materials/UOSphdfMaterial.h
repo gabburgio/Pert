@@ -24,8 +24,8 @@ protected:
     const Real & _ref_k;
 
     
-    SPHFactorsUserObject & _sph_factors_uo;
-    NormalizationFactorsUserObject & _normalization_factors_uo;
+    const SPHFactorsUserObject & _sph_factors_uo;
+    const NormalizationFactorsUserObject & _normalization_factors_uo;
 
     MaterialProperty<RealEigenVector> & _diffusivity;
     MaterialProperty<RealEigenVector> & _sigma_r;
@@ -33,3 +33,4 @@ protected:
     MaterialProperty<RealEigenMatrix> & _chi_nu_sigma_f;
     
 };
+

@@ -33,14 +33,14 @@ SPHFactorsUserObject::SPHFactorsUserObject(const InputParameters & parameters)
 
 
 RealEigenVector
-SPHFactorsUserObject::getValue() 
+SPHFactorsUserObject::getValue() const
 {
   return _ref_fluxes.cwiseQuotient(_integral_value);
 }
 
 
 RealEigenVector
-SPHFactorsUserObject::getIntegrals() 
+SPHFactorsUserObject::getIntegrals() const
 {
   return _integral_value;
 }

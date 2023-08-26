@@ -19,8 +19,8 @@ public:
   virtual void finalize() override;
 
   /// Returns the integral value
-  virtual RealEigenVector getValue();
-  RealEigenVector getIntegrals();
+  virtual RealEigenVector getValue() const;
+  RealEigenVector getIntegrals() const;
 
 protected:
   RealEigenVector computeQpIntegral();

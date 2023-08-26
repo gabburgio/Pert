@@ -17,7 +17,7 @@ UoDFArrayVacuumBC::validParams()
 
 UoDFArrayVacuumBC::UoDFArrayVacuumBC(const InputParameters & parameters)
   : ArrayIntegratedBC(parameters),
-  _normalization_factors_uo(const_cast<NormalizationFactorsUserObject&>(getUserObject<NormalizationFactorsUserObject>("normalization_factors_uo"))),
+  _normalization_factors_uo(getUserObject<NormalizationFactorsUserObject>("normalization_factors_uo")),
     _surface_integrators( getParam<std::vector<PostprocessorName>>("surface_integrators")),
     _ref_current_integral(getParam<RealEigenVector>("ref_current_integral"))
 {
@@ -40,4 +40,5 @@ UoDFArrayVacuumBC::computeQpResidual(RealEigenVector & residual)
   residual = _u[_qp].cwiseProduct(gamma)* _test[_i][_qp];
 
 }
+
 

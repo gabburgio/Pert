@@ -32,8 +32,8 @@ UOSphdfMaterial::UOSphdfMaterial(const InputParameters & parameters) :
     _ref_k(             getParam<Real>("ref_k")),
     
 
-    _sph_factors_uo(const_cast<SPHFactorsUserObject&>(getUserObject<SPHFactorsUserObject>("sph_factors_uo"))),
-    _normalization_factors_uo(const_cast<NormalizationFactorsUserObject&>(getUserObject<NormalizationFactorsUserObject>("normalization_factors_uo"))),
+    _sph_factors_uo(getUserObject<SPHFactorsUserObject>("sph_factors_uo")),
+    _normalization_factors_uo(getUserObject<NormalizationFactorsUserObject>("normalization_factors_uo")),
 
 
     _diffusivity(       declareProperty<RealEigenVector>("sphdf_diffusivity")),

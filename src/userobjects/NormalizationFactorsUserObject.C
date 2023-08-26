@@ -21,21 +21,28 @@ NormalizationFactorsUserObject::NormalizationFactorsUserObject(const InputParame
 {
   for(int i =0; i<std::size(_SPH_user_objects); ++i)
   {
-    //UO_vector.push_back(std::ref( const_cast<SPHFactorsUserObject &>(getUserObject<SPHFactorsUserObject>(_SPH_user_objects[i])) ));
-    UO_vector.push_back( const_cast<SPHFactorsUserObject &>(getUserObjectByName<SPHFactorsUserObject>(_SPH_user_objects[i])) );
+    //UO_vector.push_back( const_cast<SPHFactorsUserObject &>(getUserObjectByName<SPHFactorsUserObject>(_SPH_user_objects[i])) );
+    UO_vector.push_back( getUserObjectByName<SPHFactorsUserObject>(_SPH_user_objects[i])) ;
   }
   _current_integrals = RealEigenVector::Zero(std::size(_ref_integrals));
 }
 
-RealEigenVector NormalizationFactorsUserObject::getNormalizationFactors()
+RealEigenVector NormalizationFactorsUserObject::getNormalizationFactors() const 
+{  
+  return _current_integrals.cwiseQuotient(_ref_integrals);
+}
+
+
+void NormalizationFactorsUserObject::initialize()
 {
-
   _current_integrals = RealEigenVector::Zero(std::size(_ref_integrals));
+}
 
+void NormalizationFactorsUserObject::execute()
+{
   for(int i =0; i<std::size(UO_vector); ++i)
   {
     _current_integrals += UO_vector[i].get().getIntegrals();
   }
-  
-  return _current_integrals.cwiseQuotient(_ref_integrals);
 }
+
