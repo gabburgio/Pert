@@ -28,3 +28,4 @@ ArrayMaterialPropertyIntegralPostprocessor::computeQpIntegral()
   return _property[_qp](_component);
 }
 
+//constcast
