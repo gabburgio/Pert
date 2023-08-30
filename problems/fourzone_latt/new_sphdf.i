@@ -49,6 +49,16 @@ file = fourzone.msh
     ref_integrals = '3600 1343.122'
     execute_on = 'LINEAR'
 []
+[./out]
+    type = OutputUserObject
+    SPH_uo_names = 'control normal'
+    ref_total_integrals  = '3600 1343.122'
+    normalization_uo_name = total
+    execute_on = 'NONLINEAR'
+    ref_zone_integrals = '1253.55 504.234; 2346.4 838.887'
+    surface_integrators = 'surf_0 surf_1'
+    ref_surface_integrals =  '23.12 1.614' 
+[]
 []
 
 
@@ -68,11 +78,17 @@ file = fourzone.msh
     execute_on = 'LINEAR'
     boundary = 'boundary'    
 []
-[./matcheck]
-    type = ArrayMaterialPropertyIntegralPostprocessor
-    property = sphdf_sigma_r
-    component = 0
+[./full_volume_0]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = flux
     execute_on = 'LINEAR'
+    component = 0
+[]
+[./full_volume_1]
+    type = ElementIntegralArrayVariablePostprocessor
+    variable = flux
+    execute_on = 'LINEAR '
+    component = 1
 []
 []
 
@@ -85,6 +101,15 @@ file = fourzone.msh
     surface_integrators = 'surf_0 surf_1'
     ref_current_integral = '23.12 1.614'
 []
+#[./vacBC]
+#    variable = flux
+#    type = DFArrayVacuumBC
+#    boundary = 'boundary'
+#    total_integrators = 'full_volume_0 full_volume_1'
+#    surface_integrators = 'surf_0 surf_1'
+#    ref_current_integral = '23.12 1.614'
+#    ref_phi_g = '3600 1343.122'
+#[]
 []
 
 [Materials]

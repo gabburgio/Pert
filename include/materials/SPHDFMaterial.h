@@ -33,4 +33,7 @@ protected:
     MaterialProperty<RealEigenMatrix> & _sigma_s;
     MaterialProperty<RealEigenMatrix> & _chi_nu_sigma_f;
     
+
+    RealEigenVector old_normalization;
+
 };

@@ -35,7 +35,7 @@ UoDFArrayVacuumBC::computeQpResidual(RealEigenVector & residual)
     surface_flux_integrators(i) = getPostprocessorValueByName(_surface_integrators[i]);
   }
   
-  RealEigenVector gamma = normalization_factors * (_ref_current_integral.cwiseQuotient(surface_flux_integrators));
+  RealEigenVector gamma = normalization_factors.cwiseProduct(_ref_current_integral.cwiseQuotient(surface_flux_integrators));
    
   residual = _u[_qp].cwiseProduct(gamma)* _test[_i][_qp];
 

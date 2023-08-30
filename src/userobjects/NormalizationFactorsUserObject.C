@@ -33,6 +33,17 @@ RealEigenVector NormalizationFactorsUserObject::getNormalizationFactors() const
   return _normalization_factors;
 }
 
+RealEigenVector NormalizationFactorsUserObject::getIntegrals() const 
+{   
+  return _current_integrals;
+}
+
+//RealEigenVector NormalizationFactorsUserObject::getTildeFactors() const 
+//{   
+//  return sph_factors.cwiseProduct(normalization_factors);
+//}
+
+
 
 void NormalizationFactorsUserObject::initialize()
 {
@@ -46,5 +57,13 @@ void NormalizationFactorsUserObject::execute()
     _current_integrals += UO_vector[i].get().getIntegrals();
   }
   _normalization_factors = _current_integrals.cwiseQuotient(_ref_integrals);
+
+
+//  std::cout << "normalization factors have been computed" << std::endl;
+//  std::cout << "integrals are" << _current_integrals << std::endl;
+//  std::cout << "normalization factors are" << _normalization_factors << std::endl;
+
+
+
 }
 

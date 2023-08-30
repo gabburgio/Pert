@@ -84,6 +84,21 @@ file = fourzone.msh
 []
 []
 
+#[UserObjects]
+#[./output]
+#    type = PostprocessorOutputUserObject
+#    ref_surface_integrals = '23.12 1.614' 
+#    ref_total_integrals = '3600 1343.122' 
+#    ref_zone_integrals = '1253.55 504.234; 2346.4 838.887'
+#    total_integrators = 'full_volume_0 full_volume_1'
+#    zone_integrators = 'control_volume_0 control_volume_1'
+#    surface_integrators = 'surf_0 surf_1'
+#    execute_on = 'NONLINEAR'
+#[]
+#[]
+
+
+
 [BCs]
 [./vacBC]
     variable = flux

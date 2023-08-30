@@ -59,8 +59,7 @@ void
 SPHFactorsUserObject::execute()
 {
 
-  RealEigenVector computed_value = computeIntegral(); 
-  _integral_value += computed_value;
+  _integral_value += computeIntegral();  
   
 }
 
@@ -98,6 +97,11 @@ SPHFactorsUserObject::finalize()
     gatherSum(_integral_value(i));
   }
   _sph_factors = _ref_fluxes.cwiseQuotient(_integral_value);
+
+//  std::cout<< "sph factors have been computed" << std::endl;
+//  std::cout << "zone integrals are " << _integral_value <<std::endl;
+//  std::cout << "sph factors are " << _sph_factors <<std::endl;
+
 
 }
 

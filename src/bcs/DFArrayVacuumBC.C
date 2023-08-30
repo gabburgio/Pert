@@ -39,5 +39,7 @@ DFArrayVacuumBC::computeQpResidual(RealEigenVector & residual)
   }
  
   residual = _u[_qp].cwiseProduct(gamma)* _test[_i][_qp];
+
+
 }
 

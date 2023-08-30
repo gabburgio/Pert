@@ -44,6 +44,7 @@ SPHDFMaterial::SPHDFMaterial(const InputParameters & parameters) :
     _sigma_s(           declareProperty<RealEigenMatrix>("sphdf_sigma_s")),
     _chi_nu_sigma_f(    declareProperty<RealEigenMatrix>("sphdf_chi_nu_sigma_f"))
 {
+    old_normalization = RealEigenVector::Zero(std::size(_ref_phi_g));
 }
 
 
@@ -60,12 +61,19 @@ SPHDFMaterial::computeQpProperties()
     RealEigenVector normalization_factors;
     RealEigenVector tilde_factors;
 
+    RealEigenVector _zone_integrals(_v_diffusivity.size());
+    RealEigenVector _total_integrals(_v_diffusivity.size());
+
     sph_factors.conservativeResize(_v_diffusivity.size());
     normalization_factors.conservativeResize(_v_diffusivity.size());
     tilde_factors.conservativeResize(_v_diffusivity.size());
 
     for(int i=0; i< _v_diffusivity.size(); i++ ) 
     {
+    
+    _zone_integrals(i) = getPostprocessorValueByName(_zone_integrators[i]);
+    _total_integrals(i) = getPostprocessorValueByName(_total_integrators[i]);
+
     normalization_factors(i) = getPostprocessorValueByName(_total_integrators[i])/_ref_phi_g(i);
     sph_factors(i)= _ref_phi_mg(i)/getPostprocessorValueByName(_zone_integrators[i]);
     }
@@ -84,5 +92,14 @@ SPHDFMaterial::computeQpProperties()
     }
 
 
-    
+    //if (normalization_factors != old_normalization)
+    //{
+    //old_normalization = normalization_factors;
+    //std::cout<<"materials are being evaluated" <<std::endl;
+    //std::cout << "zone integrals are " << _zone_integrals << std::endl;
+    //std::cout << "total integrals are " << _total_integrals << std::endl;
+    //std::cout << "normalization factors are " << normalization_factors << std::endl;
+    //std::cout << "sph factors are " << sph_factors << std::endl;
+    //}
+
 }
