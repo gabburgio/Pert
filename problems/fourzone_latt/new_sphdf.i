@@ -6,22 +6,22 @@ file = fourzone.msh
 [diffusion]
     type = ArrayDiffusion 
     variable = flux 
-    diffusion_coefficient = sphdf_diffusivity
+    diffusion_coefficient = diffusivity
 []
 [absorption]
     type = ArrayReaction
     variable = flux
-    reaction_coefficient = sphdf_sigma_r
+    reaction_coefficient = sigma_r
 []
 [scattering]
     type = ArrayReaction
     variable = flux
-    reaction_coefficient = sphdf_sigma_s
+    reaction_coefficient = sigma_s
 []
 [fission]
     type = ArrayReaction
     variable = flux
-    reaction_coefficient = sphdf_chi_nu_sigma_f
+    reaction_coefficient = chi_nu_sigma_f
 []
 []
 
@@ -52,10 +52,10 @@ file = fourzone.msh
 [./out]
     type = OutputUserObject
     SPH_uo_names = 'control normal'
-    ref_total_integrals  = '3600 1343.122'
+    #ref_total_integrals  = '3600 1343.122'
     normalization_uo_name = total
-    execute_on = 'NONLINEAR'
-    ref_zone_integrals = '1253.55 504.234; 2346.4 838.887'
+    execute_on = 'NONLINEAR TIMESTEP_END'
+    #ref_zone_integrals = '1253.55 504.234; 2346.4 838.887'
     surface_integrators = 'surf_0 surf_1'
     ref_surface_integrals =  '23.12 1.614' 
 []
@@ -78,18 +78,6 @@ file = fourzone.msh
     execute_on = 'LINEAR'
     boundary = 'boundary'    
 []
-[./full_volume_0]
-    type = ElementIntegralArrayVariablePostprocessor
-    variable = flux
-    execute_on = 'LINEAR'
-    component = 0
-[]
-[./full_volume_1]
-    type = ElementIntegralArrayVariablePostprocessor
-    variable = flux
-    execute_on = 'LINEAR '
-    component = 1
-[]
 []
 
 [BCs]
@@ -101,15 +89,6 @@ file = fourzone.msh
     surface_integrators = 'surf_0 surf_1'
     ref_current_integral = '23.12 1.614'
 []
-#[./vacBC]
-#    variable = flux
-#    type = DFArrayVacuumBC
-#    boundary = 'boundary'
-#    total_integrators = 'full_volume_0 full_volume_1'
-#    surface_integrators = 'surf_0 surf_1'
-#    ref_current_integral = '23.12 1.614'
-#    ref_phi_g = '3600 1343.122'
-#[]
 []
 
 [Materials]

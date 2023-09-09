@@ -21,6 +21,7 @@ virtual void finalize() override {};
 //RealEigenVector getTildeFactors() const;
 RealEigenVector getNormalizationFactors() const;
 RealEigenVector getIntegrals() const;
+RealEigenVector getRefIntegrals() const;
 
 
 protected:

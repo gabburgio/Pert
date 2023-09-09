@@ -33,9 +33,6 @@ const NormalizationFactorsUserObject* _normalization_user_object;
 const std::vector<PostprocessorName> & _surface_integrators;
 
 
-
-RealEigenVector _ref_total_integrals;
-RealEigenMatrix _ref_zone_integrals;
 RealEigenVector _ref_surface_integrals;
 
 

@@ -493,3 +493,656 @@
 	diffusivity = diffusivity
 	albedo_matrix = '0.17747   0.0367536 0.0651655 0.0423545; 0.156511  0.322919  0.0468769 0.0285121; 0.0763117 0.195154  0.386567  0.0101884; 0.070786 0.110833 0.252832 0.744361'
 []
+
+[ICs]
+[./ICF9plug_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.10413678584401433 0.009261896113330911 '
+	block = 'F9plug_u'
+[]
+[./ICF8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.23619168699081522 0.03935919256914535 '
+	block = 'F8graph_u'
+[]
+[./ICF7rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3170203933371387 0.08589850033729438 '
+	block = 'F7rifl_u'
+[]
+[./ICMNR396]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.22576098801307665 0.14538062373514607 '
+	block = 'MNR396'
+[]
+[./ICMNR375]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2951559337865186 0.19292771521976027 '
+	block = 'MNR375'
+[]
+[./ICMNR374]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.33988583882517776 0.2081511078823102 '
+	block = 'MNR374'
+[]
+[./ICMNR372]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3291816719422967 0.21672720668361786 '
+	block = 'MNR372'
+[]
+[./ICMNR382]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.28119817342120285 0.18919153131648592 '
+	block = 'MNR382'
+[]
+[./ICMNR389]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.20092574334492241 0.12746821649110063 '
+	block = 'MNR389'
+[]
+[./ICE9rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.16442997249753516 0.017675937937834053 '
+	block = 'E9rifl_u'
+[]
+[./ICE8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.290904986767682 0.0651055990867106 '
+	block = 'E8graph_u'
+[]
+[./ICMNR394]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.23742877899434384 0.1393311192984277 '
+	block = 'MNR394'
+[]
+[./ICMNRC77]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3503922993098438 0.21085568989673603 '
+	block = 'MNRC77'
+[]
+[./ICMNR377]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3697384671267708 0.2882242748170827 '
+	block = 'MNR377'
+[]
+[./ICMNRC76]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.49711224119142755 0.30713351668309896 '
+	block = 'MNRC76'
+[]
+[./ICMNR395]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3903372943801567 0.3315624513517721 '
+	block = 'MNR395'
+[]
+[./ICMNRC80]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.454774012765295 0.27605676923875255 '
+	block = 'MNRC80'
+[]
+[./ICMNR387]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2548591147319807 0.1835924446058845 '
+	block = 'MNR387'
+[]
+[./ICD9graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.19692179959524675 0.02308344144050646 '
+	block = 'D9graph_u'
+[]
+[./ICD8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.37351460744123294 0.08057703284728349 '
+	block = 'D8graph_u'
+[]
+[./ICD7rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.48901302475221836 0.16951585283586737 '
+	block = 'D7rifl_u'
+[]
+[./ICMNR392]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.35379482123397854 0.2625234808780032 '
+	block = 'MNR392'
+[]
+[./ICMNR381]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4847890612837943 0.3348632660474288 '
+	block = 'MNR381'
+[]
+[./ICMNR391]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.47490218462975453 0.3839504955632816 '
+	block = 'MNR391'
+[]
+[./ICMNR388]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4585366613045509 0.38342794873125424 '
+	block = 'MNR388'
+[]
+[./ICMNR378]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4069975611021743 0.30560946499922165 '
+	block = 'MNR378'
+[]
+[./ICMNR390]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.27735820663172644 0.19848892117689793 '
+	block = 'MNR390'
+[]
+[./ICC9rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.19646982512583674 0.022506201027450573 '
+	block = 'C9rifl_u'
+[]
+[./ICC8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3462959887914483 0.08485029318665352 '
+	block = 'C8graph_u'
+[]
+[./ICMNR379]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2930304602771003 0.18393752270250635 '
+	block = 'MNR379'
+[]
+[./ICMNR393]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.36510923148772767 0.26299776866794666 '
+	block = 'MNR393'
+[]
+[./IC010400]
+	type = ArrayConstantIC
+	variable = flux
+	value = '1.0 0.2935280992164392 '
+	block = '010400'
+[]
+[./ICMNR384]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4924165845052151 0.35878781588915987 '
+	block = 'MNR384'
+[]
+[./ICMNR383]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4526656634321001 0.3554164288308858 '
+	block = 'MNR383'
+[]
+[./ICMNRC74]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.45257485340667325 0.262009236676872 '
+	block = 'MNRC74'
+[]
+[./ICMNR361]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.28841004618338434 0.17442893466867312 '
+	block = 'MNR361'
+[]
+[./ICB9plug_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.15914534793212598 0.01628042135851798 '
+	block = 'B9plug_u'
+[]
+[./ICB8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.30674848217528927 0.0751709823050179 '
+	block = 'B8graph_u'
+[]
+[./ICMNR398]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2322562399460329 0.15988168750972964 '
+	block = 'MNR398'
+[]
+[./ICMNRC79]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3448591147319807 0.22072388563125941 '
+	block = 'MNRC79'
+[]
+[./ICMNR385]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.38786155362980645 0.26754657257018316 '
+	block = 'MNR385'
+[]
+[./ICMNRC78]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4686139795547714 0.2771895594416481 '
+	block = 'MNRC78'
+[]
+[./ICMNR358]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.40518239842250015 0.28406621348139693 '
+	block = 'MNR358'
+[]
+[./ICMNR373]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.34521197654506774 0.2306787400757615 '
+	block = 'MNR373'
+[]
+[./ICMNR365]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.24005863733070418 0.14496653001919985 '
+	block = 'MNR365'
+[]
+[./ICA9plug_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.12092522443049142 0.011806756265891755 '
+	block = 'A9plug_u'
+[]
+[./ICA8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2760469098645633 0.051082507394530643 '
+	block = 'A8graph_u'
+[]
+[./ICA7rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.36290125058377876 0.1075579886876654 '
+	block = 'A7rifl_u'
+[]
+[./ICMNR397]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2454927092522443 0.16905609464999222 '
+	block = 'MNR397'
+[]
+[./ICMNR376]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3011493954646879 0.20710445747496237 '
+	block = 'MNR376'
+[]
+[./ICMNR366]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3408883815058897 0.20633335063048103 '
+	block = 'MNR366'
+[]
+[./ICMNR362]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.34094701883659384 0.19665715323543148 '
+	block = 'MNR362'
+[]
+[./IC010500]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4090228841264076 0.15955840381921021 '
+	block = '010500'
+[]
+[./ICMNR369]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.19609413107778528 0.09892273364122256 '
+	block = 'MNR369'
+[]
+[]
+[ICs]
+[./ICF9plug_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.10413678584401433 0.009261896113330911 '
+	block = 'F9plug_u'
+[]
+[./ICF8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.23619168699081522 0.03935919256914535 '
+	block = 'F8graph_u'
+[]
+[./ICF7rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3170203933371387 0.08589850033729438 '
+	block = 'F7rifl_u'
+[]
+[./ICMNR396]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.22576098801307665 0.14538062373514607 '
+	block = 'MNR396'
+[]
+[./ICMNR375]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2951559337865186 0.19292771521976027 '
+	block = 'MNR375'
+[]
+[./ICMNR374]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.33988583882517776 0.2081511078823102 '
+	block = 'MNR374'
+[]
+[./ICMNR372]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3291816719422967 0.21672720668361786 '
+	block = 'MNR372'
+[]
+[./ICMNR382]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.28119817342120285 0.18919153131648592 '
+	block = 'MNR382'
+[]
+[./ICMNR389]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.20092574334492241 0.12746821649110063 '
+	block = 'MNR389'
+[]
+[./ICE9rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.16442997249753516 0.017675937937834053 '
+	block = 'E9rifl_u'
+[]
+[./ICE8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.290904986767682 0.0651055990867106 '
+	block = 'E8graph_u'
+[]
+[./ICMNR394]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.23742877899434384 0.1393311192984277 '
+	block = 'MNR394'
+[]
+[./ICMNRC77]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3503922993098438 0.21085568989673603 '
+	block = 'MNRC77'
+[]
+[./ICMNR377]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3697384671267708 0.2882242748170827 '
+	block = 'MNR377'
+[]
+[./ICMNRC76]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.49711224119142755 0.30713351668309896 '
+	block = 'MNRC76'
+[]
+[./ICMNR395]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3903372943801567 0.3315624513517721 '
+	block = 'MNR395'
+[]
+[./ICMNRC80]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.454774012765295 0.27605676923875255 '
+	block = 'MNRC80'
+[]
+[./ICMNR387]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2548591147319807 0.1835924446058845 '
+	block = 'MNR387'
+[]
+[./ICD9graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.19692179959524675 0.02308344144050646 '
+	block = 'D9graph_u'
+[]
+[./ICD8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.37351460744123294 0.08057703284728349 '
+	block = 'D8graph_u'
+[]
+[./ICD7rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.48901302475221836 0.16951585283586737 '
+	block = 'D7rifl_u'
+[]
+[./ICMNR392]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.35379482123397854 0.2625234808780032 '
+	block = 'MNR392'
+[]
+[./ICMNR381]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4847890612837943 0.3348632660474288 '
+	block = 'MNR381'
+[]
+[./ICMNR391]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.47490218462975453 0.3839504955632816 '
+	block = 'MNR391'
+[]
+[./ICMNR388]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4585366613045509 0.38342794873125424 '
+	block = 'MNR388'
+[]
+[./ICMNR378]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4069975611021743 0.30560946499922165 '
+	block = 'MNR378'
+[]
+[./ICMNR390]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.27735820663172644 0.19848892117689793 '
+	block = 'MNR390'
+[]
+[./ICC9rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.19646982512583674 0.022506201027450573 '
+	block = 'C9rifl_u'
+[]
+[./ICC8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3462959887914483 0.08485029318665352 '
+	block = 'C8graph_u'
+[]
+[./ICMNR379]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2930304602771003 0.18393752270250635 '
+	block = 'MNR379'
+[]
+[./ICMNR393]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.36510923148772767 0.26299776866794666 '
+	block = 'MNR393'
+[]
+[./IC010400]
+	type = ArrayConstantIC
+	variable = flux
+	value = '1.0 0.2935280992164392 '
+	block = '010400'
+[]
+[./ICMNR384]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4924165845052151 0.35878781588915987 '
+	block = 'MNR384'
+[]
+[./ICMNR383]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4526656634321001 0.3554164288308858 '
+	block = 'MNR383'
+[]
+[./ICMNRC74]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.45257485340667325 0.262009236676872 '
+	block = 'MNRC74'
+[]
+[./ICMNR361]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.28841004618338434 0.17442893466867312 '
+	block = 'MNR361'
+[]
+[./ICB9plug_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.15914534793212598 0.01628042135851798 '
+	block = 'B9plug_u'
+[]
+[./ICB8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.30674848217528927 0.0751709823050179 '
+	block = 'B8graph_u'
+[]
+[./ICMNR398]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2322562399460329 0.15988168750972964 '
+	block = 'MNR398'
+[]
+[./ICMNRC79]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3448591147319807 0.22072388563125941 '
+	block = 'MNRC79'
+[]
+[./ICMNR385]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.38786155362980645 0.26754657257018316 '
+	block = 'MNR385'
+[]
+[./ICMNRC78]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4686139795547714 0.2771895594416481 '
+	block = 'MNRC78'
+[]
+[./ICMNR358]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.40518239842250015 0.28406621348139693 '
+	block = 'MNR358'
+[]
+[./ICMNR373]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.34521197654506774 0.2306787400757615 '
+	block = 'MNR373'
+[]
+[./ICMNR365]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.24005863733070418 0.14496653001919985 '
+	block = 'MNR365'
+[]
+[./ICA9plug_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.12092522443049142 0.011806756265891755 '
+	block = 'A9plug_u'
+[]
+[./ICA8graph_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2760469098645633 0.051082507394530643 '
+	block = 'A8graph_u'
+[]
+[./ICA7rifl_u]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.36290125058377876 0.1075579886876654 '
+	block = 'A7rifl_u'
+[]
+[./ICMNR397]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.2454927092522443 0.16905609464999222 '
+	block = 'MNR397'
+[]
+[./ICMNR376]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3011493954646879 0.20710445747496237 '
+	block = 'MNR376'
+[]
+[./ICMNR366]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.3408883815058897 0.20633335063048103 '
+	block = 'MNR366'
+[]
+[./ICMNR362]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.34094701883659384 0.19665715323543148 '
+	block = 'MNR362'
+[]
+[./IC010500]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.4090228841264076 0.15955840381921021 '
+	block = '010500'
+[]
+[./ICMNR369]
+	type = ArrayConstantIC
+	variable = flux
+	value = '0.19609413107778528 0.09892273364122256 '
+	block = 'MNR369'
+[]
+[]

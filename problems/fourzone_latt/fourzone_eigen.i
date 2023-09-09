@@ -38,12 +38,6 @@ file = fourzone.msh
     chi = '1.00000E+00 0.00000E+00'
     sigma_s = '0 1.41390E-04; 1.62221E-02 0'
 []
-[./test]
-    type = UserObjectMaterial
-    user_object = rr
-    cross_section = 1
-    ref_int = 1
-[]
 [./internal_u]
     type = NuclearMaterial
     block = 'norm_ur norm_ll'
@@ -78,44 +72,44 @@ file = fourzone.msh
 []
 []
 
-[UserObjects]
-[./aa]
-    type = NormalizationFactorsUserObject
-    ref_integrals = '1'
-    SPH_user_objects = 'rr'
-    execute_on = 'LINEAR'
-[]
-[./rr]
-    type = SPHFactorsUserObject
-    var_size = 2
-    variable = flux
-    block = 'control_ul'
-    execute_on = 'LINEAR'
-    ref_fluxes = '1 1'
-[]
-[]
+#[UserObjects]
+#[./aa]
+#    type = NormalizationFactorsUserObject
+#    ref_integrals = '1'
+#    SPH_user_objects = 'rr'
+#    execute_on = 'LINEAR'
+#[]
+#[./rr]
+#    type = SPHFactorsUserObject
+#    var_size = 2
+#    variable = flux
+#    block = 'control_ul'
+#    execute_on = 'LINEAR'
+#    ref_fluxes = '1 1'
+#[]
+#[]
 
-[Postprocessors]
-[./a]
-    type = ElementIntegralArrayVariablePostprocessor
-    variable = flux
-    component = 0
-    execute_on = 'LINEAR'
-    block = 'control_ul'
-[]
-[./b]
-    type = ElementIntegralArrayVariablePostprocessor
-    variable = flux
-    component = 1
-    execute_on = 'LINEAR'
-[]
-[./c]
-    type = ElementIntegralMaterialProperty
-    mat_prop = cross_section
-    block = 'control_ul'
-    execute_on = 'NONLINEAR'
-[]
-[]
+#[Postprocessors]
+#[./a]
+#    type = ElementIntegralArrayVariablePostprocessor
+#    variable = flux
+#    component = 0
+#    execute_on = 'LINEAR'
+#    block = 'control_ul'
+#[]
+#[./b]
+#    type = ElementIntegralArrayVariablePostprocessor
+#    variable = flux
+#    component = 1
+#    execute_on = 'LINEAR'
+#[]
+#[./c]
+#    type = ElementIntegralMaterialProperty
+#    mat_prop = cross_section
+#    block = 'control_ul'
+#    execute_on = 'NONLINEAR'
+#[]
+#[]
 
 [Variables]
 [./flux]

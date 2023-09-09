@@ -32,20 +32,20 @@ file = fourzone.msh
 [./external_u]
     type = NuclearMaterial
     block = 'control_ul control_lr'
-    nu_sigma_f = '0.0121431 0.0318641'
-    diffusivity = '1.18167612 0.14995689'
-    sigma_r = '0.0232711  0.03874258'
+    nu_sigma_f = '0.01214952 0.03188104'
+    diffusivity = '1.18230054 0.15003659'
+    sigma_r = '0.0232834  0.03876317'
     chi = '1.00000E+00 0.00000E+00'
-    sigma_s = '0 0.00013555; 0.01373974 0'
+    sigma_s = '0  0.00013562; 0.013747 0'
 []
 [./internal_u]
     type = NuclearMaterial
     block = 'norm_ur norm_ll'
-    nu_sigma_f = '0.01847052 0.05169175'
-    diffusivity = '1.76270207 0.16295949'
-    sigma_r = '0.02802592 0.04389014'
+    nu_sigma_f = '0.01848024 0.05171939'
+    diffusivity = '1.76362931 0.16304662'
+    sigma_r = '0.02804067 0.04391361'
     chi = '1.00000E+00 0.00000E+00'
-    sigma_s = '0 0.0001597;0.01769885 0'
+    sigma_s = '0 0.00015979;0.01770816 0'
 []
 [../]
 

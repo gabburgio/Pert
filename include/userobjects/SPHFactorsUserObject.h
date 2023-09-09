@@ -21,6 +21,7 @@ public:
   /// Returns the integral value
   virtual RealEigenVector getValue() const;
   RealEigenVector getIntegrals() const;
+  RealEigenVector getRefValue() const;
 
 protected:
   RealEigenVector computeQpIntegral();

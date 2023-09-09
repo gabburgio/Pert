@@ -33,6 +33,12 @@ RealEigenVector NormalizationFactorsUserObject::getNormalizationFactors() const
   return _normalization_factors;
 }
 
+RealEigenVector NormalizationFactorsUserObject::getRefIntegrals() const 
+{   
+  return _ref_integrals;
+}
+
+
 RealEigenVector NormalizationFactorsUserObject::getIntegrals() const 
 {   
   return _current_integrals;

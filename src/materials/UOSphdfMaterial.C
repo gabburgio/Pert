@@ -36,10 +36,10 @@ UOSphdfMaterial::UOSphdfMaterial(const InputParameters & parameters) :
     _normalization_factors_uo(getUserObject<NormalizationFactorsUserObject>("normalization_factors_uo")),
 
 
-    _diffusivity(       declareProperty<RealEigenVector>("sphdf_diffusivity")),
-    _sigma_r(           declareProperty<RealEigenVector>("sphdf_sigma_r")),
-    _sigma_s(           declareProperty<RealEigenMatrix>("sphdf_sigma_s")),
-    _chi_nu_sigma_f(    declareProperty<RealEigenMatrix>("sphdf_chi_nu_sigma_f"))
+    _diffusivity(       declareProperty<RealEigenVector>("diffusivity")),
+    _sigma_r(           declareProperty<RealEigenVector>("sigma_r")),
+    _sigma_s(           declareProperty<RealEigenMatrix>("sigma_s")),
+    _chi_nu_sigma_f(    declareProperty<RealEigenMatrix>("chi_nu_sigma_f"))
 {
 }
 
