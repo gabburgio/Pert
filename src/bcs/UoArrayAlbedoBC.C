@@ -46,11 +46,10 @@ UoArrayAlbedoBC::computeQpResidual(RealEigenVector & residual)
   }
 
 
-  RealEigenVector gamma_tilde =  ((_albedo_matrix - one) * surface_flux_integrators).cwiseProduct(normalization_factors);
+  RealEigenVector gamma_tilde = ((_ref_current_integral).cwiseQuotient((one - _albedo_matrix) * surface_flux_integrators)).cwiseProduct(normalization_factors);
 
-  //source = (A - Id)* (1/4 Phi - 1/2 D dPhi / dn)  cfr. Stacey 76
 
-  residual = -gamma_tilde.cwiseProduct((_albedo_matrix - one) * ( 0.25*_u[_qp] - 0.5* (_diffusivity[_qp].asDiagonal() * _grad_u[_qp]) * _array_normals[_qp]) ) * _test[_i][_qp];
+  residual =  gamma_tilde.cwiseProduct((one - _albedo_matrix) * ( 0.25*_u[_qp] - 0.5* _diffusivity[_qp].asDiagonal() * ( _grad_u[_qp] * _array_normals[_qp])) ) * _test[_i][_qp];
 
 }
 

@@ -36,7 +36,7 @@ Real
 SideFluxArrayVariablePostprocessor::computeQpIntegral()
 {
 
-  return (0.25*_u[_qp] - 0.5 *_diffusivity[_qp].asDiagonal() * (_grad_u[_qp] * _array_normals[_qp]))(_component);
+  return (0.25*_u[_qp] -  0.5 *_diffusivity[_qp].asDiagonal() * (_grad_u[_qp] * _array_normals[_qp]))(_component);
    
 }
 

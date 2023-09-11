@@ -55,7 +55,12 @@ with open(output, 'w') as out:
 vacuum_outflux = np.array([6818030000.0, 18174200000])
 current_balance = np.array([2.89400500e+16, 2.22543793e+15])
 
-#print(current_balance*normalization)
+vacuum_surface = 3371.9166
+albedo_surface = 24819.6366
+albedo_flux_normalization = 1 /np.amax(fluxes)
+
+
+print(current_balance*normalization)
 
 
 
