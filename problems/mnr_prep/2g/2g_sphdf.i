@@ -1023,6 +1023,13 @@ file = mnr.msh
     normalization_factors_uo = total
     surface_integrators = 'surf_0 surf_1' 
     ref_current_integral = '0.00015926 0.00042454'
+[]
+[./albedo] 
+    variable = flux
+    type = ArrayAlbedoBC
+    diffusivity = diffusivity
+    albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
+    boundary = 'north south west east bottom'
 [] 
 #[./albedo] 
 #    variable = flux
