@@ -994,22 +994,22 @@ file = mnr.msh
     execute_on = 'LINEAR'
     boundary = 'top'    
 []
-#[./alb_0]
-#    type = SideFluxArrayVariablePostprocessor
-#    variable = flux
-#    component = 0  
-#    diffusivity = diffusivity  
-#    execute_on = 'LINEAR'
-#    boundary = 'north south west east bottom'
-#[]
-#[./alb_1]
-#    type = SideFluxArrayVariablePostprocessor
-#    variable = flux
-#    component = 1
-#    diffusivity = diffusivity
-#    execute_on = 'LINEAR'
-#    boundary = 'north south west east bottom'
-#[]
+[./alb_0]
+    type = SideFluxArrayVariablePostprocessor
+    variable = flux
+    component = 0  
+    diffusivity = diffusivity  
+    execute_on = 'LINEAR'
+    boundary = 'north south west east bottom'
+[]
+[./alb_1]
+    type = SideFluxArrayVariablePostprocessor
+    variable = flux
+    component = 1
+    diffusivity = diffusivity
+    execute_on = 'LINEAR'
+    boundary = 'north south west east bottom'
+[]
 []
 
 
@@ -1024,23 +1024,23 @@ file = mnr.msh
     surface_integrators = 'surf_0 surf_1' 
     ref_current_integral = '0.00015926 0.00042454'
 []
-[./albedo] 
-    variable = flux
-    type = ArrayAlbedoBC
-    diffusivity = diffusivity
-    albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
-    boundary = 'north south west east bottom'
-[] 
 #[./albedo] 
 #    variable = flux
-#    type = UoArrayAlbedoBC
+#    type = ArrayAlbedoBC
 #    diffusivity = diffusivity
-#    surface_integrators = 'alb_0 alb_1'
-#    ref_current_integral = '676.0205764   51.98476963'
 #    albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
 #    boundary = 'north south west east bottom'
-#    normalization_factors_uo = total
-#[]
+#[] 
+[./albedo] 
+    variable = flux
+    type = UoArrayAlbedoBC
+    diffusivity = diffusivity
+    surface_integrators = 'alb_0 alb_1'
+    ref_current_integral = '676.0205764   51.98476963'
+    albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
+    boundary = 'north south west east bottom'
+    normalization_factors_uo = total
+[]
 []
 
 [Variables]
@@ -1380,7 +1380,9 @@ file = mnr.msh
 
 [Executioner]
 type = Steady
-solve_type = PJFNK
+petsc_options = '-pc_svd_monitor'
+petsc_options_iname = '-pc_type'
+petsc_options_value = 'svd'
 []
 
 [Outputs]
