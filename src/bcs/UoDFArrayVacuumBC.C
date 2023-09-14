@@ -45,3 +45,23 @@ UoDFArrayVacuumBC::computeQpResidual(RealEigenVector & residual)
 }
 
 
+
+RealEigenVector
+UoDFArrayVacuumBC::computeQpJacobian ()
+{
+
+  RealEigenVector normalization_factors = _normalization_factors_uo.getNormalizationFactors();
+  RealEigenVector surface_flux_integrators =   RealEigenVector::Zero(_ref_current_integral.size());
+
+  for(int i=0; i<_ref_current_integral.size(); ++i)
+  {
+    surface_flux_integrators(i) = getPostprocessorValueByName(_surface_integrators[i]);
+  }
+  
+  RealEigenVector gamma = normalization_factors.cwiseProduct(_ref_current_integral.cwiseQuotient(surface_flux_integrators));  
+     
+  return _test[_i][_qp] * _phi[_j][_qp] * gamma;
+
+}
+
+

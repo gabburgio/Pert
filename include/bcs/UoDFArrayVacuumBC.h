@@ -14,6 +14,7 @@ public:
 
 protected:
   virtual void computeQpResidual(RealEigenVector & residual) override;
+  virtual RealEigenVector computeQpJacobian() override;
 
     const NormalizationFactorsUserObject & _normalization_factors_uo;
 

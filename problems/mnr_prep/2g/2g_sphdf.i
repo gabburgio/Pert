@@ -335,7 +335,7 @@ file = mnr.msh
 #	ref_surface_integrals = '676.0205764   51.98476963'
 #	normalization_uo_name = total
 #	execute_on = LINEAR
-#	surface_integrators = 'surf_0 surf_1'
+#	surface_integrators = 'alb_0 alb_1'
 #[]
 []
 
@@ -995,18 +995,18 @@ file = mnr.msh
     boundary = 'top'    
 []
 [./alb_0]
-    type = SideFluxArrayVariablePostprocessor
+    type = AlbedoCorrectedArraySideIntegralPostprocessor
     variable = flux
     component = 0  
-    diffusivity = diffusivity  
+	albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
     execute_on = 'LINEAR'
     boundary = 'north south west east bottom'
 []
 [./alb_1]
-    type = SideFluxArrayVariablePostprocessor
+    type = AlbedoCorrectedArraySideIntegralPostprocessor
     variable = flux
+	albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
     component = 1
-    diffusivity = diffusivity
     execute_on = 'LINEAR'
     boundary = 'north south west east bottom'
 []
@@ -1031,12 +1031,22 @@ file = mnr.msh
 #    albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
 #    boundary = 'north south west east bottom'
 #[] 
+#[./albedo] 
+#    variable = flux
+#    type = UoArrayAlbedoBC
+#    diffusivity = diffusivity
+#    surface_integrators = 'alb_0 alb_1'
+#    ref_current_integral = '676.0205764   51.98476963'
+#    albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
+#    boundary = 'north south west east bottom'
+#    normalization_factors_uo = total
+#[]
 [./albedo] 
     variable = flux
-    type = UoArrayAlbedoBC
-    diffusivity = diffusivity
+    type = UoL2ArrayAlbedoBC
     surface_integrators = 'alb_0 alb_1'
-    ref_current_integral = '676.0205764   51.98476963'
+    #ref_current_integral = '676.0205764   51.98476963'
+	ref_current_integral = '1076.0205764   -41.98476963'
     albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
     boundary = 'north south west east bottom'
     normalization_factors_uo = total
@@ -1380,11 +1390,45 @@ file = mnr.msh
 
 [Executioner]
 type = Steady
-petsc_options = '-pc_svd_monitor'
-petsc_options_iname = '-pc_type'
-petsc_options_value = 'svd'
+solve_type = 'PJFNK'	
+#slower updates to stabilize the nonlinear search
+#line_search = 'basic'
+#petsc_options_iname = '-snes_linesearch_damping'
+#petsc_options_value = '0.5'
+
+
+#automatic_scaling = true
+
+#singular value decomposition to chech conditioning and well-posedness
+#petsc_options = '-pc_svd_monitor'
+#petsc_options_iname = '-pc_type'
+#petsc_options_value = 'svd'
 []
+
+
+#finite difference preconditioning to check the Jacobian
+
+#[Preconditioning]
+#[smp]
+#    type = SMP
+#    full = true
+#    
+#	petsc_options_iname = '-pc_type -pc_factor_mat_solver_package '
+#    petsc_options_value = ' lu       mumps '
+#[] 
+#[]
+
+#[Preconditioning]
+#[./FDP]
+# type = FDP
+#[]
+#[]
+
 
 [Outputs]
 exodus = true
 []
+
+#[Debug]
+#show_execution_order = 'INITIAL LINEAR NONLINEAR'
+#[]

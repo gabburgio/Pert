@@ -518,8 +518,8 @@ file = mnr.msh
 [BCs] 
 [./albedo] 
     variable = flux
-    type = ArrayAlbedoBC
-    diffusivity = diffusivity
+    type = L2ArrayAlbedoBC
+	#diffusivity = diffusivity
     albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
     boundary = 'north south west east bottom'
 []
