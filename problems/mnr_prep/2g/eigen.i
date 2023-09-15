@@ -538,6 +538,29 @@ file = mnr.msh
 []
 
 
+
+[Postprocessors]
+[./alb_0]
+    type = AlbedoCorrectedArraySideIntegralPostprocessor
+    variable = flux
+    component = 0  
+	albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
+    execute_on = 'LINEAR'
+    boundary = 'north south west east bottom'
+[]
+[./alb_1]
+    type = AlbedoCorrectedArraySideIntegralPostprocessor
+    variable = flux
+	albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
+    component = 1
+    execute_on = 'LINEAR'
+    boundary = 'north south west east bottom'
+[]
+[]
+
+
+
+
 #[ICs]
 #[./ICF9plug_u]
 #    type = ArrayConstantIC

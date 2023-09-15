@@ -1045,8 +1045,8 @@ file = mnr.msh
     variable = flux
     type = UoL2ArrayAlbedoBC
     surface_integrators = 'alb_0 alb_1'
-    #ref_current_integral = '676.0205764   51.98476963'
-	ref_current_integral = '1076.0205764   -41.98476963'
+    #ref_current_integral = '676.0205764   51.98476963' #from the albedo currents
+	ref_current_integral = '1148.37570643  -53.92738101' #from the detectors
     albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
     boundary = 'north south west east bottom'
     normalization_factors_uo = total
@@ -1396,31 +1396,31 @@ solve_type = 'PJFNK'
 #petsc_options_iname = '-snes_linesearch_damping'
 #petsc_options_value = '0.5'
 
+#petsc_options_iname = '--pc_type'
+#petsc_options_value = 'lu'
+
 
 #automatic_scaling = true
 
-#singular value decomposition to chech conditioning and well-posedness
+#singular value decomposition to check conditioning and well-posedness
 #petsc_options = '-pc_svd_monitor'
 #petsc_options_iname = '-pc_type'
 #petsc_options_value = 'svd'
 []
 
 
-#finite difference preconditioning to check the Jacobian
-
-#[Preconditioning]
-#[smp]
-#    type = SMP
-#    full = true
-#    
-#	petsc_options_iname = '-pc_type -pc_factor_mat_solver_package '
-#    petsc_options_value = ' lu       mumps '
-#[] 
-#[]
-
 #[Preconditioning]
 #[./FDP]
 # type = FDP
+#[]
+#[smp]
+#    type = SMP
+#    full = true
+#[]
+#[./FSP] 
+#type = FSP
+#topsplit = flux_0
+#full = false
 #[]
 #[]
 

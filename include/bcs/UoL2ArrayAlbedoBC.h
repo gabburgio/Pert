@@ -14,8 +14,8 @@ public:
 
 protected:
   virtual void computeQpResidual(RealEigenVector & residual) override;
-  virtual RealEigenVector computeQpJacobian() override;
-  virtual RealEigenMatrix computeQpOffDiagJacobian(const MooseVariableFEBase & jvar) override;
+//  virtual RealEigenVector computeQpJacobian() override;
+//  virtual RealEigenMatrix computeQpOffDiagJacobian(const MooseVariableFEBase & jvar) override;
 
 
   const NormalizationFactorsUserObject & _normalization_factors_uo;

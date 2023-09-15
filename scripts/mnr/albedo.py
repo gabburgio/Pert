@@ -32,7 +32,7 @@ def writealbedo(res_path, path, group_number):
     #check the difference with including the upper surface
 
     shape = (surface_number, group_number, surface_number, group_number)
-    surface_list = [0,1,2,3,4]
+    surface_list = [0,1,2,3,4, 5]
     tensor_aoc = np.empty(shape)
     incoming_currents = np.zeros((group_number,group_number))
     outgoing_currents = np.zeros(group_number)
@@ -62,10 +62,11 @@ def writealbedo(res_path, path, group_number):
         for j in range(group_number):
             overall_incoming[i] += incoming_currents[j][i]
     
-    print(incoming_currents)
-    print(outgoing_currents)
-    print(overall_incoming)
+    print("incoming = " + str(incoming_currents))
+    print("outgoing = " + str(outgoing_currents))
+    print("overall incoming = " + str(overall_incoming))
     print("total current balance = " + str(outgoing_currents - overall_incoming))
+    print("calculated albedo matrix = " + str(albedos))
 
 
 
