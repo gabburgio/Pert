@@ -1,7 +1,3 @@
-/*
-
-//deprecated and broken class 
-
 #include "UoDFArrayVacuumBC.h"
 #include "NormalizationFactorsUserObject.h"
 
@@ -69,4 +65,3 @@ UoDFArrayVacuumBC::computeQpJacobian ()
 }
 
 
-*/

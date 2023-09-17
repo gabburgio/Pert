@@ -329,14 +329,14 @@ file = mnr.msh
 	ref_integrals = '125491.78835539  57974.86851518'
 	execute_on = 'LINEAR' 
 []
-#[./output]
-#	type = OutputUserObject
-#	SPH_uo_names = 'MNR397 MNR358 MNR373'
-#	ref_surface_integrals = '676.0205764   51.98476963'
-#	normalization_uo_name = total
-#	execute_on = LINEAR
-#	surface_integrators = 'alb_0 alb_1'
-#[]
+[./output]
+	type = OutputUserObject
+	SPH_uo_names = 'MNR396 MNR375 MNR374 MNR372 MNR382 MNR389 MNR394 MNRC77 MNR377 MNRC76 MNR395 MNRC80 MNR387 MNR392 MNR381 MNR391 MNR388 MNR378 MNR390 MNR379 MNR393 MNR384 MNR383 MNRC74 MNR361 MNR398 MNRC79 MNR385 MNRC78 MNR358 MNR373 MNR365 MNR397 MNR376 MNR366 MNR362 MNR369 '
+	ref_surface_integrals = '676.0205764   51.98476963'
+	normalization_uo_name = total
+	execute_on = 'TIMESTEP_END'
+	surface_integrators = 'alb_0 alb_1 surf_0 surf_1'
+[]
 []
 
 

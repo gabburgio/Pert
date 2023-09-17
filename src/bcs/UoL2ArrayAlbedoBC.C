@@ -42,32 +42,34 @@ UoL2ArrayAlbedoBC::computeQpResidual(RealEigenVector & residual)
   RealEigenVector gamma = normalization_factors.cwiseProduct(_ref_current_integral.cwiseQuotient(surface_flux_integrators));
 
 
-  residual = _corrective_matrix *(_u[_qp].cwiseProduct(gamma))* _test[_i][_qp];
+  //residual = _corrective_matrix *(_u[_qp].cwiseProduct(gamma))* _test[_i][_qp];  // one must scale the net current and not the flux
+  residual = (_corrective_matrix *_u[_qp]).cwiseProduct(gamma)* _test[_i][_qp];
 
 }
 
 
 
 
-//RealEigenVector
-//UoL2ArrayAlbedoBC::computeQpJacobian()
-//{
-//
-//  RealEigenVector normalization_factors = _normalization_factors_uo.getNormalizationFactors();
-//  RealEigenVector surface_flux_integrators =   RealEigenVector::Zero(_ref_current_integral.size());
-//
-//  for(int i=0; i<_ref_current_integral.size(); ++i)
-//  {
-//    surface_flux_integrators(i) = getPostprocessorValueByName(_surface_integrators[i]);
-//  }
-//  
-//  RealEigenVector gamma = normalization_factors.cwiseProduct(_ref_current_integral.cwiseQuotient(surface_flux_integrators));
-//
-//  return _phi[_j][_qp] * _test[_i][_qp] * (_corrective_matrix.diagonal()).cwiseProduct(gamma);
-//
-//}
-//
-//
+RealEigenVector
+UoL2ArrayAlbedoBC::computeQpJacobian()
+{
+
+  RealEigenVector normalization_factors = _normalization_factors_uo.getNormalizationFactors();
+  RealEigenVector surface_flux_integrators =   RealEigenVector::Zero(_ref_current_integral.size());
+
+  for(int i=0; i<_ref_current_integral.size(); ++i)
+  {
+    surface_flux_integrators(i) = getPostprocessorValueByName(_surface_integrators[i]);
+  }
+  
+  RealEigenVector gamma = normalization_factors.cwiseProduct(_ref_current_integral.cwiseQuotient(surface_flux_integrators));
+
+  //return _phi[_j][_qp] * _test[_i][_qp] * (_corrective_matrix.diagonal()).cwiseProduct(gamma);
+  return _phi[_j][_qp] * _test[_i][_qp] * (_corrective_matrix.diagonal()).cwiseProduct(gamma);
+
+}
+
+
 //RealEigenMatrix
 //UoL2ArrayAlbedoBC::computeQpOffDiagJacobian(const MooseVariableFEBase & jvar)
 //{

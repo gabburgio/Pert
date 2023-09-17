@@ -1,5 +1,3 @@
-/*
-
 #pragma once
 
 #include "ArrayIntegratedBC.h"
@@ -27,4 +25,3 @@ protected:
 
 };
 
-*/

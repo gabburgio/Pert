@@ -46,29 +46,21 @@ for(int i =0; i<std::size(SPH_user_objects); ++i)
   RealEigenVector zone_integral = SPH_user_objects[i].get().getIntegrals();
   RealEigenVector sph_factors = SPH_user_objects[i].get().getValue();
   RealEigenVector ref_integrals = SPH_user_objects[i].get().getRefValue();
-  std::cout<< "sph factors = " << sph_factors << std::endl;
-  std::cout<< "reference zone integrals = " << ref_integrals << std::endl;
-  std::cout<< "zone integrals = " << zone_integral << std::endl;
-  std::cout<< "corrected zone integrals = " << zone_integral.cwiseProduct(sph_factors) << std::endl;
+  std::cout  << std::endl;
+  std::cout<< "sph factors of " << _SPH_uo_names[i] << " = "<< sph_factors << std::endl;
+  //std::cout<< "reference zone integrals = " << ref_integrals << std::endl;
 }
 
 //std::cout<< "total integrals = " << (*_normalization_user_object).getIntegrals() << std::endl;
-//std::cout<< "corrected total integrals = " << ((*_normalization_user_object).getIntegrals()).cwiseProduct((*_normalization_user_object).getNormalizationFactors()) << std::endl;
+std::cout<< "normalization factors  = " << (*_normalization_user_object).getNormalizationFactors() << std::endl;
 //std::cout<< "ref total integrals = " << _ref_total_integrals << std::endl;
-
-
 
 
 RealEigenVector surface_integrals = RealEigenVector::Zero(std::size(_surface_integrators));
 
 for (int j = 0; j< std::size(_surface_integrators); j++)
-{
-  surface_integrals(j) = getPostprocessorValueByName(_surface_integrators[j]); 
-}
-
-std::cout<< "surface integrals = " << surface_integrals << std::endl;
-std::cout<< "ref surface integrals = " << _ref_surface_integrals << std::endl;
-
+{ 
+  std::cout<< "surface integral of "  << _surface_integrators[j] << " = " << getPostprocessorValueByName(_surface_integrators[j]) << std::endl;
 
 }
-
+}
