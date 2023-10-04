@@ -1,12 +1,12 @@
 import serpentTools
 import numpy as np
 
-univ_names = ["F9plug_u",  "F8graph_u",   "F7rifl_u",   "MNR396", "MNR375", "MNR374", "MNR372", "MNR382", "MNR389",
-"E9rifl_u",   "E8graph_u",   "MNR394",     "MNRC77", "MNR377", "MNRC76", "MNR395", "MNRC80", "MNR387", 
-"D9graph_u",  "D8graph_u",   "D7rifl_u",   "MNR392", "MNR381", "MNR391", "MNR388", "MNR378", "MNR390",  
-"C9rifl_u",   "C8graph_u",   "MNR379",     "MNR393", "10400", "MNR384", "MNR383", "MNRC74", "MNR361", 
-"B9plug_u",   "B8graph_u",   "MNR398",     "MNRC79", "MNR385", "MNRC78", "MNR358", "MNR373", "MNR365", 
-"A9plug_u",   "A8graph_u",   "A7rifl_u",   "MNR397", "MNR376", "MNR366", "MNR362", "10500", "MNR369" 	
+univ_names = ["a_F9plug_u",  "a_F8graph_u",   "a_F7rifl_u",   "a_MNR396", "a_MNR375", "a_MNR374", "a_MNR372", "a_MNR382", "a_MNR389",
+"a_E9rifl_u",   "a_E8graph_u",   "a_MNR394",     "a_MNRC77", "a_MNR377", "a_MNRC76", "a_MNR395", "a_MNRC80", "a_MNR387", 
+"a_D9graph_u",  "a_D8graph_u",   "a_D7rifl_u",   "a_MNR392", "a_MNR381", "a_MNR391", "a_MNR388", "a_MNR378", "a_MNR390",  
+"a_C9rifl_u",   "a_C8graph_u",   "a_MNR379",     "a_MNR393", "a_10400", "a_MNR384", "a_MNR383", "a_MNRC74", "a_MNR361", 
+"a_B9plug_u",   "a_B8graph_u",   "a_MNR398",     "a_MNRC79", "a_MNR385", "a_MNRC78", "a_MNR358", "a_MNR373", "a_MNR365", 
+"a_A9plug_u",   "a_A8graph_u",   "a_A7rifl_u",   "a_MNR397", "a_MNR376", "a_MNR366", "a_MNR362", "a_10500", "a_MNR369" 	
 ]
 
 det_path = "MNR_63V.inp_det0.m"
@@ -18,9 +18,9 @@ group_number = 2
 d = serpentTools.read(det_path)
 r = serpentTools.read(res_path)
 
-lattice_detector = d.__getitem__("latt")
+lattice_detector = d.__getitem__("lattice_flux")
 fluxes = lattice_detector.tallies
-module_volume = 5619.861
+module_volume = 3905.803395
 normalization = module_volume/np.amax(fluxes)
 total_flux = np.zeros(group_number)
 
