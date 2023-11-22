@@ -19,7 +19,7 @@ with open(output_path, 'w') as out_file:
     for k in range(len(cuboids)):
         out_file.write("Box(" + str(k+1) + ") = { "  )
         for i in range(len(start)-1):
-            out_file.write(str((cuboids[k])[i])+ ", " )
+            out_file.write(str(round((cuboids[k])[i], 8))+ ", " )
         out_file.write(str((cuboids[k])[len(start)-1]) + "}; \n")
 
     '''

@@ -595,6 +595,7 @@ file = mnr.msh
     variable = flux
     type = L2ArrayAlbedoBC
 	gamma_factors = '1.68111912 17.58705839'
+	#gamma_factors = '1.779227504 18.01590909'
     albedo_matrix = '0.486012 0.0808863; 0.138912 0.744164'
     boundary = 'north south west east bottom'
 []
@@ -612,6 +613,8 @@ file = mnr.msh
     components = 2
 [../]
 []
+
+
 
 
 
@@ -633,6 +636,322 @@ file = mnr.msh
     boundary = 'north south west east bottom'
 []
 []
+
+
+[UserObjects]
+[./MNR396]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2192.14593556 1015.83478993'
+	block  = MNR396 
+	execute_on = 'LINEAR' 
+[]
+[./MNR375]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2788.68517685 1329.58114378'
+	block  = MNR375 
+	execute_on = 'LINEAR' 
+[]
+[./MNR374]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2986.60889653 1529.10965038'
+	block  = MNR374 
+	execute_on = 'LINEAR' 
+[]
+[./MNR372]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3154.79617161 1480.92633201'
+	block  = MNR372 
+	execute_on = 'LINEAR' 
+[]
+[./MNR382]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2795.24915245 1268.48945204'
+	block  = MNR382 
+	execute_on = 'LINEAR' 
+[]
+[./MNR389]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '1907.69219878  904.26355632'
+	block  = MNR389 
+	execute_on = 'LINEAR' 
+[]
+[./MNR394]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2115.9127172  1077.01291124'
+	block  = MNR394 
+	execute_on = 'LINEAR' 
+[]
+[./MNRC77]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2860.49179957 1581.43458041'
+	block  = MNRC77 
+	execute_on = 'LINEAR' 
+[]
+[./MNR377]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '4170.11004817 1665.4978508 '
+	block  = MNR377 
+	execute_on = 'LINEAR' 
+[]
+[./MNRC76]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '4095.00975798 2235.21589358'
+	block  = MNRC76 
+	execute_on = 'LINEAR' 
+[]
+[./MNR395]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '4879.76691163 1756.76981468'
+	block  = MNR395 
+	execute_on = 'LINEAR' 
+[]
+[./MNRC80]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3724.670722   2043.83979796'
+	block  = MNRC80 
+	execute_on = 'LINEAR' 
+[]
+[./MNR387]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2715.850743   1143.97947793'
+	block  = MNR387 
+	execute_on = 'LINEAR' 
+[]
+[./MNR392]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3909.55992787 1599.51471248'
+	block  = MNR392 
+	execute_on = 'LINEAR' 
+[]
+[./MNR381]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '4899.76250989 2180.64145876'
+	block  = MNR381 
+	execute_on = 'LINEAR' 
+[]
+[./MNR391]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '5619.861      2140.44236408'
+	block  = MNR391 
+	execute_on = 'LINEAR' 
+[]
+[./MNR388]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '5580.64066183 2063.76531818'
+	block  = MNR388 
+	execute_on = 'LINEAR' 
+[]
+[./MNR378]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '4380.27406399 1825.40423851'
+	block  = MNR378 
+	execute_on = 'LINEAR' 
+[]
+[./MNR390]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2930.14936266 1250.32989821'
+	block  = MNR390 
+	execute_on = 'LINEAR' 
+[]
+[./MNR379]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2684.85289383 1321.9309587 '
+	block  = MNR379 
+	execute_on = 'LINEAR' 
+[]
+[./MNR393]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3921.800224   1645.17755766'
+	block  = MNR393 
+	execute_on = 'LINEAR' 
+[]
+[./MNR384]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '5273.13826056 2217.28526131'
+	block  = MNR384 
+	execute_on = 'LINEAR' 
+[]
+[./MNR383]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '5107.14676379 2040.5134274 '
+	block  = MNR383 
+	execute_on = 'LINEAR' 
+[]
+[./MNRC74]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3441.85914709 2034.71563828'
+	block  = MNRC74 
+	execute_on = 'LINEAR' 
+[]
+[./MNR361]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2480.29512052 1296.66082062'
+	block  = MNR361 
+	execute_on = 'LINEAR' 
+[]
+[./MNR398]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2397.27601279 1046.21595242'
+	block  = MNR398 
+	execute_on = 'LINEAR' 
+[]
+[./MNRC79]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3047.69358047 1553.0366262 '
+	block  = MNRC79 
+	execute_on = 'LINEAR' 
+[]
+[./MNR385]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3976.22749496 1747.50082707'
+	block  = MNR385 
+	execute_on = 'LINEAR' 
+[]
+[./MNRC78]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3721.00330503 2101.63081442'
+	block  = MNRC78 
+	execute_on = 'LINEAR' 
+[]
+[./MNR358]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3995.84934372 1826.71936957'
+	block  = MNR358 
+	execute_on = 'LINEAR' 
+[]
+[./MNR373]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '3253.18572753 1552.71426725'
+	block  = MNR373 
+	execute_on = 'LINEAR' 
+[]
+[./MNR365]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2073.84020315 1076.23971696'
+	block  = MNR365 
+	execute_on = 'LINEAR' 
+[]
+[./MNR397]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2490.1060449  1109.43568038'
+	block  = MNR397 
+	execute_on = 'LINEAR' 
+[]
+[./MNR376]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2959.30182368 1362.05763941'
+	block  = MNR376 
+	execute_on = 'LINEAR' 
+[]
+[./MNR366]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2871.79772195 1535.55449333'
+	block  = MNR366 
+	execute_on = 'LINEAR' 
+[]
+[./MNR362]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '2692.91186743 1534.92379105'
+	block  = MNR362 
+	execute_on = 'LINEAR' 
+[]
+[./MNR369]
+	type = SPHFactorsUserObject
+	var_size = 2
+	variable = flux 
+	ref_fluxes = '1396.26506242  880.50243185'
+	block  = MNR369 
+	execute_on = 'LINEAR' 
+[]
+[./total]
+	type = NormalizationFactorsUserObject
+	SPH_user_objects = 'MNR396 MNR375 MNR374 MNR372 MNR382 MNR389 MNR394 MNRC77 MNR377 MNRC76 MNR395 MNRC80 MNR387 MNR392 MNR381 MNR391 MNR388 MNR378 MNR390 MNR379 MNR393 MNR384 MNR383 MNRC74 MNR361 MNR398 MNRC79 MNR385 MNRC78 MNR358 MNR373 MNR365 MNR397 MNR376 MNR366 MNR362 MNR369 '
+	ref_integrals = '125491.78835539  57974.86851518'
+	execute_on = 'LINEAR' 
+[]
+[./output]
+	type = OutputUserObject
+	SPH_uo_names = 'MNR396 MNR375 MNR374 MNR372 MNR382 MNR389 MNR394 MNRC77 MNR377 MNRC76 MNR395 MNRC80 MNR387 MNR392 MNR381 MNR391 MNR388 MNR378 MNR390 MNR379 MNR393 MNR384 MNR383 MNRC74 MNR361 MNR398 MNRC79 MNR385 MNRC78 MNR358 MNR373 MNR365 MNR397 MNR376 MNR366 MNR362 MNR369 '
+	ref_surface_integrals = '676.0205764   51.98476963'
+	normalization_uo_name = total
+	execute_on = 'TIMESTEP_END'
+	surface_integrators = 'alb_0 alb_1'
+[]
+[]
+
+
 
 
 [Executioner]
