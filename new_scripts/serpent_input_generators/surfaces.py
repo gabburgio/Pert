@@ -12,20 +12,19 @@ univ_names = ["F9plug",  "F8graph",   "F7rifl",   "MNR396", "MNR375", "MNR374", 
 
 output_path = "MNR_gcu_input.txt"
 
-start = np.array([-36.45, -28.35, 19.2725, 26.9815, -35.7300, 36.3550])
+start = np.array([-36.45, -28.35, -19.2725, -11.5635, -35.7300, 36.3550])
 xshift = np.array([8.1, 8.1, 0, 0, 0, 0])
-yshift = np.array([0, 0, -7.709, -7.709, 0, 0])
+yshift = np.array([0, 0, 7.709, 7.709, 0, 0])
 cuboids = []
 
 
                 
 with open(output_path, 'w') as out_file:
     
-    for nx in range(9):
-        for ny in range(6):
+    for ny in range(6):
+        for nx in range(9):    
             cuboids.append(start + nx*xshift + ny*yshift  )
-    
-    
+
     # define surfaces
 
     for k in range(len(cuboids)):
@@ -53,4 +52,3 @@ with open(output_path, 'w') as out_file:
 
     for k in range(len(cuboids)):
         out_file.write("det flux_" + univ_names[k] + " de decgrid du gcu_" + univ_names[k] + "\n" )
-

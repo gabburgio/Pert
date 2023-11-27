@@ -21,7 +21,6 @@ protected:
     RealEigenMatrix _v_sigma_s;
     RealEigenMatrix  _v_chi_nu_sigma_f;
     const RealEigenVector & _sph_factors;
-    const RealEigenVector & _normalization_factors;
     
     MaterialProperty<RealEigenVector> & _diffusivity;
     MaterialProperty<RealEigenVector> & _sigma_r;

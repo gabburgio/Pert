@@ -9,6 +9,14 @@ univ_names = ["F9plug",  "F8graph",   "F7rifl",   "MNR396", "MNR375", "MNR374", 
 "A9plug",   "A8graph",   "A7rifl",   "MNR397", "MNR376", "MNR366", "MNR362", "010500", "MNR369" 	
 ]
 
+
+
+sublists = [univ_names[i:i+9] for i in range(0, len(univ_names), 9)]
+transposed_lists = [list(row[::-1]) for row in zip(*sublists)]
+flattened_list = [item for sublist in transposed_lists for item in sublist]
+
+
+
 det_path = "MNR_63V.inp_det0.m"
 res_path = 'MNR_63V.inp_res.m'
 output = "userobj.txt"
@@ -29,7 +37,7 @@ total_flux = np.zeros(group_number)
 for flux in fluxes:
     total_flux += flux
 
-net_current = (d.__getitem__("net_current_active")).tallies
+net_current = (d.__getitem__("net_current")).tallies
 
 
 # Normalization and core dimensions
@@ -49,7 +57,7 @@ for flux in fluxes:
     flux*= normalization
 net_current*=normalization
 
-
+#print(net_current)
 
 with open(output, 'w') as out:
 
@@ -57,17 +65,17 @@ with open(output, 'w') as out:
 
     out.write("[UserObjects]\n")
     for i, flux in enumerate(fluxes):
-        out.write("[./uo_gcu_" + univ_names[i] + "]\n")
+        out.write("[./uo_gcu_" + flattened_list[i] + "]\n")
         out.write("\ttype = SPHFactorsUserObject\n")
         out.write("\tvar_size = " + str(group_number) + "\n")
         out.write("\tvariable = flux \n")
         out.write("\tref_fluxes = '" + str(flux).strip("[]") + "'\n")
-        out.write("\tblock  = " + univ_names[i]   + " \n")
+        out.write("\tblock  = " + flattened_list[i]   + " \n")
         out.write("\texecute_on = 'LINEAR' \n[]\n")
     out.write("[./total]\n")
     out.write("\ttype = NormalizationFactorsUserObject\n")
     out.write("\tSPH_user_objects = '")
-    for universe in univ_names:
+    for universe in flattened_list:
         out.write("uo_gcu_" + universe + " ")
     out.write("'\n\tref_integrals = '" + str(total_flux)[1:-1])
     out.write("'\n\texecute_on = 'LINEAR' \n[]\n\n\n")
@@ -76,24 +84,24 @@ with open(output, 'w') as out:
     local_normalization = 1/module_volume
     out.write("[ICs]\n")
     for i, flux in enumerate(fluxes):
-        out.write("[./IC_gcu_" + univ_names[i] + "]\n")
+        out.write("[./IC_gcu_" + flattened_list[i] + "]\n")
         out.write("\ttype = ArrayConstantIC\n")
         out.write("\tvariable = flux \n")
         out.write("\tvalue = '" + str(flux*local_normalization).strip("[]") + "'\n")
-        out.write("\tblock  = " + univ_names[i]   + " \n[]\n")
+        out.write("\tblock  = " + flattened_list[i]   + " \n[]\n")
     out.write("[]\n\n\n")
 
     # BC writing
-    net_current_reversed = -net_current[::-1]
-    out.write("[BCs]\n")
-    out.write("[./albedo]\n\tvariable = flux\n")
-    out.write("\ttype = UoL2ArrayAlbedoBC\n")
-    out.write("\tsurface_integrators = 'alb_0 alb_1'\n")
-    out.write("\tboundary = 'north south west east bottom top'\n")
-    out.write("\tnormalization_factors_uo = total\n")
-    out.write("\talbedo_matrix = \n")
-    out.write("\tref_current_integral = " + str(net_current_reversed)[1:-1] + " \n")
-    out.write("[]\n")
+#    net_current_reversed = -net_current[::-1]
+#    out.write("[BCs]\n")
+#    out.write("[./albedo]\n\tvariable = flux\n")
+#    out.write("\ttype = UoL2ArrayAlbedoBC\n")
+#    out.write("\tsurface_integrators = 'alb_0 alb_1'\n")
+#    out.write("\tboundary = 'north south west east bottom top'\n")
+#    out.write("\tnormalization_factors_uo = total\n")
+#    out.write("\talbedo_matrix = \n")
+#    out.write("\tref_current_integral = " + str(net_current_reversed)[1:-1] + " \n")
+#    out.write("[]\n")
 
 
 

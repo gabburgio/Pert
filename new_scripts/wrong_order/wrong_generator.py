@@ -10,6 +10,11 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 ]
 
 
+sublists = [univ_names[i:i+9] for i in range(0, len(univ_names), 9)]
+transposed_lists = [list(row[::-1]) for row in zip(*sublists)]
+flattened_list = [item for sublist in transposed_lists for item in sublist]
+
+
 group_number = 2
 res_path = 'MNR_63V.inp_res.m'
 output_path = "sphdf_materials.txt"
@@ -22,7 +27,7 @@ def write_sphdf_material(uni, path):
     ref_k = "1"
     norm_uo = "total"
     with open(path, 'a') as out_file:
-        out_file.write("[./mat_" + uni.name + "]\n\t" + "block = '" + uni.name[4:] + "'\n\t")
+        out_file.write("[./mat_" + flattened_list[univ_names.index(uni.name)] + "]\n\t" + "block = '" + flattened_list[univ_names.index(uni.name)][4:] + "'\n\t")
         out_file.write("type = " + mat_type + "\n")
 
         out_file.write("\t"  + "ref_nu_sigma_f = " + "'" + str(uni.infExp['infNsf'])[1:-1] + "'\n"  )
@@ -50,7 +55,7 @@ def write_sphdf_material(uni, path):
             if (i < group_number-1):
                 out_file.write("; ")
 
-        out_file.write("'\n\tsph_factors_uo = uo_" + uni.name + "\n"  )
+        out_file.write("'\n\tsph_factors_uo = uo_" + flattened_list[univ_names.index(uni.name)] + "\n"  )
         out_file.write("\tnormalization_factors_uo = " + norm_uo + "\n"  )
 
         out_file.write("\n[]\n")
@@ -66,7 +71,6 @@ for name in univ_names:
     universes.append(r.getUniv(name, 0,0))
 
 
-print(len(universes))
 
 
 #write materials
