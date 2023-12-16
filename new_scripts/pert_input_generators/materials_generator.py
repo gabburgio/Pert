@@ -10,8 +10,8 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 ]
 
 
-group_number = 4
-res_path = 'MNR_63V_ARO_4g.inp_res.m'
+group_number = 2
+res_path = 'MNR_63V_ARM.inp_res.m'
 output_path = "sphdf_materials.txt"
 
 
@@ -80,12 +80,6 @@ for universe in universes:
 with open(output_path, 'a') as f:
     f.write("[]\n")
 
-
-kess = r.universes.keys() 
-
-for key in kess:
-    print(key)
-    print(r.universes[key])
 
 
 

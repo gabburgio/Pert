@@ -68,8 +68,6 @@ total_absorption *= normalization
 corrente_totale = 0
 for current in net_current:
     corrente_totale += -current
-print(corrente_totale)
-
 
 flusso_totale = 0
 for componente in total_flux:
@@ -97,15 +95,17 @@ for universe in universes:
 assorbimenti_totali = 0
 fissioni_totali =0
 for i, flux in enumerate(fluxes):
-    fissioni_totali += nsf[i].dot( np.flip(flux))
-    assorbimenti_totali += abs[i].dot(np.flip(flux))
-
-print(fissioni_totali)
-print(assorbimenti_totali)
-print(assorbimento_totale)
-
+    #fissioni_totali += nsf[i].dot( np.flip(flux))
+    fissioni_totali += nsf[i].dot( flux)
+    #assorbimenti_totali += abs[i].dot(np.flip(flux))
+    assorbimenti_totali += abs[i].dot(flux)
 
 #print(fissioni_totali)
+#print(assorbimenti_totali)
+#print(assorbimento_totale)
+#print(fissioni_totali)
+
 
 k = (fissioni_totali)/(corrente_totale + assorbimenti_totali)
+
 print(k)

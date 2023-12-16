@@ -73,6 +73,7 @@ type = Eigenvalue
     type = ArrayReaction
     variable = flux
     reaction_coefficient = chi_nu_sigma_f
+    extra_matrix_tags = 'eigen'
 []
 []
 
