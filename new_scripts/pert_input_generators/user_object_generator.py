@@ -9,11 +9,11 @@ univ_names = ["F9plug",  "F8graph",   "F7rifl",   "MNR396", "MNR375", "MNR374", 
 "A9plug",   "A8graph",   "A7rifl",   "MNR397", "MNR376", "MNR366", "MNR362", "010500", "MNR369" 	
 ]
 
-det_path = "MNR_63V.inp_det0.m"
-res_path = 'MNR_63V.inp_res.m'
+det_path = "MNR_63V_ARO_4g.inp_det0.m"
+res_path = 'MNR_63V_ARO_4g.inp_res.m'
 output = "userobj.txt"
 
-group_number = 2
+group_number = 4
 
 d = serpentTools.read(det_path)
 r = serpentTools.read(res_path)
@@ -70,7 +70,7 @@ with open(output, 'w') as out:
     for universe in univ_names:
         out.write("uo_gcu_" + universe + " ")
     out.write("'\n\tref_integrals = '" + str(total_flux)[1:-1])
-    out.write("'\n\texecute_on = 'LINEAR' \n[]\n\n\n")
+    out.write("'\n\texecute_on = 'LINEAR' \n[]\n[]\n\n\n")
 
     # IC writing
     local_normalization = 1/module_volume

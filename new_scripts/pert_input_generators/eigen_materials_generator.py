@@ -12,24 +12,22 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 
 group_number = 4
 res_path = 'MNR_63V_ARO_4g.inp_res.m'
-output_path = "sphdf_materials.txt"
+output_path = "eigen_materials.txt"
 
 
 
 
-def write_sphdf_material(uni, path):
-    mat_type = "UOSphdfMaterial"
-    ref_k = "1"
-    norm_uo = "total"
+def write_eigen_material(uni, path):
+    mat_type = "NuclearMaterial"
+
     with open(path, 'a') as out_file:
         out_file.write("[./mat_" + uni.name + "]\n\t" + "block = '" + uni.name[4:] + "'\n\t")
         out_file.write("type = " + mat_type + "\n")
 
-        out_file.write("\t"  + "ref_nu_sigma_f = " + "'" + str(uni.infExp['infNsf'])[1:-1] + "'\n"  )
-        out_file.write("\t"  + "ref_diffusivity = " + "'" + str(uni.infExp['infDiffcoef'])[1:-1] + "'\n"  )
-        out_file.write("\t"  + "ref_sigma_r = " + "'" + str(uni.infExp['infRemxs'])[1:-1] + "'\n"  )
+        out_file.write("\t"  + "nu_sigma_f = " + "'" + str(uni.infExp['infNsf'])[1:-1] + "'\n"  )
+        out_file.write("\t"  + "diffusivity = " + "'" + str(uni.infExp['infDiffcoef'])[1:-1] + "'\n"  )
+        out_file.write("\t"  + "sigma_r = " + "'" + str(uni.infExp['infRemxs'])[1:-1] + "'\n"  )
         out_file.write("\tchi = " + "'" + str(uni.infExp['infChit'])[1:-1] + "'\n"  )
-        out_file.write("\tref_k = " + ref_k + "\n"  )
 
 
         scatt_shape = (group_number, group_number)
@@ -44,16 +42,13 @@ def write_sphdf_material(uni, path):
         for i in range(group_number):
             scatt_matrix[i][i] = 0
 
-        out_file.write("\tref_sigma_s = '")
+        out_file.write("\tsigma_s = '")
         for i in range(group_number):
             out_file.write(str(scatt_matrix[i][:])[1:-1])
             if (i < group_number-1):
                 out_file.write("; ")
 
-        out_file.write("'\n\tsph_factors_uo = uo_" + uni.name + "\n"  )
-        out_file.write("\tnormalization_factors_uo = " + norm_uo + "\n"  )
-
-        out_file.write("\n[]\n")
+        out_file.write("'\n[]\n")
 
 
 
@@ -75,18 +70,8 @@ with open(output_path, 'w') as f:
     f.write("[Materials]\n")
 
 for universe in universes:
-    write_sphdf_material(universe, output_path)
+    write_eigen_material(universe, output_path)
 
 with open(output_path, 'a') as f:
     f.write("[]\n")
 
-
-kess = r.universes.keys() 
-
-for key in kess:
-    print(key)
-    print(r.universes[key])
-
-
-
-    

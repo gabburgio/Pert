@@ -1,20 +1,20 @@
 import numpy as np
 
 
-univ_names = ["F9plug",  "F8graph",   "F7rifl",   "MNR396", "MNR375", "MNR374", "MNR372", "MNR382", "MNR389",
-"E9rifl",   "E8graph",   "MNR394",     "MNRC77", "MNR377", "MNRC76", "MNR395", "MNRC80", "MNR387", 
-"D9graph",  "D8graph",   "D7rifl",   "MNR392", "MNR381", "MNR391", "MNR388", "MNR378", "MNR390",  
-"C9rifl",   "C8graph",   "MNR379",     "MNR393", "010400", "MNR384", "MNR383", "MNRC74", "MNR361", 
+univ_names = ["A9plug",   "A8graph",   "A7rifl",   "MNR397", "MNR376", "MNR366", "MNR362", "010500", "MNR369", 	
 "B9plug",   "B8graph",   "MNR398",     "MNRC79", "MNR385", "MNRC78", "MNR358", "MNR373", "MNR365", 
-"A9plug",   "A8graph",   "A7rifl",   "MNR397", "MNR376", "MNR366", "MNR362", "010500", "MNR369" 	
+"C9rifl",   "C8graph",   "MNR379",     "MNR393", "010400", "MNR384", "MNR383", "MNRC74", "MNR361", 
+"D9graph",  "D8graph",   "D7rifl",   "MNR392", "MNR381", "MNR391", "MNR388", "MNR378", "MNR390",  
+"E9rifl",   "E8graph",   "MNR394",     "MNRC77", "MNR377", "MNRC76", "MNR395", "MNRC80", "MNR387",
+"F9plug",  "F8graph",   "F7rifl",   "MNR396", "MNR375", "MNR374", "MNR372", "MNR382", "MNR389"
 ]
 
 
 output_path = "MNR_gcu_input.txt"
 
-start = np.array([-36.45, -28.35, -19.2725, -11.5635, -35.7300, 36.3550])
+start = np.array([-36.45, -28.35, 19.2725,  26.9815, -35.7300, 36.3550])
 xshift = np.array([8.1, 8.1, 0, 0, 0, 0])
-yshift = np.array([0, 0, 7.709, 7.709, 0, 0])
+yshift = np.array([0, 0, -7.709, -7.709, 0, 0])
 cuboids = []
 
 

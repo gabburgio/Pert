@@ -47,10 +47,10 @@ for(int i =0; i<std::size(SPH_user_objects); ++i)
   RealEigenVector sph_factors = SPH_user_objects[i].get().getValue();
   RealEigenVector ref_integrals = SPH_user_objects[i].get().getRefValue();
   std::cout<< "sph factors of " << _SPH_uo_names[i] << " = "<< sph_factors << std::endl;
-  std::cout<< "reference zone integrals = " << ref_integrals << std::endl;
-  RealEigenVector sph_corrected = zone_integral.cwiseProduct(sph_factors);
-  std::cout<< "sph-corrected zone integrals = " << sph_corrected << std::endl;
-  std::cout<< " zone integrals of " << _SPH_uo_names[i] << " = " << zone_integral << std::endl<<std::endl;
+//  std::cout<< "reference zone integrals = " << ref_integrals << std::endl;
+//  RealEigenVector sph_corrected = zone_integral.cwiseProduct(sph_factors);
+//  std::cout<< "sph-corrected zone integrals = " << sph_corrected << std::endl;
+//  std::cout<< " zone integrals of " << _SPH_uo_names[i] << " = " << zone_integral << std::endl<<std::endl;
 }
 
 //std::cout<< "total integrals = " << (*_normalization_user_object).getIntegrals() << std::endl;
