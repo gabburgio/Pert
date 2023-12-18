@@ -130,7 +130,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0302408 0.0725353'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.        0.0002134; 0.0264007 0.       '
+	ref_sigma_s = '6.00000e-06 2.13398e-04; 0.0264007 0.       '
 	sph_factors_uo = uo_gcu_MNR396
 	normalization_factors_uo = total
 
@@ -143,7 +143,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0311873 0.0608388'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00021061; 0.0274053 0.       '
+	ref_sigma_s = '6.00000e-06 2.10615e-04; 0.0274053 0.       '
 	sph_factors_uo = uo_gcu_MNR375
 	normalization_factors_uo = total
 
@@ -156,7 +156,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0317485 0.0581329'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00020639; 0.0279379 0.       '
+	ref_sigma_s = '5.00000e-06 2.06393e-04; 0.0279379 0.       '
 	sph_factors_uo = uo_gcu_MNR374
 	normalization_factors_uo = total
 
@@ -169,7 +169,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0311857 0.060627 '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.        0.0002175; 0.0274028 0.       '
+	ref_sigma_s = '5.00000e-06 2.17502e-04; 0.0274028 0.       '
 	sph_factors_uo = uo_gcu_MNR372
 	normalization_factors_uo = total
 
@@ -182,7 +182,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0309053 0.0672019'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00022376; 0.0270788 0.       '
+	ref_sigma_s = '6.0000e-06 2.2376e-04; 0.0270788 0.       '
 	sph_factors_uo = uo_gcu_MNR382
 	normalization_factors_uo = total
 
@@ -195,7 +195,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0302828 0.0680114'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00020944; 0.0264796 0.       '
+	ref_sigma_s = '5.00000e-06 2.09442e-04; 0.0264796 0.       '
 	sph_factors_uo = uo_gcu_MNR389
 	normalization_factors_uo = total
 
@@ -208,7 +208,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0394705 0.011922 '
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 3.77371e-05; 0.0391172 0.       '
+	ref_sigma_s = '1.00000e-06 3.77371e-05; 0.0391172 0.       '
 	sph_factors_uo = uo_gcu_E9rifl
 	normalization_factors_uo = total
 
@@ -234,7 +234,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0303268 0.0722926'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00019803; 0.026531 0.      '
+	ref_sigma_s = '6.00000e-06 1.98035e-04; 0.026531 0.      '
 	sph_factors_uo = uo_gcu_MNR394
 	normalization_factors_uo = total
 
@@ -247,7 +247,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0354015 0.0503698'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00020162; 0.0291267 0.       '
+	ref_sigma_s = '3.00000e-06 2.01618e-04; 0.0291267 0.       '
 	sph_factors_uo = uo_gcu_MNRC77
 	normalization_factors_uo = total
 
@@ -260,7 +260,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0311803 0.0642824'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00024793; 0.0273691 0.       '
+	ref_sigma_s = '5.00000e-06 2.47927e-04; 0.0273691 0.       '
 	sph_factors_uo = uo_gcu_MNR377
 	normalization_factors_uo = total
 
@@ -273,7 +273,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0357852 0.0499701'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00020128; 0.0293529 0.       '
+	ref_sigma_s = '2.00000e-06 2.01281e-04; 0.0293529 0.       '
 	sph_factors_uo = uo_gcu_MNRC76
 	normalization_factors_uo = total
 
@@ -286,7 +286,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0305749 0.0728119'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.        0.0002744; 0.0266791 0.       '
+	ref_sigma_s = '5.00000e-06 2.74398e-04; 0.0266791 0.       '
 	sph_factors_uo = uo_gcu_MNR395
 	normalization_factors_uo = total
 
@@ -299,7 +299,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0328214 0.0445155'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00020954; 0.0303771 0.       '
+	ref_sigma_s = '3.00000e-06 2.09542e-04; 0.0303771 0.       '
 	sph_factors_uo = uo_gcu_MNRC80
 	normalization_factors_uo = total
 
@@ -312,7 +312,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0304677 0.0676133'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00023471; 0.0266739 0.       '
+	ref_sigma_s = '5.00000e-06 2.34707e-04; 0.0266739 0.       '
 	sph_factors_uo = uo_gcu_MNR387
 	normalization_factors_uo = total
 
@@ -364,7 +364,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.030594  0.0710613'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.        0.0002414; 0.0267463 0.       '
+	ref_sigma_s = '5.000e-06 2.414e-04; 0.0267463 0.       '
 	sph_factors_uo = uo_gcu_MNR392
 	normalization_factors_uo = total
 
@@ -377,7 +377,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0311113 0.0648568'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00022322; 0.0273081 0.       '
+	ref_sigma_s = '5.00000e-06 2.23216e-04; 0.0273081 0.       '
 	sph_factors_uo = uo_gcu_MNR381
 	normalization_factors_uo = total
 
@@ -390,7 +390,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0308898 0.0695991'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00025843; 0.0270273 0.       '
+	ref_sigma_s = '5.00000e-06 2.58429e-04; 0.0270273 0.       '
 	sph_factors_uo = uo_gcu_MNR391
 	normalization_factors_uo = total
 
@@ -403,7 +403,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0309775 0.0687057'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00026917; 0.0271114 0.       '
+	ref_sigma_s = '5.00000e-06 2.69166e-04; 0.0271114 0.       '
 	sph_factors_uo = uo_gcu_MNR388
 	normalization_factors_uo = total
 
@@ -416,7 +416,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.031461 0.064336'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00024285; 0.0276228 0.       '
+	ref_sigma_s = '4.00000e-06 2.42852e-04; 0.0276228 0.       '
 	sph_factors_uo = uo_gcu_MNR378
 	normalization_factors_uo = total
 
@@ -429,7 +429,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0305916 0.0690108'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.        0.0002355; 0.0267611 0.       '
+	ref_sigma_s = '5.00000e-06 2.35496e-04; 0.0267611 0.       '
 	sph_factors_uo = uo_gcu_MNR390
 	normalization_factors_uo = total
 
@@ -468,7 +468,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0312808 0.0620286'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00021182; 0.0274893 0.       '
+	ref_sigma_s = '6.00000e-06 2.11817e-04; 0.0274893 0.       '
 	sph_factors_uo = uo_gcu_MNR379
 	normalization_factors_uo = total
 
@@ -481,7 +481,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0303747 0.072246 '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00023036; 0.0265274 0.       '
+	ref_sigma_s = '5.00000e-06 2.30359e-04; 0.0265274 0.       '
 	sph_factors_uo = uo_gcu_MNR393
 	normalization_factors_uo = total
 
@@ -507,7 +507,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0308562 0.0692342'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00023651; 0.0270222 0.       '
+	ref_sigma_s = '5.00000e-06 2.36511e-04; 0.0270222 0.       '
 	sph_factors_uo = uo_gcu_MNR384
 	normalization_factors_uo = total
 
@@ -520,7 +520,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0312872 0.0644124'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00025162; 0.0274447 0.       '
+	ref_sigma_s = '5.00000e-06 2.51622e-04; 0.0274447 0.       '
 	sph_factors_uo = uo_gcu_MNR383
 	normalization_factors_uo = total
 
@@ -533,7 +533,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0363812 0.0474219'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00018862; 0.0297486 0.       '
+	ref_sigma_s = '3.00000e-06 1.88623e-04; 0.0297486 0.       '
 	sph_factors_uo = uo_gcu_MNRC74
 	normalization_factors_uo = total
 
@@ -546,7 +546,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0317859 0.0544347'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.        0.0001992; 0.0280173 0.       '
+	ref_sigma_s = '6.00000e-06 1.99204e-04; 0.0280173 0.       '
 	sph_factors_uo = uo_gcu_MNR361
 	normalization_factors_uo = total
 
@@ -585,7 +585,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0303012 0.0727374'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00022759; 0.0264609 0.       '
+	ref_sigma_s = '5.00000e-06 2.27587e-04; 0.0264609 0.       '
 	sph_factors_uo = uo_gcu_MNR398
 	normalization_factors_uo = total
 
@@ -598,7 +598,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.034474  0.0562382'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00021191; 0.0283331 0.       '
+	ref_sigma_s = '3.0000e-06 2.1191e-04; 0.0283331 0.       '
 	sph_factors_uo = uo_gcu_MNRC79
 	normalization_factors_uo = total
 
@@ -611,7 +611,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0305458 0.0689651'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00022504; 0.0267511 0.       '
+	ref_sigma_s = '5.00000e-06 2.25036e-04; 0.0267511 0.       '
 	sph_factors_uo = uo_gcu_MNR385
 	normalization_factors_uo = total
 
@@ -624,7 +624,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0355011 0.0516546'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00019229; 0.0291317 0.       '
+	ref_sigma_s = '2.00000e-06 1.92289e-04; 0.0291317 0.       '
 	sph_factors_uo = uo_gcu_MNRC78
 	normalization_factors_uo = total
 
@@ -637,7 +637,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0319393 0.0564421'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00022382; 0.0281361 0.       '
+	ref_sigma_s = '4.00000e-06 2.23824e-04; 0.0281361 0.       '
 	sph_factors_uo = uo_gcu_MNR358
 	normalization_factors_uo = total
 
@@ -650,7 +650,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0320853 0.0599448'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00021687; 0.0282065 0.       '
+	ref_sigma_s = '4.00000e-06 2.16865e-04; 0.0282065 0.       '
 	sph_factors_uo = uo_gcu_MNR373
 	normalization_factors_uo = total
 
@@ -663,7 +663,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0315399 0.0576899'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00020027; 0.0277563 0.       '
+	ref_sigma_s = '5.00000e-06 2.00273e-04; 0.0277563 0.       '
 	sph_factors_uo = uo_gcu_MNR365
 	normalization_factors_uo = total
 
@@ -715,7 +715,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0302802 0.0726128'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00022016; 0.0264325 0.       '
+	ref_sigma_s = '6.00000e-06 2.20163e-04; 0.0264325 0.       '
 	sph_factors_uo = uo_gcu_MNR397
 	normalization_factors_uo = total
 
@@ -728,7 +728,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0310802 0.0609296'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.        0.0002088; 0.0273069 0.       '
+	ref_sigma_s = '5.000e-06 2.088e-04; 0.0273069 0.       '
 	sph_factors_uo = uo_gcu_MNR376
 	normalization_factors_uo = total
 
@@ -741,7 +741,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0320388 0.0546528'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00018983; 0.0282509 0.       '
+	ref_sigma_s = '5.00000e-06 1.89835e-04; 0.0282509 0.       '
 	sph_factors_uo = uo_gcu_MNR366
 	normalization_factors_uo = total
 
@@ -754,7 +754,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0324648 0.05299  '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00017644; 0.0286608 0.       '
+	ref_sigma_s = '5.00000e-06 1.76444e-04; 0.0286608 0.       '
 	sph_factors_uo = uo_gcu_MNR362
 	normalization_factors_uo = total
 
@@ -767,7 +767,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0176054  0.00585456'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00012528; 0.0164623 0.       '
+	ref_sigma_s = '0.002877   0.00012528; 0.0164623 0.       '
 	sph_factors_uo = uo_gcu_010500
 	normalization_factors_uo = total
 
@@ -780,7 +780,7 @@ solve_type = 'PJFNK'
 	ref_sigma_r = '0.0315897 0.0576235'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00015961; 0.027835 0.      '
+	ref_sigma_s = '5.00000e-06 1.59605e-04; 0.027835 0.      '
 	sph_factors_uo = uo_gcu_MNR369
 	normalization_factors_uo = total
 
