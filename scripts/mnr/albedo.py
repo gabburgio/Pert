@@ -74,7 +74,7 @@ def writealbedo(res_path, path, group_number):
         p.write("\n[BCs]\n" + "[./albedo]\n" + "\ttype = ArrayAlbedoBC \n" )"""
 
 
-res_path = 'MNR_63V.inp_res.m'
+res_path = 'MNR_63V_ARM_4g.inp_res.m'
 output_path = "mnr_sphdf.i"
 
-writealbedo(res_path, output_path, 2)
+writealbedo(res_path, output_path, 4)
