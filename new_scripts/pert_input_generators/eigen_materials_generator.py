@@ -10,8 +10,8 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 ]
 
 
-group_number = 2
-res_path = 'MNR_63V_ARM.inp_res.m'
+group_number = 4
+res_path = 'MNR_63V_ARO_4g.inp_res.m'
 output_path = "eigen_materials.txt"
 
 
@@ -30,24 +30,26 @@ def write_eigen_material(uni, path):
         out_file.write("\tchi = " + "'" + str(uni.infExp['infChit'])[1:-1] + "'\n"  )
 
 
+
         scatt_shape = (group_number, group_number)
+        scatt_mult_matrix = np.zeros(scatt_shape)
         scatt_matrix = np.zeros(scatt_shape)
 
         for j in range(len(uni.infExp['infSp0'])):
             index = np.unravel_index(j, scatt_shape)
-            scatt_matrix[index] = uni.infExp['infSp0'][j]
+            scatt_mult_matrix[index] = uni.infExp['infSp0'][j]
+            scatt_matrix[index] = uni.infExp['infS0'][j]
         
-        scatt_matrix = np.transpose(scatt_matrix)
+        scatt_mult_matrix = np.transpose(scatt_mult_matrix)
 
         for i in range(group_number):
-            scatt_matrix[i][i] = 0
+            scatt_mult_matrix[i][i] -= scatt_matrix[i][i]
 
         out_file.write("\tsigma_s = '")
         for i in range(group_number):
-            out_file.write(str(scatt_matrix[i][:])[1:-1])
+            out_file.write(str(scatt_mult_matrix[i][:])[1:-1])
             if (i < group_number-1):
                 out_file.write("; ")
-
         out_file.write("'\n[]\n")
 
 
