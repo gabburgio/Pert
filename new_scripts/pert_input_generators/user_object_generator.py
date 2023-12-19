@@ -9,11 +9,11 @@ univ_names = ["F9plug",  "F8graph",   "F7rifl",   "MNR396", "MNR375", "MNR374", 
 "A9plug",   "A8graph",   "A7rifl",   "MNR397", "MNR376", "MNR366", "MNR362", "010500", "MNR369" 	
 ]
 
-det_path = "MNR_63V_ARI.inp_det0.m"
-res_path = 'MNR_63V_ARI.inp_res.m'
+det_path = "MNR_63V_ARI_4g.inp_det0.m"
+res_path = 'MNR_63V_ARI_4g.inp_res.m'
 output = "userobj.txt"
 
-group_number = 2
+group_number = 4
 
 d = serpentTools.read(det_path)
 r = serpentTools.read(res_path)

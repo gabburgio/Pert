@@ -10,8 +10,8 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 ]
 
 
-group_number = 2
-res_path = 'MNR_63V_ARI.inp_res.m' 
+group_number = 4
+res_path = 'MNR_63V_ARI_4g.inp_res.m' 
 output_path = "sphdf_materials.txt"
 
 
@@ -88,11 +88,12 @@ with open(output_path, 'a') as f:
 
 # write albedo
     
-data = [
-    8.91189E-02, 1.38508E-01, 8.54641E-02, 1.01378E-01, 0.00000E+00,
-    1.72594E-01, 2.32111E-01, 1.69605E-01, 0.00000E+00, 0.00000E+00,
-    2.40165E-01, 3.82130E-01, 0.00000E+00, 0.00000E+00, 8.01466E-06, 7.72756E-01
-]
+
+
+
+
+
+data = [ 8.69676E-02, 1.37082E-01, 8.50043E-02, 1.01336E-01, 0.00000E+00, 1.70448E-01, 2.32033E-01, 1.70250E-01, 0.00000E+00, 0.00000E+00, 2.39851E-01, 3.85040E-01, 0.00000E+00, 0.00000E+00, 8.35499E-06, 7.78011E-01]
 
 # Reshape the flat list into a 2D array with four columns
 alb_array = np.array(data).reshape(-1, group_number)
