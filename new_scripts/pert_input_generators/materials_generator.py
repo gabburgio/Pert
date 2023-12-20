@@ -11,7 +11,7 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 
 
 group_number = 2
-res_path = 'MNR_63V_ARI.inp_res.m' 
+res_path = 'MNR_63V_ARM.inp_res.m' 
 output_path = "sphdf_materials.txt"
 
 
