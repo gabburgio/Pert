@@ -2,6 +2,8 @@
 #include "SPHFactorsUserObject.h"
 #include "OutputUserObject.h"
 
+#include <iostream>
+#include <fstream> 
 
 
 registerMooseObject("pertApp", OutputUserObject);
@@ -38,32 +40,45 @@ void OutputUserObject::execute()
 {
 
 
-RealEigenVector normalization_factors = (*_normalization_user_object).getNormalizationFactors();
+std::ofstream outputFile("Sphdf_Output.txt");
 
+if (outputFile.is_open()){
+
+outputFile << "normalization factors  = " << (*_normalization_user_object).getNormalizationFactors() << std::endl << std::endl;
+outputFile << "sph_factors = {" << std::endl;
 
 for(int i =0; i<std::size(SPH_user_objects); ++i)
 {
-  RealEigenVector zone_integral = SPH_user_objects[i].get().getIntegrals();
   RealEigenVector sph_factors = SPH_user_objects[i].get().getValue();
-  RealEigenVector ref_integrals = SPH_user_objects[i].get().getRefValue();
-  std::cout<< "sph factors of " << _SPH_uo_names[i] << " = "<< sph_factors << std::endl;
-//  std::cout<< "reference zone integrals = " << ref_integrals << std::endl;
-//  RealEigenVector sph_corrected = zone_integral.cwiseProduct(sph_factors);
-//  std::cout<< "sph-corrected zone integrals = " << sph_corrected << std::endl;
-//  std::cout<< " zone integrals of " << _SPH_uo_names[i] << " = " << zone_integral << std::endl<<std::endl;
+
+  outputFile << "    '" << _SPH_uo_names[i] << "': np.array([";
+  for(int j =0; j<sph_factors.size(); j++){
+    outputFile << sph_factors[j];
+    if (j == sph_factors.size()-1 )
+    {outputFile << "]),";}
+    else
+    {outputFile << ", ";}
+  }
+  outputFile << std::endl;
 }
 
-//std::cout<< "total integrals = " << (*_normalization_user_object).getIntegrals() << std::endl;
-std::cout<< "normalization factors  = " << (*_normalization_user_object).getNormalizationFactors() << std::endl;
-//std::cout<< "ref total integrals = " << _ref_total_integrals << std::endl;
+outputFile << "}" << std::endl;
 
+// Close the file
+outputFile.close();
+std::cout << "SPHDF Output file has been written." << std::endl;
+} 
+else 
+{
+std::cerr << "Unable to write Output file." << std::endl;
+}
 
-RealEigenVector surface_integrals = RealEigenVector::Zero(std::size(_surface_integrators));
 
 for (int j = 0; j< std::size(_surface_integrators); j++)
 { 
   std::cout<< "surface integral of "  << _surface_integrators[j] << " = " << getPostprocessorValueByName(_surface_integrators[j]) << std::endl;
   std::cout<< "gamma factor of "  << _surface_integrators[j] << " = " << _ref_surface_integrals(j)/getPostprocessorValueByName(_surface_integrators[j]) << std::endl;
-
 }
+
+
 }

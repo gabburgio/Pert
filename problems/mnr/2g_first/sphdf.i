@@ -1,3 +1,6 @@
+#NOTE: This input file does NOT correctly account for multiplication reactions, so the error on k is in the order of 100 pcm
+
+
 [Mesh]
 file = mnr_active.msh
 []

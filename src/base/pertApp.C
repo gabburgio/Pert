@@ -22,7 +22,8 @@ pertApp::~pertApp() {}
 void
 pertApp::registerAll(Factory & f, ActionFactory & af, Syntax & syntax)
 {
-  ModulesApp::registerAll(f, af, syntax);
+  //ModulesApp::registerAll(f, af, syntax);
+  ModulesApp::registerAllObjects<pertApp>(f, af, syntax);
   Registry::registerObjectsTo(f, {"pertApp"});
   Registry::registerActionsTo(af, {"pertApp"});
 

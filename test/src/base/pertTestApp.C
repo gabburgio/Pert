@@ -28,16 +28,29 @@ pertTestApp::pertTestApp(InputParameters parameters) : MooseApp(parameters)
 
 pertTestApp::~pertTestApp() {}
 
+//void
+//pertTestApp::registerAll(Factory & f, ActionFactory & af, Syntax & s, bool use_test_objs)
+//{
+//  pertApp::registerAll(f, af, s);
+//  if (use_test_objs)
+//  {
+//    Registry::registerObjectsTo(f, {"pertTestApp"});
+//    Registry::registerActionsTo(af, {"pertTestApp"});
+//  }
+//}
+
 void
 pertTestApp::registerAll(Factory & f, ActionFactory & af, Syntax & s, bool use_test_objs)
 {
-  pertApp::registerAll(f, af, s);
-  if (use_test_objs)
-  {
-    Registry::registerObjectsTo(f, {"pertTestApp"});
-    Registry::registerActionsTo(af, {"pertTestApp"});
-  }
+  ModulesApp::registerAllObjects<pertApp>(f, af, s);
+  //Registry::registerObjectsTo(f, {"pertTestApp"});
+  //Registry::registerActionsTo(af, {"pertTestApp"});
+  Registry::registerObjectsTo(f, {"pertApp"});
+  Registry::registerActionsTo(af, {"pertApp"});
+  
+  
 }
+
 
 void
 pertTestApp::registerApps()
