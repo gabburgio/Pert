@@ -64,31 +64,31 @@ UoL2ArrayAlbedoBC::computeQpJacobian()
   
   RealEigenVector gamma = normalization_factors.cwiseProduct(_ref_current_integral.cwiseQuotient(surface_flux_integrators));
 
-  //return _phi[_j][_qp] * _test[_i][_qp] * (_corrective_matrix.diagonal()).cwiseProduct(gamma);
   return _phi[_j][_qp] * _test[_i][_qp] * (_corrective_matrix.diagonal()).cwiseProduct(gamma);
 
 }
 
 
-//RealEigenMatrix
-//UoL2ArrayAlbedoBC::computeQpOffDiagJacobian(const MooseVariableFEBase & jvar)
-//{
-//
-//  RealEigenVector normalization_factors = _normalization_factors_uo.getNormalizationFactors();
-//  RealEigenVector surface_flux_integrators =   RealEigenVector::Zero(_ref_current_integral.size());
-//
-//  for(int i=0; i<_ref_current_integral.size(); ++i)
-//  {
-//    surface_flux_integrators(i) = getPostprocessorValueByName(_surface_integrators[i]);
-//  }
-//  
-//  RealEigenVector gamma = normalization_factors.cwiseProduct(_ref_current_integral.cwiseQuotient(surface_flux_integrators));
-//
-//
-//
-//  if (jvar.number() == _var.number())
-//    return _phi[_j][_qp] * _test[_i][_qp] * _corrective_matrix * gamma.asDiagonal();
-//  else
-//    return RealEigenMatrix::Zero(_var.count(), jvar.count());
-//
-//}
+RealEigenMatrix
+UoL2ArrayAlbedoBC::computeQpOffDiagJacobian(const MooseVariableFEBase & jvar)
+{
+
+  RealEigenVector normalization_factors = _normalization_factors_uo.getNormalizationFactors();
+  RealEigenVector surface_flux_integrators =   RealEigenVector::Zero(_ref_current_integral.size());
+
+  for(int i=0; i<_ref_current_integral.size(); ++i)
+  {
+    surface_flux_integrators(i) = getPostprocessorValueByName(_surface_integrators[i]);
+  }
+  
+  RealEigenVector gamma = normalization_factors.cwiseProduct(_ref_current_integral.cwiseQuotient(surface_flux_integrators));
+
+
+
+  if (jvar.number() == _var.number())
+    return _phi[_j][_qp] * gamma.asDiagonal() * ( _corrective_matrix * _test[_i][_qp] );
+    //return _phi[_j][_qp] * _test[_i][_qp] *  _corrective_matrix * gamma.asDiagonal()  ;
+  else
+    return RealEigenMatrix::Zero(_var.count(), jvar.count());
+
+}

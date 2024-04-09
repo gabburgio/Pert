@@ -3,6 +3,13 @@ file = mnr_active.msh
 []
 
 
+[Preconditioning]
+  [./smp]
+    type = SMP
+    full = true
+  []
+[]
+
 [Outputs]
 exodus = true
 []
@@ -11,7 +18,13 @@ exodus = true
 [Executioner]
 type = Steady
 solve_type = 'PJFNK'	
-nl_rel_tol = 1e-10
+
+
+petsc_options = '-ksp_monitor_singular_value'
+petsc_options_iname = '-ksp_type'
+petsc_options_value = 'gmres'
+
+
 []
 
 

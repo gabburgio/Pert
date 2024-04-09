@@ -10,9 +10,10 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 ]
 
 
-group_number = 2
-res_path = 'MNR_63V_ARM.inp_res.m' 
-output_path = "sphdf_materials.txt"
+group_number = 4
+det_path = "MNR_63V_ARO_4g.inp_det0.m"
+res_path = 'MNR_63V_ARO_4g.inp_res.m'
+output_path = "materials.txt"
 
 
 
@@ -24,7 +25,7 @@ def write_sphdf_material(uni, path):
     with open(path, 'a') as out_file:
         out_file.write("[./mat_" + uni.name + "]\n\t" + "block = '" + uni.name[4:] + "'\n\t")
         out_file.write("type = " + mat_type + "\n")
-
+    
         out_file.write("\t"  + "ref_nu_sigma_f = " + "'" + str(uni.infExp['infNsf'])[1:-1] + "'\n"  )
         out_file.write("\t"  + "ref_diffusivity = " + "'" + str(uni.infExp['infDiffcoef'])[1:-1] + "'\n"  )
         out_file.write("\t"  + "ref_sigma_r = " + "'" + str(uni.infExp['infRemxs'])[1:-1] + "'\n"  )
@@ -87,13 +88,10 @@ with open(output_path, 'a') as f:
 
 
 # write albedo
-    
+
+data = [0.0882315, 0.137907, 0.0862056, 0.102634, 0.0, 0.170801, 0.232797, 0.171553, 0.0, 0.0, 0.239385, 0.384669, 0.0, 0.0, 8.26961e-06, 0.776636]
 
 
-
-
-
-data = [ 8.69676E-02, 1.37082E-01, 8.50043E-02, 1.01336E-01, 0.00000E+00, 1.70448E-01, 2.32033E-01, 1.70250E-01, 0.00000E+00, 0.00000E+00, 2.39851E-01, 3.85040E-01, 0.00000E+00, 0.00000E+00, 8.35499E-06, 7.78011E-01]
 
 # Reshape the flat list into a 2D array with four columns
 alb_array = np.array(data).reshape(-1, group_number)

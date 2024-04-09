@@ -8,9 +8,18 @@ exodus = true
 []
 
 
+[Preconditioning]
+  [./smp]
+    type = SMP
+    full = true
+  []
+[]
+
+
 [Executioner]
 type = Steady
-solve_type = 'PJFNK'	
+#solve_type = 'PJFNK'	
+fixed_point_algorithm = picard
 #nl_rel_tol = 1e-10
 []
 
