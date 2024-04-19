@@ -23,8 +23,8 @@ solve_type = 'PJFNK'
 # petsc_options = '-ksp_monitor_true_residual'
 #petsc_options = '-ksp_gmres_modifiedgramschmidt'
 
-petsc_options_iname = '-pc_type'
-petsc_options_value = 'svd'
+petsc_options_iname = '-KSP_TYPE -prec_type'
+petsc_options_value = 'gmres gamg'
 
 #petsc_options_iname = '-pc_type -pc_factor_mat_solver_package'
 #petsc_options_value = 'lu mumps'
