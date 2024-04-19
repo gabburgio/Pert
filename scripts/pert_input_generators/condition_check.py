@@ -10,10 +10,12 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 ]
 
 
-group_number = 8
-det_path = "storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_det0.m"
-res_path = 'storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_res.m'
-output_path = "materials.txt"
+group_number = 2
+#det_path = "storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_det0.m"
+#res_path = 'storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_res.m'
+
+det_path = "storage_serpent/2g_ARO_mid/MNR_63V_ARO.inp_det0.m"
+res_path = 'storage_serpent/2g_ARO_mid/MNR_63V_ARO.inp_res.m'
 
 
 r = serpentTools.read(res_path)
@@ -24,14 +26,14 @@ universes = []
 for name in univ_names:
     universes.append(r.getUniv(name, 0,0))
 
-
-print(len(universes))
-
+#Print the keys of the available group constants
+#print(universes[0].infExp.keys())
 
 #Calculate absorption and scattering multiplication rates
 
 total_absorption = np.zeros(group_number)
 total_multiplication = np.zeros(group_number)
+total_fission_production = np.zeros(group_number)
 
 for universe in universes:     
     uni_flx = universe.infExp['infFlx']
@@ -40,6 +42,11 @@ for universe in universes:
     uni_abs =  universe.infExp['infAbs']
     total_absorption += np.multiply(uni_flx, uni_abs)
 
+    #fission
+    uni_nsf =  universe.infExp['infNsf']
+    uni_chi =  universe.infExp['infChit']
+    uni_chinsf = np.outer(uni_chi,uni_nsf)
+    total_fission_production += uni_chinsf.dot(uni_flx)
     
     #multiplication
     scatt_shape = (group_number, group_number)    
@@ -57,11 +64,34 @@ for universe in universes:
     total_multiplication += net_matrix.dot(uni_flx)
 
 
+    #print("fission = "+ str(total_fission_production))
+    #print("absorption = "+ str(total_absorption))
+    #print("multiplication = "+ str(total_multiplication))
+
+
+
 net_current = (d.__getitem__("net_current_active")).tallies
 
 
+og_absorption = 0
+og_multiplication = 0
+og_net_current = 0
+og_fission_production = 0
 
-print("total absorption - total summed multiplication - net current = " + str(total_absorption - total_multiplication - np.flip(net_current)))
+for g in range(group_number):
+    og_absorption += total_absorption[g]
+    og_multiplication += total_multiplication[g] 
+    og_net_current += net_current[g]
+    og_fission_production += total_fission_production[g] 
+
+
+#Print implicit Keff:
+
+k = (og_fission_production)/(og_absorption - og_net_current - og_multiplication)
+print("KEFF = " + str(k))
+
+#Check normalization factors condition:
+#print("total absorption - total summed multiplication - net current = " + str(total_absorption - total_multiplication - np.flip(net_current)))
 
 
 
