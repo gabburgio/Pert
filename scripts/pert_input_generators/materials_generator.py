@@ -10,9 +10,9 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 ]
 
 
-group_number = 4
-det_path = "MNR_63V_ARO_4g.inp_det0.m"
-res_path = 'MNR_63V_ARO_4g.inp_res.m'
+group_number = 8
+det_path = "storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_det0.m"
+res_path = 'storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_res.m'
 output_path = "materials.txt"
 
 
@@ -22,16 +22,21 @@ def write_sphdf_material(uni, path):
     mat_type = "UOSphdfMaterial"
     ref_k = "1"
     norm_uo = "total"
+    do_not_subtract = True
     with open(path, 'a') as out_file:
         out_file.write("[./mat_" + uni.name + "]\n\t" + "block = '" + uni.name[4:] + "'\n\t")
         out_file.write("type = " + mat_type + "\n")
     
         out_file.write("\t"  + "ref_nu_sigma_f = " + "'" + str(uni.infExp['infNsf'])[1:-1] + "'\n"  )
         out_file.write("\t"  + "ref_diffusivity = " + "'" + str(uni.infExp['infDiffcoef'])[1:-1] + "'\n"  )
-        out_file.write("\t"  + "ref_sigma_r = " + "'" + str(uni.infExp['infRemxs'])[1:-1] + "'\n"  )
         out_file.write("\tchi = " + "'" + str(uni.infExp['infChit'])[1:-1] + "'\n"  )
         out_file.write("\tref_k = " + ref_k + "\n"  )
 
+
+        if(do_not_subtract):
+            out_file.write("\t"  + "ref_sigma_r = " + "'" + str(uni.infExp['infTot'])[1:-1] + "'\n"  )
+        else:
+            out_file.write("\t"  + "ref_sigma_r = " + "'" + str(uni.infExp['infRemxs'])[1:-1] + "'\n"  )
 
         scatt_shape = (group_number, group_number)
         
@@ -45,8 +50,10 @@ def write_sphdf_material(uni, path):
         
         scatt_mult_matrix = np.transpose(scatt_mult_matrix)
 
-        for i in range(group_number):
-            scatt_mult_matrix[i][i] -= scatt_matrix[i][i]
+
+        if(not do_not_subtract):
+            for i in range(group_number):
+                scatt_mult_matrix[i][i] -= scatt_matrix[i][i]
 
         out_file.write("\tref_sigma_s = '")
         for i in range(group_number):
@@ -68,9 +75,6 @@ r = serpentTools.read(res_path)
 universes = []
 for name in univ_names:
     universes.append(r.getUniv(name, 0,0))
-
-
-print(len(universes))
 
 
 #write materials

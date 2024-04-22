@@ -11,7 +11,26 @@ exodus = true
 [Executioner]
 type = Steady
 solve_type = 'PJFNK'	
+
+#petsc_options = '-pc_svd_monitor'
+#petsc_options_iname = '-pc_type'
+#petsc_options_value = 'svd '
+
+#petsc_options = '-ksp_monitor_singular_value'
+petsc_options_iname = '-ksp_type -ksp_gmres_restart'
+petsc_options_value = 'gmres 1000'
+
+
 []
+
+
+[Preconditioning]
+  [./smp]
+    type = SMP
+    full = true
+  []
+[]
+
 
 
 [Variables]

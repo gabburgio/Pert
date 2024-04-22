@@ -10,12 +10,15 @@ univ_names = ["gcu_F9plug",  "gcu_F8graph",   "gcu_F7rifl",   "gcu_MNR396", "gcu
 ]
 
 
-group_number = 2
-#det_path = "storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_det0.m"
-#res_path = 'storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_res.m'
+group_number = 8
+det_path = "storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_det0.m"
+res_path = 'storage_serpent/8g_ARO/MNR_63V_ARO_8g.inp_res.m'
 
-det_path = "storage_serpent/2g_ARO_mid/MNR_63V_ARO.inp_det0.m"
-res_path = 'storage_serpent/2g_ARO_mid/MNR_63V_ARO.inp_res.m'
+#det_path = "storage_serpent/2g_ARO_mid/MNR_63V_ARO.inp_det0.m"
+#res_path = 'storage_serpent/2g_ARO_mid/MNR_63V_ARO.inp_res.m'
+
+#det_path = "storage_serpent/4g_ARM/MNR_63V_ARM_4g.inp_det0.m"
+#res_path = 'storage_serpent/4g_ARM/MNR_63V_ARM_4g.inp_res.m'
 
 
 r = serpentTools.read(res_path)
@@ -27,7 +30,7 @@ for name in univ_names:
     universes.append(r.getUniv(name, 0,0))
 
 #Print the keys of the available group constants
-#print(universes[0].infExp.keys())
+print(universes[0].infExp.keys())
 
 #Calculate absorption and scattering multiplication rates
 
