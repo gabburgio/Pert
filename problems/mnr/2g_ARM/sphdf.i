@@ -26,14 +26,14 @@ solve_type = 'PJFNK'
     type = AlbedoCorrectedArraySideIntegralPostprocessor
     variable = flux
     component = 0  
-	albedo_matrix = '3.22201E-01 8.67124E-06; 2.03017E-01 7.72685E-01'
+	albedo_matrix = '3.22300E-01 8.23935E-06; 2.03030E-01  7.72700E-01'
     execute_on = 'LINEAR'
     boundary = 'north south west east bottom top'
 []
 [./alb_1]
     type = AlbedoCorrectedArraySideIntegralPostprocessor
     variable = flux
-	albedo_matrix = '3.22201E-01 8.67124E-06; 2.03017E-01 7.72685E-01'
+	albedo_matrix = '3.22300E-01  8.23935E-06; 2.03030E-01  7.72700E-01'
     component = 1
     execute_on = 'LINEAR'
     boundary = 'north south west east bottom top' 
@@ -48,8 +48,8 @@ solve_type = 'PJFNK'
 	surface_integrators = 'alb_0 alb_1'
 	boundary = 'north south west east bottom top'
 	normalization_factors_uo = total
-	albedo_matrix = '3.22201E-01 8.67124E-06; 2.03017E-01 7.72685E-01'
-	ref_current_integral = '856.91699146 -19.52557558'
+	albedo_matrix = '3.22300E-01  8.23935E-06; 2.03030E-01  7.72700E-01'
+	ref_current_integral = '858.75169283 -19.66231088' 
 []
 []
 
@@ -87,11 +87,11 @@ solve_type = 'PJFNK'
 	block = 'F9plug'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.4222   0.149933'
-	ref_sigma_r = '0.0682088 0.0192188'
+	ref_diffusivity = '1.42344  0.149939'
+	ref_sigma_r = '0.06816   0.0191539'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 4.73019e-05; 0.0676358 0.       '
+	ref_sigma_s = '0.00000e+00 5.21682e-05; 0.0675826 0.       '
 	sph_factors_uo = uo_gcu_F9plug
 	normalization_factors_uo = total
 
@@ -100,11 +100,11 @@ solve_type = 'PJFNK'
 	block = 'F8graph'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.29986  0.331376'
-	ref_sigma_r = '0.0221386  0.00764132'
+	ref_diffusivity = '1.29977  0.331518'
+	ref_sigma_r = '0.0221062  0.00764318'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 5.51137e-05; 0.021906 0.      '
+	ref_sigma_s = '0.00000e+00 5.36105e-05; 0.0218714 0.       '
 	sph_factors_uo = uo_gcu_F8graph
 	normalization_factors_uo = total
 
@@ -113,11 +113,11 @@ solve_type = 'PJFNK'
 	block = 'F7rifl'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '2.28812  0.266106'
-	ref_sigma_r = '0.0315503 0.011811 '
+	ref_diffusivity = '2.29105  0.265707'
+	ref_sigma_r = '0.0315613 0.0119023'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 7.91071e-05; 0.031249 0.      '
+	ref_sigma_s = '0.00000e+00 8.48641e-05; 0.0312581 0.       '
 	sph_factors_uo = uo_gcu_F7rifl
 	normalization_factors_uo = total
 
@@ -125,12 +125,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR396]
 	block = 'MNR396'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00335329 0.112358  '
-	ref_diffusivity = '1.65173  0.246761'
-	ref_sigma_r = '0.0302408 0.0725353'
+	ref_nu_sigma_f = '0.00335425 0.112308  '
+	ref_diffusivity = '1.65016  0.246586'
+	ref_sigma_r = '0.0303022 0.0725117'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '6.00000e-06 2.13398e-04; 0.0264007 0.       '
+	ref_sigma_s = '6.00000e-06 2.11843e-04; 0.0264506 0.       '
 	sph_factors_uo = uo_gcu_MNR396
 	normalization_factors_uo = total
 
@@ -138,12 +138,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR375]
 	block = 'MNR375'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00244972 0.0850705 '
-	ref_diffusivity = '1.62506  0.246397'
-	ref_sigma_r = '0.0311873 0.0608388'
+	ref_nu_sigma_f = '0.002453  0.0850453'
+	ref_diffusivity = '1.62344  0.246465'
+	ref_sigma_r = '0.0311932 0.0608175'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '6.00000e-06 2.10615e-04; 0.0274053 0.       '
+	ref_sigma_s = '5.00000e-06 2.14709e-04; 0.0274189 0.       '
 	sph_factors_uo = uo_gcu_MNR375
 	normalization_factors_uo = total
 
@@ -151,12 +151,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR374]
 	block = 'MNR374'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00226137 0.0787432 '
-	ref_diffusivity = '1.61647  0.245161'
-	ref_sigma_r = '0.0317485 0.0581329'
+	ref_nu_sigma_f = '0.0022538 0.0787876'
+	ref_diffusivity = '1.61614  0.245348'
+	ref_sigma_r = '0.0317285 0.0581535'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.06393e-04; 0.0279379 0.       '
+	ref_sigma_s = '5.00000e-06 2.02626e-04; 0.0279275 0.       '
 	sph_factors_uo = uo_gcu_MNR374
 	normalization_factors_uo = total
 
@@ -164,12 +164,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR372]
 	block = 'MNR372'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00243157 0.0846448 '
-	ref_diffusivity = '1.62057 0.24621'
-	ref_sigma_r = '0.0311857 0.060627 '
+	ref_nu_sigma_f = '0.00244701 0.0847402 '
+	ref_diffusivity = '1.62134  0.246221'
+	ref_sigma_r = '0.0312202 0.0607111'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.17502e-04; 0.0274028 0.       '
+	ref_sigma_s = '5.00000e-06 2.18902e-04; 0.0274365 0.       '
 	sph_factors_uo = uo_gcu_MNR372
 	normalization_factors_uo = total
 
@@ -177,12 +177,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR382]
 	block = 'MNR382'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00291995 0.0994481 '
-	ref_diffusivity = '1.63176  0.248009'
-	ref_sigma_r = '0.0309053 0.0672019'
+	ref_nu_sigma_f = '0.00291478 0.0993726 '
+	ref_diffusivity = '1.63294  0.248092'
+	ref_sigma_r = '0.0308507 0.0671501'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '6.0000e-06 2.2376e-04; 0.0270788 0.       '
+	ref_sigma_s = '5.00000e-06 2.21231e-04; 0.0270331 0.       '
 	sph_factors_uo = uo_gcu_MNR382
 	normalization_factors_uo = total
 
@@ -190,12 +190,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR389]
 	block = 'MNR389'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00301658 0.101766  '
-	ref_diffusivity = '1.64662 0.24567'
-	ref_sigma_r = '0.0302828 0.0680114'
+	ref_nu_sigma_f = '0.00300897 0.101809  '
+	ref_diffusivity = '1.6485   0.245631'
+	ref_sigma_r = '0.0302687 0.0680053'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.09442e-04; 0.0264796 0.       '
+	ref_sigma_s = '5.00000e-06 2.06736e-04; 0.0264871 0.       '
 	sph_factors_uo = uo_gcu_MNR389
 	normalization_factors_uo = total
 
@@ -204,11 +204,11 @@ solve_type = 'PJFNK'
 	block = 'E9rifl'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '2.23703  0.260562'
-	ref_sigma_r = '0.0394705 0.011922 '
+	ref_diffusivity = '2.23309  0.260262'
+	ref_sigma_r = '0.0396426 0.0118958'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '1.00000e-06 3.77371e-05; 0.0391172 0.       '
+	ref_sigma_s = '0.00000e+00 3.60081e-05; 0.039291 0.      '
 	sph_factors_uo = uo_gcu_E9rifl
 	normalization_factors_uo = total
 
@@ -217,11 +217,11 @@ solve_type = 'PJFNK'
 	block = 'E8graph'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.30734  0.334793'
-	ref_sigma_r = '0.0204347  0.00760198'
+	ref_diffusivity = '1.30605  0.334557'
+	ref_sigma_r = '0.0205279  0.00760694'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.0000e+00 7.0198e-05; 0.020222 0.      '
+	ref_sigma_s = '0.00000e+00 6.82442e-05; 0.020306 0.      '
 	sph_factors_uo = uo_gcu_E8graph
 	normalization_factors_uo = total
 
@@ -229,12 +229,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR394]
 	block = 'MNR394'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00328531 0.111325  '
-	ref_diffusivity = '1.65141  0.247048'
-	ref_sigma_r = '0.0303268 0.0722926'
+	ref_nu_sigma_f = '0.00328621 0.111229  '
+	ref_diffusivity = '1.65085  0.246951'
+	ref_sigma_r = '0.0303395 0.072251 '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '6.00000e-06 1.98035e-04; 0.026531 0.      '
+	ref_sigma_s = '6.00000e-06 1.97146e-04; 0.0265234 0.       '
 	sph_factors_uo = uo_gcu_MNR394
 	normalization_factors_uo = total
 
@@ -242,12 +242,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNRC77]
 	block = 'MNRC77'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00113833 0.0387775 '
-	ref_diffusivity = '1.5538   0.230778'
-	ref_sigma_r = '0.0354015 0.0503698'
+	ref_nu_sigma_f = '0.00114081 0.038632  '
+	ref_diffusivity = '1.55421  0.230773'
+	ref_sigma_r = '0.0353697 0.050227 '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '3.00000e-06 2.01618e-04; 0.0291267 0.       '
+	ref_sigma_s = '4.00000e-06 1.97686e-04; 0.0291023 0.       '
 	sph_factors_uo = uo_gcu_MNRC77
 	normalization_factors_uo = total
 
@@ -255,12 +255,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR377]
 	block = 'MNR377'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00268942 0.0927015 '
-	ref_diffusivity = '1.61369  0.248695'
-	ref_sigma_r = '0.0311803 0.0642824'
+	ref_nu_sigma_f = '0.00268787 0.0926462 '
+	ref_diffusivity = '1.61473  0.248529'
+	ref_sigma_r = '0.0311742 0.064266 '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.47927e-04; 0.0273691 0.       '
+	ref_sigma_s = '5.00000e-06 2.51964e-04; 0.0273621 0.       '
 	sph_factors_uo = uo_gcu_MNR377
 	normalization_factors_uo = total
 
@@ -268,12 +268,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNRC76]
 	block = 'MNRC76'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00109811 0.0368386 '
-	ref_diffusivity = '1.54509  0.230946'
-	ref_sigma_r = '0.0357852 0.0499701'
+	ref_nu_sigma_f = '0.00109516 0.0368633 '
+	ref_diffusivity = '1.54517  0.230974'
+	ref_sigma_r = '0.0357903 0.049983 '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '2.00000e-06 2.01281e-04; 0.0293529 0.       '
+	ref_sigma_s = '3.00000e-06 2.03932e-04; 0.0293568 0.       '
 	sph_factors_uo = uo_gcu_MNRC76
 	normalization_factors_uo = total
 
@@ -281,12 +281,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR395]
 	block = 'MNR395'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00337353 0.112506  '
-	ref_diffusivity = '1.62561  0.250515'
-	ref_sigma_r = '0.0305749 0.0728119'
+	ref_nu_sigma_f = '0.00336978 0.112372  '
+	ref_diffusivity = '1.62543  0.250596'
+	ref_sigma_r = '0.0306063 0.0726948'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.74398e-04; 0.0266791 0.       '
+	ref_sigma_s = '5.00000e-06 2.73327e-04; 0.0267087 0.       '
 	sph_factors_uo = uo_gcu_MNR395
 	normalization_factors_uo = total
 
@@ -294,12 +294,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNRC80]
 	block = 'MNRC80'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00154457 0.0479719 '
-	ref_diffusivity = '1.55699  0.233999'
-	ref_sigma_r = '0.0328214 0.0445155'
+	ref_nu_sigma_f = '0.00154986 0.0479387 '
+	ref_diffusivity = '1.55621  0.234008'
+	ref_sigma_r = '0.0328485 0.0444722'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '3.00000e-06 2.09542e-04; 0.0303771 0.       '
+	ref_sigma_s = '3.00000e-06 2.06138e-04; 0.0304052 0.       '
 	sph_factors_uo = uo_gcu_MNRC80
 	normalization_factors_uo = total
 
@@ -307,12 +307,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR387]
 	block = 'MNR387'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00298021 0.10083   '
-	ref_diffusivity = '1.63375  0.246274'
-	ref_sigma_r = '0.0304677 0.0676133'
+	ref_nu_sigma_f = '0.00296751 0.100606  '
+	ref_diffusivity = '1.63382  0.246163'
+	ref_sigma_r = '0.0304826 0.0675291'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.34707e-04; 0.0266739 0.       '
+	ref_sigma_s = '6.00000e-06 2.33454e-04; 0.026685 0.      '
 	sph_factors_uo = uo_gcu_MNR387
 	normalization_factors_uo = total
 
@@ -321,11 +321,11 @@ solve_type = 'PJFNK'
 	block = 'D9graph'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.29476 0.32963'
-	ref_sigma_r = '0.024521  0.0076921'
+	ref_diffusivity = '1.2898  0.32954'
+	ref_sigma_r = '0.0245384 0.0077067'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 3.90048e-05; 0.0242716 0.       '
+	ref_sigma_s = '0.00000e+00 4.25551e-05; 0.0242899 0.       '
 	sph_factors_uo = uo_gcu_D9graph
 	normalization_factors_uo = total
 
@@ -334,11 +334,11 @@ solve_type = 'PJFNK'
 	block = 'D8graph'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.27851  0.332824'
-	ref_sigma_r = '0.0221427  0.00764972'
+	ref_diffusivity = '1.27773  0.332679'
+	ref_sigma_r = '0.022096   0.00764108'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.0000e+00 6.9389e-05; 0.021912 0.      '
+	ref_sigma_s = '0.00000e+00 6.96526e-05; 0.0218691 0.       '
 	sph_factors_uo = uo_gcu_D8graph
 	normalization_factors_uo = total
 
@@ -347,11 +347,11 @@ solve_type = 'PJFNK'
 	block = 'D7rifl'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '2.27459  0.268766'
-	ref_sigma_r = '0.0310472 0.0118151'
+	ref_diffusivity = '2.27784  0.268769'
+	ref_sigma_r = '0.031094  0.0118013'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00010062; 0.0307469 0.       '
+	ref_sigma_s = '1.00000e-06 1.02542e-04; 0.0308037 0.       '
 	sph_factors_uo = uo_gcu_D7rifl
 	normalization_factors_uo = total
 
@@ -359,12 +359,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR392]
 	block = 'MNR392'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00319747 0.10799   '
-	ref_diffusivity = '1.63193 0.24743'
-	ref_sigma_r = '0.030594  0.0710613'
+	ref_nu_sigma_f = '0.00319732 0.107897  '
+	ref_diffusivity = '1.63146  0.247267'
+	ref_sigma_r = '0.0306003 0.0710662'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.000e-06 2.414e-04; 0.0267463 0.       '
+	ref_sigma_s = '5.00000e-06 2.40948e-04; 0.0267482 0.       '
 	sph_factors_uo = uo_gcu_MNR392
 	normalization_factors_uo = total
 
@@ -372,12 +372,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR381]
 	block = 'MNR381'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00268802 0.0933567 '
-	ref_diffusivity = '1.62315  0.248066'
-	ref_sigma_r = '0.0311113 0.0648568'
+	ref_nu_sigma_f = '0.00268793 0.0933079 '
+	ref_diffusivity = '1.62327  0.247951'
+	ref_sigma_r = '0.0311035 0.0648058'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.23216e-04; 0.0273081 0.       '
+	ref_sigma_s = '5.0000e-06 2.2247e-04; 0.0272995 0.       '
 	sph_factors_uo = uo_gcu_MNR381
 	normalization_factors_uo = total
 
@@ -385,12 +385,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR391]
 	block = 'MNR391'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00307618 0.104335  '
-	ref_diffusivity = '1.61863 0.24937'
-	ref_sigma_r = '0.0308898 0.0695991'
+	ref_nu_sigma_f = '0.00308317 0.104319  '
+	ref_diffusivity = '1.61896  0.249266'
+	ref_sigma_r = '0.0308909 0.0696268'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.58429e-04; 0.0270273 0.       '
+	ref_sigma_s = '5.00000e-06 2.58427e-04; 0.0270312 0.       '
 	sph_factors_uo = uo_gcu_MNR391
 	normalization_factors_uo = total
 
@@ -398,12 +398,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR388]
 	block = 'MNR388'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00303217 0.102526  '
-	ref_diffusivity = '1.61536  0.249722'
-	ref_sigma_r = '0.0309775 0.0687057'
+	ref_nu_sigma_f = '0.00302789 0.102552  '
+	ref_diffusivity = '1.61594  0.249628'
+	ref_sigma_r = '0.0309532 0.0687069'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.69166e-04; 0.0271114 0.       '
+	ref_sigma_s = '5.00000e-06 2.67344e-04; 0.027097 0.      '
 	sph_factors_uo = uo_gcu_MNR388
 	normalization_factors_uo = total
 
@@ -411,12 +411,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR378]
 	block = 'MNR378'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00266777 0.0925235 '
-	ref_diffusivity = '1.60883  0.248294'
-	ref_sigma_r = '0.031461 0.064336'
+	ref_nu_sigma_f = '0.00267084 0.092361  '
+	ref_diffusivity = '1.60878  0.248213'
+	ref_sigma_r = '0.0314667 0.0642416'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '4.00000e-06 2.42852e-04; 0.0276228 0.       '
+	ref_sigma_s = '6.00000e-06 2.45269e-04; 0.0276244 0.       '
 	sph_factors_uo = uo_gcu_MNR378
 	normalization_factors_uo = total
 
@@ -424,12 +424,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR390]
 	block = 'MNR390'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00309292 0.103829  '
-	ref_diffusivity = '1.63359  0.246406'
-	ref_sigma_r = '0.0305916 0.0690108'
+	ref_nu_sigma_f = '0.00309421 0.103811  '
+	ref_diffusivity = '1.63444  0.246354'
+	ref_sigma_r = '0.0305855 0.0690484'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.35496e-04; 0.0267611 0.       '
+	ref_sigma_s = '5.00000e-06 2.36653e-04; 0.0267558 0.       '
 	sph_factors_uo = uo_gcu_MNR390
 	normalization_factors_uo = total
 
@@ -438,11 +438,11 @@ solve_type = 'PJFNK'
 	block = 'C9rifl'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '2.18939  0.259615'
-	ref_sigma_r = '0.0401205 0.0119411'
+	ref_diffusivity = '2.20306  0.259468'
+	ref_sigma_r = '0.0398963 0.0119547'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 3.76681e-05; 0.0397655 0.       '
+	ref_sigma_s = '1.0000e-06 3.9308e-05; 0.0395307 0.       '
 	sph_factors_uo = uo_gcu_C9rifl
 	normalization_factors_uo = total
 
@@ -451,11 +451,11 @@ solve_type = 'PJFNK'
 	block = 'C8graph'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.29602  0.334746'
-	ref_sigma_r = '0.0206284  0.00759846'
+	ref_diffusivity = '1.29477  0.334738'
+	ref_sigma_r = '0.0206582  0.00761413'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 7.71426e-05; 0.0204172 0.       '
+	ref_sigma_s = '0.00000e+00 7.72297e-05; 0.0204431 0.       '
 	sph_factors_uo = uo_gcu_C8graph
 	normalization_factors_uo = total
 
@@ -463,12 +463,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR379]
 	block = 'MNR379'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00251166 0.0876459 '
-	ref_diffusivity = '1.61786  0.245478'
-	ref_sigma_r = '0.0312808 0.0620286'
+	ref_nu_sigma_f = '0.00250878 0.0875441 '
+	ref_diffusivity = '1.6176   0.245293'
+	ref_sigma_r = '0.0312987 0.061997 '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '6.00000e-06 2.11817e-04; 0.0274893 0.       '
+	ref_sigma_s = '5.00000e-06 2.05218e-04; 0.0275103 0.       '
 	sph_factors_uo = uo_gcu_MNR379
 	normalization_factors_uo = total
 
@@ -476,12 +476,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR393]
 	block = 'MNR393'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00327048 0.110441  '
-	ref_diffusivity = '1.63878 0.24499'
-	ref_sigma_r = '0.0303747 0.072246 '
+	ref_nu_sigma_f = '0.00327418 0.110414  '
+	ref_diffusivity = '1.63985  0.245035'
+	ref_sigma_r = '0.0303616 0.0721898'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.30359e-04; 0.0265274 0.       '
+	ref_sigma_s = '5.00000e-06 2.31133e-04; 0.0265064 0.       '
 	sph_factors_uo = uo_gcu_MNR393
 	normalization_factors_uo = total
 
@@ -490,11 +490,11 @@ solve_type = 'PJFNK'
 	block = 'u10400'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.42725  0.171634'
-	ref_sigma_r = '0.0513076 0.0181416'
+	ref_diffusivity = '1.42833  0.171605'
+	ref_sigma_r = '0.051285  0.0181568'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.         0.00013755; 0.0508311 0.       '
+	ref_sigma_s = '0.         0.00013582; 0.0508085 0.       '
 	sph_factors_uo = uo_gcu_010400
 	normalization_factors_uo = total
 
@@ -502,12 +502,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR384]
 	block = 'MNR384'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00300923 0.103104  '
-	ref_diffusivity = '1.62721  0.246053'
-	ref_sigma_r = '0.0308562 0.0692342'
+	ref_nu_sigma_f = '0.00301355 0.103053  '
+	ref_diffusivity = '1.62635  0.245872'
+	ref_sigma_r = '0.0308667 0.0692068'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.36511e-04; 0.0270222 0.       '
+	ref_sigma_s = '5.00000e-06 2.33567e-04; 0.0270323 0.       '
 	sph_factors_uo = uo_gcu_MNR384
 	normalization_factors_uo = total
 
@@ -515,12 +515,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR383]
 	block = 'MNR383'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00268626 0.0926519 '
-	ref_diffusivity = '1.61073  0.248355'
-	ref_sigma_r = '0.0312872 0.0644124'
+	ref_nu_sigma_f = '0.00269274 0.0926467 '
+	ref_diffusivity = '1.61041  0.248408'
+	ref_sigma_r = '0.0312922 0.0643935'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.51622e-04; 0.0274447 0.       '
+	ref_sigma_s = '5.00000e-06 2.55882e-04; 0.0274545 0.       '
 	sph_factors_uo = uo_gcu_MNR383
 	normalization_factors_uo = total
 
@@ -528,12 +528,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNRC74]
 	block = 'MNRC74'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00091548 0.0307491 '
-	ref_diffusivity = '1.53805  0.230349'
-	ref_sigma_r = '0.0363812 0.0474219'
+	ref_nu_sigma_f = '0.00091457 0.0308874 '
+	ref_diffusivity = '1.53657 0.23018'
+	ref_sigma_r = '0.0364011 0.0474196'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '3.00000e-06 1.88623e-04; 0.0297486 0.       '
+	ref_sigma_s = '2.00000e-06 1.88891e-04; 0.0297718 0.       '
 	sph_factors_uo = uo_gcu_MNRC74
 	normalization_factors_uo = total
 
@@ -541,12 +541,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR361]
 	block = 'MNR361'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00203312 0.0709554 '
-	ref_diffusivity = '1.61109  0.242917'
-	ref_sigma_r = '0.0317859 0.0544347'
+	ref_nu_sigma_f = '0.0020306 0.0710231'
+	ref_diffusivity = '1.61186  0.242767'
+	ref_sigma_r = '0.0317709 0.0545386'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '6.00000e-06 1.99204e-04; 0.0280173 0.       '
+	ref_sigma_s = '4.00000e-06 1.97742e-04; 0.0280088 0.       '
 	sph_factors_uo = uo_gcu_MNR361
 	normalization_factors_uo = total
 
@@ -555,11 +555,11 @@ solve_type = 'PJFNK'
 	block = 'B9plug'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.37187  0.150461'
-	ref_sigma_r = '0.0695575 0.0191825'
+	ref_diffusivity = '1.36977  0.150502'
+	ref_sigma_r = '0.0698982 0.0191472'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.0000e+00 5.8419e-05; 0.0689793 0.       '
+	ref_sigma_s = '0.00000e+00 6.01893e-05; 0.06932 0.     '
 	sph_factors_uo = uo_gcu_B9plug
 	normalization_factors_uo = total
 
@@ -568,11 +568,11 @@ solve_type = 'PJFNK'
 	block = 'B8graph'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.30289 0.33505'
-	ref_sigma_r = '0.020352   0.00759393'
+	ref_diffusivity = '1.30009  0.335013'
+	ref_sigma_r = '0.0203607  0.00759739'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 7.70885e-05; 0.0201382 0.       '
+	ref_sigma_s = '0.00000e+00 7.75577e-05; 0.0201479 0.       '
 	sph_factors_uo = uo_gcu_B8graph
 	normalization_factors_uo = total
 
@@ -580,12 +580,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR398]
 	block = 'MNR398'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00335675 0.11301   '
-	ref_diffusivity = '1.63748  0.247921'
-	ref_sigma_r = '0.0303012 0.0727374'
+	ref_nu_sigma_f = '0.00335859 0.112986  '
+	ref_diffusivity = '1.63962  0.248226'
+	ref_sigma_r = '0.0303081 0.0726652'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.27587e-04; 0.0264609 0.       '
+	ref_sigma_s = '5.00000e-06 2.29914e-04; 0.0264605 0.       '
 	sph_factors_uo = uo_gcu_MNR398
 	normalization_factors_uo = total
 
@@ -593,12 +593,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNRC79]
 	block = 'MNRC79'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.0015275 0.0514373'
-	ref_diffusivity = '1.56965  0.231958'
-	ref_sigma_r = '0.034474  0.0562382'
+	ref_nu_sigma_f = '0.00152823 0.0514587 '
+	ref_diffusivity = '1.57073  0.231904'
+	ref_sigma_r = '0.0344797 0.0562186'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '3.0000e-06 2.1191e-04; 0.0283331 0.       '
+	ref_sigma_s = '3.0000e-06 2.0703e-04; 0.0283274 0.       '
 	sph_factors_uo = uo_gcu_MNRC79
 	normalization_factors_uo = total
 
@@ -606,12 +606,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR385]
 	block = 'MNR385'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00299639 0.102967  '
-	ref_diffusivity = '1.63749  0.249141'
-	ref_sigma_r = '0.0305458 0.0689651'
+	ref_nu_sigma_f = '0.0030093 0.102879 '
+	ref_diffusivity = '1.63794  0.249173'
+	ref_sigma_r = '0.0305694 0.0689174'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.25036e-04; 0.0267511 0.       '
+	ref_sigma_s = '6.00000e-06 2.20468e-04; 0.0267595 0.       '
 	sph_factors_uo = uo_gcu_MNR385
 	normalization_factors_uo = total
 
@@ -619,12 +619,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNRC78]
 	block = 'MNRC78'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00119753 0.0407284 '
-	ref_diffusivity = '1.55614  0.230926'
-	ref_sigma_r = '0.0355011 0.0516546'
-	chi = '1. 0.'
+	ref_nu_sigma_f = '0.00119996 0.0407114 '
+	ref_diffusivity = '1.55463  0.230754'
+	ref_sigma_r = '0.0355045 0.0515873'
+	chi = '1.0000e+00 3.1246e-07'
 	ref_k = 1
-	ref_sigma_s = '2.00000e-06 1.92289e-04; 0.0291317 0.       '
+	ref_sigma_s = '2.0000e-06 1.9483e-04; 0.0291557 0.       '
 	sph_factors_uo = uo_gcu_MNRC78
 	normalization_factors_uo = total
 
@@ -632,12 +632,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR358]
 	block = 'MNR358'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00214806 0.0751653 '
-	ref_diffusivity = '1.59778  0.245956'
-	ref_sigma_r = '0.0319393 0.0564421'
+	ref_nu_sigma_f = '0.0021501 0.0752029'
+	ref_diffusivity = '1.59763  0.246127'
+	ref_sigma_r = '0.0319282 0.0565039'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '4.00000e-06 2.23824e-04; 0.0281361 0.       '
+	ref_sigma_s = '5.00000e-06 2.23768e-04; 0.0281281 0.       '
 	sph_factors_uo = uo_gcu_MNR358
 	normalization_factors_uo = total
 
@@ -645,12 +645,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR373]
 	block = 'MNR373'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00238575 0.082812  '
-	ref_diffusivity = '1.58998  0.246131'
-	ref_sigma_r = '0.0320853 0.0599448'
+	ref_nu_sigma_f = '0.00238551 0.082834  '
+	ref_diffusivity = '1.58858 0.24609'
+	ref_sigma_r = '0.0320635 0.0599698'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '4.00000e-06 2.16865e-04; 0.0282065 0.       '
+	ref_sigma_s = '4.00000e-06 2.14666e-04; 0.0282074 0.       '
 	sph_factors_uo = uo_gcu_MNR373
 	normalization_factors_uo = total
 
@@ -658,12 +658,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR365]
 	block = 'MNR365'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00226415 0.0782591 '
-	ref_diffusivity = '1.61461  0.243344'
-	ref_sigma_r = '0.0315399 0.0576899'
+	ref_nu_sigma_f = '0.00225621 0.0782449 '
+	ref_diffusivity = '1.61547  0.243102'
+	ref_sigma_r = '0.0315348 0.0576525'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 2.00273e-04; 0.0277563 0.       '
+	ref_sigma_s = '5.00000e-06 1.97197e-04; 0.0277659 0.       '
 	sph_factors_uo = uo_gcu_MNR365
 	normalization_factors_uo = total
 
@@ -672,11 +672,11 @@ solve_type = 'PJFNK'
 	block = 'A9plug'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.42964  0.149931'
-	ref_sigma_r = '0.0673868 0.019209 '
+	ref_diffusivity = '1.421    0.149952'
+	ref_sigma_r = '0.0675256 0.0192032'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 5.60704e-05; 0.0668318 0.       '
+	ref_sigma_s = '0.00000e+00 5.30296e-05; 0.0669533 0.       '
 	sph_factors_uo = uo_gcu_A9plug
 	normalization_factors_uo = total
 
@@ -685,11 +685,11 @@ solve_type = 'PJFNK'
 	block = 'A8graph'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '1.29264 0.33173'
-	ref_sigma_r = '0.0223767  0.00762054'
+	ref_diffusivity = '1.29183  0.331869'
+	ref_sigma_r = '0.022291 0.007629'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 5.56899e-05; 0.0221511 0.       '
+	ref_sigma_s = '0.0000e+00 5.5405e-05; 0.0220564 0.       '
 	sph_factors_uo = uo_gcu_A8graph
 	normalization_factors_uo = total
 
@@ -698,11 +698,11 @@ solve_type = 'PJFNK'
 	block = 'A7rifl'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '2.26897  0.265841'
-	ref_sigma_r = '0.0318287 0.0118442'
+	ref_diffusivity = '2.28094  0.266237'
+	ref_sigma_r = '0.0317614 0.0118489'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.00000e+00 8.39927e-05; 0.0315222 0.       '
+	ref_sigma_s = '0.00000e+00 8.27447e-05; 0.0314582 0.       '
 	sph_factors_uo = uo_gcu_A7rifl
 	normalization_factors_uo = total
 
@@ -710,12 +710,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR397]
 	block = 'MNR397'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00336312 0.112662  '
-	ref_diffusivity = '1.64848  0.246881'
-	ref_sigma_r = '0.0302802 0.0726128'
+	ref_nu_sigma_f = '0.00335453 0.112665  '
+	ref_diffusivity = '1.64817  0.246715'
+	ref_sigma_r = '0.0302959 0.0726476'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '6.00000e-06 2.20163e-04; 0.0264325 0.       '
+	ref_sigma_s = '6.00000e-06 2.15417e-04; 0.0264384 0.       '
 	sph_factors_uo = uo_gcu_MNR397
 	normalization_factors_uo = total
 
@@ -723,12 +723,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR376]
 	block = 'MNR376'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00245323 0.0852881 '
-	ref_diffusivity = '1.62463  0.246297'
-	ref_sigma_r = '0.0310802 0.0609296'
+	ref_nu_sigma_f = '0.00244656 0.0851968 '
+	ref_diffusivity = '1.62461  0.246474'
+	ref_sigma_r = '0.0311066 0.0609272'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.000e-06 2.088e-04; 0.0273069 0.       '
+	ref_sigma_s = '5.00000e-06 2.10077e-04; 0.0273299 0.       '
 	sph_factors_uo = uo_gcu_MNR376
 	normalization_factors_uo = total
 
@@ -736,12 +736,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR366]
 	block = 'MNR366'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00203145 0.0710548 '
-	ref_diffusivity = '1.60962  0.244023'
-	ref_sigma_r = '0.0320388 0.0546528'
+	ref_nu_sigma_f = '0.00203642 0.0711923 '
+	ref_diffusivity = '1.60992  0.244045'
+	ref_sigma_r = '0.0320318 0.0547215'
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 1.89835e-04; 0.0282509 0.       '
+	ref_sigma_s = '4.00000e-06 1.88973e-04; 0.0282599 0.       '
 	sph_factors_uo = uo_gcu_MNR366
 	normalization_factors_uo = total
 
@@ -749,12 +749,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR362]
 	block = 'MNR362'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00193906 0.0672882 '
-	ref_diffusivity = '1.593    0.242346'
-	ref_sigma_r = '0.0324648 0.05299  '
+	ref_nu_sigma_f = '0.00194218 0.0673341 '
+	ref_diffusivity = '1.59204 0.24246'
+	ref_sigma_r = '0.0324494 0.053008 '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 1.76444e-04; 0.0286608 0.       '
+	ref_sigma_s = '6.00000e-06 1.74247e-04; 0.0286404 0.       '
 	sph_factors_uo = uo_gcu_MNR362
 	normalization_factors_uo = total
 
@@ -763,11 +763,11 @@ solve_type = 'PJFNK'
 	block = 'u10500'
 	type = UOSphdfMaterial
 	ref_nu_sigma_f = '0. 0.'
-	ref_diffusivity = '0.898769 0.30466 '
-	ref_sigma_r = '0.0176054  0.00585456'
+	ref_diffusivity = '0.897816 0.304697'
+	ref_sigma_r = '0.0176517  0.00587595'
 	chi = '0. 0.'
 	ref_k = 1
-	ref_sigma_s = '0.002877   0.00012528; 0.0164623 0.       '
+	ref_sigma_s = '0.002862   0.00012663; 0.0165137 0.       '
 	sph_factors_uo = uo_gcu_010500
 	normalization_factors_uo = total
 
@@ -775,12 +775,12 @@ solve_type = 'PJFNK'
 [./mat_gcu_MNR369]
 	block = 'MNR369'
 	type = UOSphdfMaterial
-	ref_nu_sigma_f = '0.00224926 0.0780871 '
-	ref_diffusivity = '1.61752  0.240143'
-	ref_sigma_r = '0.0315897 0.0576235'
+	ref_nu_sigma_f = '0.00225419 0.0778666 '
+	ref_diffusivity = '1.61843  0.240293'
+	ref_sigma_r = '0.0315633 0.05753  '
 	chi = '1. 0.'
 	ref_k = 1
-	ref_sigma_s = '5.00000e-06 1.59605e-04; 0.027835 0.      '
+	ref_sigma_s = '5.00000e-06 1.59174e-04; 0.0277957 0.       '
 	sph_factors_uo = uo_gcu_MNR369
 	normalization_factors_uo = total
 
@@ -788,12 +788,13 @@ solve_type = 'PJFNK'
 []
 
 
+
 [UserObjects]
 [./uo_gcu_F9plug]
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = ' 71.65983073 332.59574006'
+	ref_fluxes = ' 71.11301072 332.0518778 '
 	block  = F9plug 
 	execute_on = 'LINEAR' 
 []
@@ -801,7 +802,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '327.56716282 774.31106734'
+	ref_fluxes = '327.54927823 775.13070154'
 	block  = F8graph 
 	execute_on = 'LINEAR' 
 []
@@ -809,7 +810,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = ' 784.9521045  1056.64618684'
+	ref_fluxes = ' 784.90402295 1053.92490336'
 	block  = F7rifl 
 	execute_on = 'LINEAR' 
 []
@@ -817,7 +818,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1687.93833721  793.18754504'
+	ref_fluxes = '1691.47897174  795.83042719'
 	block  = MNR396 
 	execute_on = 'LINEAR' 
 []
@@ -825,7 +826,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2181.72701617 1074.62079038'
+	ref_fluxes = '2187.81727034 1078.00652561'
 	block  = MNR375 
 	execute_on = 'LINEAR' 
 []
@@ -833,7 +834,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2360.77239239 1245.26723891'
+	ref_fluxes = '2363.92773709 1246.25408276'
 	block  = MNR374 
 	execute_on = 'LINEAR' 
 []
@@ -841,7 +842,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2567.96989631 1240.33926914'
+	ref_fluxes = '2569.4319222  1240.07852369'
 	block  = MNR372 
 	execute_on = 'LINEAR' 
 []
@@ -849,7 +850,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2309.01343906 1078.79959376'
+	ref_fluxes = '2309.04387253 1079.27473684'
 	block  = MNR382 
 	execute_on = 'LINEAR' 
 []
@@ -857,7 +858,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1583.87966536  765.84207372'
+	ref_fluxes = '1582.92368853  765.38436335'
 	block  = MNR389 
 	execute_on = 'LINEAR' 
 []
@@ -865,7 +866,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '136.38493186 524.97699656'
+	ref_fluxes = '136.53418152 525.75540241'
 	block  = E9rifl 
 	execute_on = 'LINEAR' 
 []
@@ -873,7 +874,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '567.71541172 964.79515428'
+	ref_fluxes = '567.62975834 965.60163669'
 	block  = E8graph 
 	execute_on = 'LINEAR' 
 []
@@ -881,7 +882,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1590.89703682  818.51188402'
+	ref_fluxes = '1591.51694388  819.4569325 '
 	block  = MNR394 
 	execute_on = 'LINEAR' 
 []
@@ -889,7 +890,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2179.78672913 1196.71874201'
+	ref_fluxes = '2181.57515268 1199.52094879'
 	block  = MNRC77 
 	execute_on = 'LINEAR' 
 []
@@ -897,7 +898,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '3265.0898776  1353.65921848'
+	ref_fluxes = '3267.32586173 1355.11517577'
 	block  = MNR377 
 	execute_on = 'LINEAR' 
 []
@@ -905,7 +906,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '3226.40989616 1753.76796469'
+	ref_fluxes = '3224.4585234  1752.39448487'
 	block  = MNRC76 
 	execute_on = 'LINEAR' 
 []
@@ -913,7 +914,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '3982.11576667 1473.77376557'
+	ref_fluxes = '3977.91990234 1475.17430408'
 	block  = MNR395 
 	execute_on = 'LINEAR' 
 []
@@ -921,7 +922,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '3047.20282935 1772.89596109'
+	ref_fluxes = '3046.00951113 1774.53331545'
 	block  = MNRC80 
 	execute_on = 'LINEAR' 
 []
@@ -929,7 +930,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2248.1279504   968.10801474'
+	ref_fluxes = '2248.2237001  969.6329294'
 	block  = MNR387 
 	execute_on = 'LINEAR' 
 []
@@ -937,7 +938,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '174.82848572 633.19111648'
+	ref_fluxes = '174.19591752 633.58573651'
 	block  = D9graph 
 	execute_on = 'LINEAR' 
 []
@@ -945,7 +946,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = ' 660.56712935 1224.9085975 '
+	ref_fluxes = ' 661.10142292 1228.56568419'
 	block  = D8graph 
 	execute_on = 'LINEAR' 
 []
@@ -953,7 +954,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1539.05364507 1645.1639908 '
+	ref_fluxes = '1537.80415097 1645.36465289'
 	block  = D7rifl 
 	execute_on = 'LINEAR' 
 []
@@ -961,7 +962,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2993.66527957 1256.25680911'
+	ref_fluxes = '2991.32352349 1255.57588499'
 	block  = MNR392 
 	execute_on = 'LINEAR' 
 []
@@ -969,7 +970,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '3811.24474788 1769.49327252'
+	ref_fluxes = '3812.24294639 1769.62956538'
 	block  = MNR381 
 	execute_on = 'LINEAR' 
 []
@@ -977,7 +978,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '4453.35399849 1754.62133168'
+	ref_fluxes = '4455.25302136 1756.5481015 '
 	block  = MNR391 
 	execute_on = 'LINEAR' 
 []
@@ -985,7 +986,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '4501.1964465  1725.02297152'
+	ref_fluxes = '4501.1964465 1724.3013576'
 	block  = MNR388 
 	execute_on = 'LINEAR' 
 []
@@ -993,7 +994,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '3536.19109446 1530.33852245'
+	ref_fluxes = '3537.6977019  1532.62697095'
 	block  = MNR378 
 	execute_on = 'LINEAR' 
 []
@@ -1001,7 +1002,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2378.95360058 1035.16469413'
+	ref_fluxes = '2382.29431386 1036.38581193'
 	block  = MNR390 
 	execute_on = 'LINEAR' 
 []
@@ -1009,7 +1010,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '168.22180836 615.59918066'
+	ref_fluxes = '168.2497158  614.13803216'
 	block  = C9rifl 
 	execute_on = 'LINEAR' 
 []
@@ -1017,7 +1018,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = ' 719.10990107 1123.49446502'
+	ref_fluxes = ' 719.95541823 1124.05608474'
 	block  = C8graph 
 	execute_on = 'LINEAR' 
 []
@@ -1025,7 +1026,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1984.24891308 1004.97885817'
+	ref_fluxes = '1985.02939581 1005.8246197 '
 	block  = MNR379 
 	execute_on = 'LINEAR' 
 []
@@ -1033,7 +1034,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2936.76815871 1272.16716283'
+	ref_fluxes = '2936.70949111 1273.14195964'
 	block  = MNR393 
 	execute_on = 'LINEAR' 
 []
@@ -1041,7 +1042,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2628.28048511 3454.66310757'
+	ref_fluxes = '2633.54404717 3458.94268419'
 	block  = u10400 
 	execute_on = 'LINEAR' 
 []
@@ -1049,7 +1050,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '4073.39908561 1768.23208595'
+	ref_fluxes = '4083.65813764 1774.04581866'
 	block  = MNR384 
 	execute_on = 'LINEAR' 
 []
@@ -1057,7 +1058,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '4003.87213337 1658.48729514'
+	ref_fluxes = '4007.02579971 1660.21801473'
 	block  = MNR383 
 	execute_on = 'LINEAR' 
 []
@@ -1065,7 +1066,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2665.82863244 1566.0667524 '
+	ref_fluxes = '2674.16278404 1571.46481546'
 	block  = MNRC74 
 	execute_on = 'LINEAR' 
 []
@@ -1073,7 +1074,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1936.42443069 1043.23125784'
+	ref_fluxes = '1944.39267013 1046.58187041'
 	block  = MNR361 
 	execute_on = 'LINEAR' 
 []
@@ -1081,7 +1082,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '116.28517504 485.76882587'
+	ref_fluxes = '115.86665585 485.53961493'
 	block  = B9plug 
 	execute_on = 'LINEAR' 
 []
@@ -1089,7 +1090,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '618.18443348 959.55817584'
+	ref_fluxes = '618.78454223 960.737462  '
 	block  = B8graph 
 	execute_on = 'LINEAR' 
 []
@@ -1097,7 +1098,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1705.04520127  751.72289239'
+	ref_fluxes = '1705.9761551   752.10142478'
 	block  = MNR398 
 	execute_on = 'LINEAR' 
 []
@@ -1105,7 +1106,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2163.09666747 1100.93323851'
+	ref_fluxes = '2168.08354388 1103.50026958'
 	block  = MNRC79 
 	execute_on = 'LINEAR' 
 []
@@ -1113,7 +1114,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2880.55373144 1311.81189811'
+	ref_fluxes = '2887.52807986 1316.83318555'
 	block  = MNR385 
 	execute_on = 'LINEAR' 
 []
@@ -1121,7 +1122,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2717.33606708 1530.73556267'
+	ref_fluxes = '2726.06050585 1538.30783769'
 	block  = MNRC78 
 	execute_on = 'LINEAR' 
 []
@@ -1129,7 +1130,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2993.10834533 1424.03774114'
+	ref_fluxes = '2997.60161878 1423.88640298'
 	block  = MNR358 
 	execute_on = 'LINEAR' 
 []
@@ -1137,7 +1138,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '2435.94054954 1208.8976363 '
+	ref_fluxes = '2445.47102063 1212.91361911'
 	block  = MNR373 
 	execute_on = 'LINEAR' 
 []
@@ -1145,7 +1146,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1559.53804583  833.24908271'
+	ref_fluxes = '1565.70839571  836.87190113'
 	block  = MNR365 
 	execute_on = 'LINEAR' 
 []
@@ -1153,7 +1154,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = ' 71.9512331 326.4550909'
+	ref_fluxes = ' 71.60410528 325.24311256'
 	block  = A9plug 
 	execute_on = 'LINEAR' 
 []
@@ -1161,7 +1162,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '347.64913368 819.52873816'
+	ref_fluxes = '347.61759658 818.99282116'
 	block  = A8graph 
 	execute_on = 'LINEAR' 
 []
@@ -1169,7 +1170,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = ' 812.55448419 1094.42788724'
+	ref_fluxes = ' 815.07485797 1096.6195491 '
 	block  = A7rifl 
 	execute_on = 'LINEAR' 
 []
@@ -1177,7 +1178,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1654.72888728  774.26615328'
+	ref_fluxes = '1658.85985944  776.34494633'
 	block  = MNR397 
 	execute_on = 'LINEAR' 
 []
@@ -1185,7 +1186,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1992.38733927  984.39744306'
+	ref_fluxes = '1998.62893747  988.13262337'
 	block  = MNR376 
 	execute_on = 'LINEAR' 
 []
@@ -1193,7 +1194,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1937.61016165 1116.61542884'
+	ref_fluxes = '1944.78842399 1120.44213246'
 	block  = MNR366 
 	execute_on = 'LINEAR' 
 []
@@ -1201,7 +1202,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1848.26712975 1148.43613629'
+	ref_fluxes = '1855.67185072 1152.28232921'
 	block  = MNR362 
 	execute_on = 'LINEAR' 
 []
@@ -1209,7 +1210,7 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '1292.14852621 1397.63546491'
+	ref_fluxes = '1296.73428621 1402.17750499'
 	block  = u10500 
 	execute_on = 'LINEAR' 
 []
@@ -1217,23 +1218,24 @@ solve_type = 'PJFNK'
 	type = SPHFactorsUserObject
 	var_size = 2
 	variable = flux 
-	ref_fluxes = '972.37484967 643.33809907'
+	ref_fluxes = '976.59280065 647.84726645'
 	block  = MNR369 
 	execute_on = 'LINEAR' 
 []
 [./total]
 	type = NormalizationFactorsUserObject
 	SPH_user_objects = 'uo_gcu_F9plug uo_gcu_F8graph uo_gcu_F7rifl uo_gcu_MNR396 uo_gcu_MNR375 uo_gcu_MNR374 uo_gcu_MNR372 uo_gcu_MNR382 uo_gcu_MNR389 uo_gcu_E9rifl uo_gcu_E8graph uo_gcu_MNR394 uo_gcu_MNRC77 uo_gcu_MNR377 uo_gcu_MNRC76 uo_gcu_MNR395 uo_gcu_MNRC80 uo_gcu_MNR387 uo_gcu_D9graph uo_gcu_D8graph uo_gcu_D7rifl uo_gcu_MNR392 uo_gcu_MNR381 uo_gcu_MNR391 uo_gcu_MNR388 uo_gcu_MNR378 uo_gcu_MNR390 uo_gcu_C9rifl uo_gcu_C8graph uo_gcu_MNR379 uo_gcu_MNR393 uo_gcu_010400 uo_gcu_MNR384 uo_gcu_MNR383 uo_gcu_MNRC74 uo_gcu_MNR361 uo_gcu_B9plug uo_gcu_B8graph uo_gcu_MNR398 uo_gcu_MNRC79 uo_gcu_MNR385 uo_gcu_MNRC78 uo_gcu_MNR358 uo_gcu_MNR373 uo_gcu_MNR365 uo_gcu_A9plug uo_gcu_A8graph uo_gcu_A7rifl uo_gcu_MNR397 uo_gcu_MNR376 uo_gcu_MNR366 uo_gcu_MNR362 uo_gcu_010500 uo_gcu_MNR369 '
-	ref_integrals = '107403.17821155  63181.71417369'
+	ref_integrals = '107531.87345022  63272.8929411 '
 	execute_on = 'LINEAR' 
 []
+
 [./output]
 	type = OutputUserObject
 	SPH_uo_names = 'uo_gcu_A9plug uo_gcu_B9plug uo_gcu_C9rifl uo_gcu_D9graph uo_gcu_E9rifl uo_gcu_F9plug uo_gcu_A8graph uo_gcu_B8graph uo_gcu_C8graph uo_gcu_D8graph uo_gcu_E8graph uo_gcu_F8graph uo_gcu_A7rifl uo_gcu_MNR398 uo_gcu_MNR379 uo_gcu_D7rifl uo_gcu_MNR394 uo_gcu_F7rifl uo_gcu_MNR397 uo_gcu_MNRC79 uo_gcu_MNR393 uo_gcu_MNR392 uo_gcu_MNRC77 uo_gcu_MNR396 uo_gcu_MNR376 uo_gcu_MNR385 uo_gcu_010400 uo_gcu_MNR381 uo_gcu_MNR377 uo_gcu_MNR375 uo_gcu_MNR366 uo_gcu_MNRC78 uo_gcu_MNR384 uo_gcu_MNR391 uo_gcu_MNRC76 uo_gcu_MNR374 uo_gcu_MNR362 uo_gcu_MNR358 uo_gcu_MNR383 uo_gcu_MNR388 uo_gcu_MNR395 uo_gcu_MNR372 uo_gcu_010500 uo_gcu_MNR373 uo_gcu_MNRC74 uo_gcu_MNR378 uo_gcu_MNRC80 uo_gcu_MNR382 uo_gcu_MNR369 uo_gcu_MNR365 uo_gcu_MNR361 uo_gcu_MNR390 uo_gcu_MNR387 uo_gcu_MNR389 '
 	execute_on = 'TIMESTEP_END'
 	normalization_uo_name = total
 	surface_integrators = 'alb_0 alb_1'
-    ref_surface_integrals  = '856.91699146 -19.52557558'
+    ref_surface_integrals  = '858.75169283 -19.66231088'
 []
 []
 
@@ -1242,325 +1244,325 @@ solve_type = 'PJFNK'
 [./IC_gcu_F9plug]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.01592017 0.07389052'
+	value = '0.01579869 0.07376969'
 	block  = F9plug 
 []
 [./IC_gcu_F8graph]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.07277335 0.17202339'
+	value = '0.07276938 0.17220548'
 	block  = F8graph 
 []
 [./IC_gcu_F7rifl]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.17438744 0.23474785'
+	value = '0.17437675 0.23414328'
 	block  = F7rifl 
 []
 [./IC_gcu_MNR396]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.37499771 0.17621705'
+	value = '0.3757843 0.1768042'
 	block  = MNR396 
 []
 [./IC_gcu_MNR375]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.48469936 0.23874114'
+	value = '0.48605239 0.23949333'
 	block  = MNR375 
 []
 [./IC_gcu_MNR374]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.52447664 0.2766525 '
+	value = '0.52517764 0.27687174'
 	block  = MNR374 
 []
 [./IC_gcu_MNR372]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.57050829 0.27555768'
+	value = '0.5708331  0.27549976'
 	block  = MNR372 
 []
 [./IC_gcu_MNR382]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.51297771 0.23966952'
+	value = '0.51298447 0.23977508'
 	block  = MNR382 
 []
 [./IC_gcu_MNR389]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.3518797  0.17014189'
+	value = '0.35166732 0.1700402 '
 	block  = MNR389 
 []
 [./IC_gcu_E9rifl]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.03029971 0.11663055'
+	value = '0.03033286 0.11680348'
 	block  = E9rifl 
 []
 [./IC_gcu_E8graph]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.12612545 0.21434193'
+	value = '0.12610642 0.21452111'
 	block  = E8graph 
 []
 [./IC_gcu_MNR394]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.3534387  0.18184318'
+	value = '0.35357642 0.18205314'
 	block  = MNR394 
 []
 [./IC_gcu_MNRC77]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.4842683  0.26586681'
+	value = '0.48466562 0.26648936'
 	block  = MNRC77 
 []
 [./IC_gcu_MNR377]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.72538267 0.3007332 '
+	value = '0.72587942 0.30105666'
 	block  = MNR377 
 []
 [./IC_gcu_MNRC76]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.7167894  0.38962262'
+	value = '0.71635588 0.38931749'
 	block  = MNRC76 
 []
 [./IC_gcu_MNR395]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.8846794  0.32741823'
+	value = '0.88374723 0.32772938'
 	block  = MNR395 
 []
 [./IC_gcu_MNRC80]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.67697619 0.39387216'
+	value = '0.67671108 0.39423592'
 	block  = MNRC80 
 []
 [./IC_gcu_MNR387]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.4994512  0.21507793'
+	value = '0.49947247 0.21541671'
 	block  = MNR387 
 []
 [./IC_gcu_D9graph]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.03884045 0.14067174'
+	value = '0.03869991 0.14075941'
 	block  = D9graph 
 []
 [./IC_gcu_D8graph]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.14675368 0.27212956'
+	value = '0.14687238 0.27294203'
 	block  = D8graph 
 []
 [./IC_gcu_D7rifl]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.34192101 0.36549482'
+	value = '0.34164342 0.3655394 '
 	block  = D7rifl 
 []
 [./IC_gcu_MNR392]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.66508212 0.27909398'
+	value = '0.66456187 0.2789427 '
 	block  = MNR392 
 []
 [./IC_gcu_MNR381]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.84671815 0.39311621'
+	value = '0.84693992 0.39314649'
 	block  = MNR381 
 []
 [./IC_gcu_MNR391]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.98937117 0.38981221'
+	value = '0.98979306 0.39024027'
 	block  = MNR391 
 []
 [./IC_gcu_MNR388]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '1.         0.38323654'
+	value = '1.         0.38307623'
 	block  = MNR388 
 []
 [./IC_gcu_MNR378]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.78561137 0.33998483'
+	value = '0.78594608 0.34049324'
 	block  = MNR378 
 []
 [./IC_gcu_MNR390]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.52851584 0.22997545'
+	value = '0.52925802 0.23024674'
 	block  = MNR390 
 []
 [./IC_gcu_C9rifl]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.03737269 0.13676346'
+	value = '0.03737889 0.13643884'
 	block  = C9rifl 
 []
 [./IC_gcu_C8graph]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.15975972 0.24959907'
+	value = '0.15994757 0.24972385'
 	block  = C8graph 
 []
 [./IC_gcu_MNR379]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.440827   0.22326927'
+	value = '0.44100039 0.22345717'
 	block  = MNR379 
 []
 [./IC_gcu_MNR393]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.65244168 0.28262867'
+	value = '0.65242864 0.28284523'
 	block  = MNR393 
 []
 [./IC_gcu_010400]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.58390708 0.76749885'
+	value = '0.58507645 0.76844962'
 	block  = u10400 
 []
 [./IC_gcu_MNR384]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.90495919 0.39283602'
+	value = '0.90723837 0.39412761'
 	block  = MNR384 
 []
 [./IC_gcu_MNR383]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.88951286 0.36845477'
+	value = '0.89021349 0.36883927'
 	block  = MNR383 
 []
 [./IC_gcu_MNRC74]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.5922489  0.34792233'
+	value = '0.59410044 0.34912158'
 	block  = MNRC74 
 []
 [./IC_gcu_MNR361]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.43020216 0.23176755'
+	value = '0.43197241 0.23251193'
 	block  = MNR361 
 []
 [./IC_gcu_B9plug]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.02583428 0.10791993'
+	value = '0.0257413  0.10786901'
 	block  = B9plug 
 []
 [./IC_gcu_B8graph]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.1373378  0.21317847'
+	value = '0.13747113 0.21344046'
 	block  = B8graph 
 []
 [./IC_gcu_MNR398]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.37879822 0.16700513'
+	value = '0.37900504 0.16708922'
 	block  = MNR398 
 []
 [./IC_gcu_MNRC79]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.48056038 0.2445868 '
+	value = '0.48166828 0.2451571 '
 	block  = MNRC79 
 []
 [./IC_gcu_MNR385]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.6399529  0.29143627'
+	value = '0.64150235 0.29255181'
 	block  = MNR385 
 []
 [./IC_gcu_MNRC78]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.60369195 0.34007304'
+	value = '0.6056302  0.34175532'
 	block  = MNRC78 
 []
 [./IC_gcu_MNR358]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.66495839 0.31636872'
+	value = '0.66595663 0.31633509'
 	block  = MNR358 
 []
 [./IC_gcu_MNR373]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.54117624 0.26857251'
+	value = '0.54329356 0.26946472'
 	block  = MNR373 
 []
 [./IC_gcu_MNR365]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.34647189 0.18511724'
+	value = '0.34784272 0.1859221 '
 	block  = MNR365 
 []
 [./IC_gcu_A9plug]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.01598491 0.07252629'
+	value = '0.01590779 0.07225704'
 	block  = A9plug 
 []
 [./IC_gcu_A8graph]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.07723483 0.18206909'
+	value = '0.07722782 0.18195003'
 	block  = A8graph 
 []
 [./IC_gcu_A7rifl]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.18051967 0.24314155'
+	value = '0.1810796  0.24362846'
 	block  = A7rifl 
 []
 [./IC_gcu_MNR397]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.36761979 0.17201341'
+	value = '0.36853754 0.17247524'
 	block  = MNR397 
 []
 [./IC_gcu_MNR376]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.44263506 0.21869684'
+	value = '0.44402171 0.21952666'
 	block  = MNR376 
 []
 [./IC_gcu_MNR366]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.43046559 0.24807081'
+	value = '0.43206033 0.24892096'
 	block  = MNR366 
 []
 [./IC_gcu_MNR362]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.41061686 0.25514019'
+	value = '0.41226191 0.25599468'
 	block  = MNR362 
 []
 [./IC_gcu_010500]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.28706779 0.3105031 '
+	value = '0.28808658 0.31151218'
 	block  = u10500 
 []
 [./IC_gcu_MNR369]
 	type = ArrayConstantIC
 	variable = flux 
-	value = '0.21602586 0.14292602'
+	value = '0.21696294 0.14392779'
 	block  = MNR369 
 []
 []
